@@ -237,3 +237,28 @@ input:checked + .slider:before {
         padding: 0.5rem;
     }
 }
+/* Style for the hero image on the index page */
+.hero-image {
+    max-width: 100%; /* Ensure image is responsive and scales with screen width */
+    height: auto; /* Maintain aspect ratio */
+    border: 1px solid #000; /* 1pt black line */
+    border-radius: 10px; /* Optional: rounded corners */
+    margin-top: 1rem; /* Space above the image */
+    margin-bottom: 1rem; /* Space below the image */
+}
+
+/* Optional: Adjust size for smaller screens */
+@media (max-width: 768px) {
+    .hero-image {
+        width: 80%; /* Adjust width for tablets */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-image {
+        width: 100%; /* Full width for mobile */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+
