@@ -1,0 +1,129 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    color: #000; /* Black text */
+    background-color: #f5f5dc; /* Beige background */
+    line-height: 1.6;
+}
+
+/* Header Styling */
+header {
+    background-color: #ff69b4; /* Pink */
+    padding: 1rem;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.nav-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #00ff00; /* Lime Green */
+    color: #000;
+    text-decoration: none;
+    border-radius: 50px; /* Oval buttons */
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-button:hover {
+    background-color: #ff69b4; /* Pink on hover */
+    color: #fff;
+}
+
+/* Main Content Styling */
+main {
+    padding: 2rem;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 1rem;
+}
+
+/* Gallery Styling */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.gallery img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #00ff00; /* Lime Green border */
+    border-radius: 10px;
+}
+
+/* Blog Post Styling */
+article {
+    margin: 1rem auto;
+    max-width: 800px;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+article h2 {
+    margin-bottom: 0.5rem;
+    color: #ff69b4; /* Pink */
+}
+
+/* Footer Styling */
+footer {
+    background-color: #ff69b4; /* Pink */
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Chat Room Styling */
+.chat-room {
+    padding: 2rem;
+    text-align: center;
+    border: 2px solid #00ff00; /* Lime Green border */
+    border-radius: 10px;
+    background-color: #fff;
+    margin: 2rem auto;
+    max-width: 800px;
+}
+
+/* Forms and Inputs Styling */
+input, textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #00ff00; /* Lime Green */
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff69b4; /* Pink */
+}
