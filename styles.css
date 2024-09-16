@@ -9,8 +9,8 @@
 html, body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    color: #e0e0e0;
-    background-color: #1e1e2f; /* Deep blue background */
+    color: #f0f0f0; /* Light text color */
+    background-color: #121212; /* Very dark gray for contrast */
     padding: 20px;
 }
 
@@ -22,88 +22,11 @@ header {
 
 header h1 {
     font-size: 2.5em;
-    color: #f39c12; /* Bright orange */
+    color: #ff007f; /* Neon pink */
+    text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f; /* Neon glow effect */
 }
 
 header p {
     font-size: 1.2em;
-    color: #ecf0f1; /* Light gray */
-}
-
-/* Tab navigation styling */
-.tabs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.tab-button {
-    background-color: #8e44ad; /* Purple */
-    border: none;
-    padding: 10px 20px;
-    margin: 0 5px;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 1em;
-    color: #ecf0f1; /* Light gray text */
-    transition: background-color 0.3s ease;
-}
-
-.tab-button.active {
-    background-color: #3498db; /* Bright blue */
-}
-
-.tab-button:hover {
-    background-color: #9b59b6; /* Lighter purple */
-}
-
-.tab-content {
-    display: none;
-    background-color: #2c3e50; /* Dark grayish-blue */
-    padding: 20px;
-    border-radius: 8px;
-}
-
-/* Show the active tab */
-.tab-content {
-    display: block;
-}
-
-/* Music player styling */
-.music {
-    margin-bottom: 40px;
-}
-
-.bandcamp-player iframe {
-    border: none;
-    border-radius: 8px;
-}
-
-/* Chat room styling */
-.chat-room {
-    border: 1px solid #34495e; /* Dark blue-gray */
-    border-radius: 8px;
-    background-color: #2c3e50; /* Dark grayish-blue */
-    padding: 10px;
-}
-
-.chat-box {
-    display: flex;
-    flex-direction: column;
-    height: 300px;
-}
-
-.messages {
-    flex: 1;
-    overflow-y: auto;
-    border-bottom: 1px solid #34495e; /* Dark blue-gray */
-    padding: 10px;
-}
-
-.message {
-    margin-bottom: 10px;
-    color: #ecf0f1; /* Light gray */
-}
-
-.chat-input {
-    display:
+    color: #00ff99; /* Neon green */
+    text-shadow: 0 0 10px
