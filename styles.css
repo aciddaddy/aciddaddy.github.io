@@ -204,7 +204,7 @@ input:checked + .slider:before {
 }
 
 /* Responsive Styles */
-@media (max-width: 768px) {
+@media (max-width: 100%) {
     nav {
         flex-direction: column;
     }
@@ -222,7 +222,7 @@ input:checked + .slider:before {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 100%) {
     .nav-button {
         padding: 0.5rem;
         font-size: 0.9rem;
@@ -248,14 +248,14 @@ input:checked + .slider:before {
 }
 
 /* Optional: Adjust size for smaller screens */
-@media (max-width: 768px) {
+@media (max-width: 100%) {
     .hero-image {
         width: 80%; /* Adjust width for tablets */
         height: auto; /* Maintain aspect ratio */
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 100%) {
     .hero-image {
         width: 100%; /* Full width for mobile */
         height: auto; /* Maintain aspect ratio */
