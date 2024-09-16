@@ -8,40 +8,38 @@
 </head>
 <body>
     <header>
-        <h1>acid daddy</h1>
-        <p>^_^</p>
+        <h1>vibrant beats</h1>
+        <p>experimental sounds and visuals</p>
     </header>
-    
-    <div class="tabs">
-        <button class="tab-button" onclick="showTab('about')">about me</button>
-        <button class="tab-button" onclick="showTab('music')">music</button>
-        <button class="tab-button" onclick="showTab('label')">label</button>
-        <button class="tab-button" onclick="showTab('blog')">blog</button>
-        <button class="tab-button" onclick="showTab('chat')">chat room</button>
+
+    <nav class="tabs">
+        <button class="tab-button active" onclick="openTab(event, 'about')">about me</button>
+        <button class="tab-button" onclick="openTab(event, 'music')">music</button>
+        <button class="tab-button" onclick="openTab(event, 'label')">label</button>
+        <button class="tab-button" onclick="openTab(event, 'blog')">blog</button>
+        <button class="tab-button" onclick="openTab(event, 'chat')">chat room</button>
+    </nav>
+
+    <div id="about" class="tab-content">
+        <h2>about me</h2>
+        <p><b><sub>dj</sub></b> ‣ <sup>live</sup> electronics <b>‣</b> <sub>records</sub>&nbsp; &nbsp; &nbsp; :)<br />
+<i><sub>sustainable urban farming</sub> ‣ </i><sup><b> exploring the boundaries of sound and visuals</sup></b> <br></p>
     </div>
 
-    <main>
-        <section id="about" class="tab-content">
-            <h2>about me</h2>
-            <p><b><sub>dj</sub></b> ‣ <sup>live</sup> electronics <b>‣</b> <sub>records</sub>&nbsp; &nbsp; &nbsp; :)<br />
-<i><sub>sustainable urban farming</sub> ‣ </i> mixed media <b> ‣ <sup>graphic design </sup></b><br /></p>
-        </section>
-        
-        <section id="music" class="tab-content">
-            <h2>music</h2>
-            <div class="soundcloud-player">
+    <div id="music" class="tab-content">
+        <h2>music</h2>
+       <div class="soundcloud-player">
                 <!-- Replace with your own SoundCloud embed URL -->
 <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1857764445&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/mynameisjarvi" title="acid daddy" target="_blank" style="color: #cccccc; text-decoration: none;">acid daddy</a> · <a href="https://soundcloud.com/mynameisjarvi/acid-daddy-live-pa-dianes-hunting-club-2023" title="acid daddy [live PA] @ diane&#x27;s hunting club 2023" target="_blank" style="color: #cccccc; text-decoration: none;">acid daddy [live PA] @ diane&#x27;s hunting club 2023</a><br>
                 <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/316360516&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/mynameisjarvi" title="acid daddy" target="_blank" style="color: #cccccc; text-decoration: none;">acid daddy</a> · <a href="https://soundcloud.com/mynameisjarvi/sets/live-recordings" title="live recordings" target="_blank" style="color: #cccccc; text-decoration: none;">live recordings</a><br>
 <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/316358760&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/mynameisjarvi" title="acid daddy" target="_blank" style="color: #cccccc; text-decoration: none;">acid daddy</a> · <a href="https://soundcloud.com/mynameisjarvi/sets/tracks" title="tracks" target="_blank" style="color: #cccccc; text-decoration: none;">tracks</a><br>
 <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/316359706&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/mynameisjarvi" title="acid daddy" target="_blank" style="color: #cccccc; text-decoration: none;">acid daddy</a> · <a href="https://soundcloud.com/mynameisjarvi/sets/mixes" title="mixes" target="_blank" style="color: #cccccc; text-decoration: none;">mixes</a></div><br>
+        </div>
+    </div>
 
-            </div>
-        </section>
-
-        <section id="label" class="tab-content">
-            <h2>label</h2>
-            <p>the way of the rave / established 2019</p>
+    <div id="label" class="tab-content">
+        <h2>label</h2>
+        <p>the way of the rave / established 2019</p>
  <div class="bandcamp-player">
                 <!-- Replace with your own Bandcamp embed code -->
                 <iframe style="border: 0; width: 350px; height: 621px;" src="https://bandcamp.com/EmbeddedPlayer/album=3918049185/size=large/bgcol=333333/linkcol=e99708/transparent=true/" seamless><a href="https://identityspectrumrecords.bandcamp.com/album/the-way-of-the-rave-vol-1">The Way Of The Rave Vol. 1 by Various</a></iframe> <br>
@@ -49,63 +47,42 @@
 <iframe style="border: 0; width: 350px; height: 588px;" src="https://bandcamp.com/EmbeddedPlayer/album=3224027679/size=large/bgcol=333333/linkcol=0f91ff/transparent=true/" seamless><a href="https://identityspectrumrecords.bandcamp.com/album/the-way-of-the-rave-vol-3">The Way Of The Rave Vol. 3 by Various</a></iframe>
 
             </div>
-        </section>
-
-        <section id="blog" class="tab-content">
-            <h2>blog</h2>
-            <p>coming soon :) </p>
-        </section>
-
-        <section id="chat" class="tab-content">
-            <h2>chat room</h2>
+    <div id="chat" class="tab-content">
+        <div class="chat-room">
             <div class="chat-box">
                 <div class="messages">
-                    <!-- Messages will appear here -->
+                    <!-- Messages will be displayed here -->
                 </div>
                 <div class="chat-input">
-                    <input type="text" id="message" placeholder="type a message...">
-                    <button onclick="sendMessage()">send</button>
+                    <input type="text" placeholder="type a message...">
+                    <button>send</button>
                 </div>
             </div>
-        </section>
-    </main>
-    
+        </div>
+    </div>
+
     <footer>
-        <p>&copy; 2024 acid daddy / identity spectrum records | <a href="#">Privacy Policy</a></p>
+        <p>&copy; 2024 acid daddy | identity spectrum records</p>
     </footer>
-    
+
     <script>
-        function showTab(tabId) {
-            // Hide all tabs
-            document.querySelectorAll('.tab-content').forEach(section => {
-                section.style.display = 'none';
-            });
-
-            // Remove active class from all buttons
-            document.querySelectorAll('.tab-button').forEach(button => {
-                button.classList.remove('active');
-            });
-
-            // Show the clicked tab and add active class to button
-            document.getElementById(tabId).style.display = 'block';
-            document.querySelector(`.tab-button[onclick="showTab('${tabId}')"]`).classList.add('active');
-        }
-
-        function sendMessage() {
-            var message = document.getElementById('message').value;
-            if (message.trim() !== "") {
-                var messagesDiv = document.querySelector('.chat-box .messages');
-                var messageDiv = document.createElement('div');
-                messageDiv.className = 'message';
-                messageDiv.textContent = message;
-                messagesDiv.appendChild(messageDiv);
-                document.getElementById('message').value = '';
-                messagesDiv.scrollTop = messagesDiv.scrollHeight; // Auto-scroll to latest message
+        function openTab(evt, tabId) {
+            var i, tabcontent, tabbuttons;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
             }
+            tabbuttons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
+            }
+            document.getElementById(tabId).style.display = "block";
+            evt.currentTarget.className += " active";
         }
-
-        // Show the About Me tab by default
-        document.addEventListener('DOMContentLoaded', () => showTab('about'));
+        // Set default tab
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector(".tab-button").click();
+        });
     </script>
 </body>
 </html>
