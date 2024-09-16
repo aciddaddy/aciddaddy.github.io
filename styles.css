@@ -18,7 +18,7 @@ body {
 
 /* Header Styling */
 header {
-    background-color: #f0f0f0; /* Light pink */
+    background-color: #f0f0f0; /* Light grey */
     padding: 1rem;
     border-bottom: 1px solid #000; /* 1pt black line */
     text-align: center;
@@ -58,7 +58,7 @@ main {
 /* Section Titles */
 h1, h2 {
     margin-bottom: 1rem;
-    color: #000; /* Black text */
+    color: #fc8eac; /* Pink text */
 }
 
 /* Gallery Styling */
@@ -90,7 +90,7 @@ article {
 
 article h2 {
     margin-bottom: 0.5rem;
-    color: #000; /* Black text */
+    color: #fc8eac; /* Pink text */
 }
 
 /* Footer Styling */
