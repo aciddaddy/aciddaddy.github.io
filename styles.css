@@ -140,6 +140,24 @@ footer {
     max-width: 1000px;
 }
 
+/* Live Stream Section */
+.live-stream {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.live-stream h2 {
+    margin-bottom: 1rem;
+    color: #ff0; /* Bright yellow */
+}
+
+audio {
+    width: 100%;
+    max-width: 400px; /* Adjust based on your design */
+    border: 1px solid #000; /* 1pt black line */
+    border-radius: 10px;
+}
+
 /* Forms and Inputs Styling */
 input, textarea {
     width: 100%;
