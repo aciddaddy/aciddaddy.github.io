@@ -7,17 +7,18 @@
 
 /* Body Styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     color: #000; /* Black text */
-    background-color: #f5f5dc; /* Beige background */
+    background-color: #fff; /* White background */
     line-height: 1.6;
 }
 
 /* Header Styling */
 header {
-    background-color: #ff69b4; /* Pink */
+    background-color: #ff007f; /* Hot pink */
     padding: 1rem;
     text-align: center;
+    border-bottom: 3px solid #00ff00; /* Neon green accent */
 }
 
 nav {
@@ -29,8 +30,8 @@ nav {
 .nav-button {
     display: inline-block;
     padding: 0.5rem 1rem;
-    background-color: #00ff00; /* Lime Green */
-    color: #000;
+    background-color: #00ff00; /* Neon green */
+    color: #000; /* Black text */
     text-decoration: none;
     border-radius: 50px; /* Oval buttons */
     font-weight: bold;
@@ -38,8 +39,8 @@ nav {
 }
 
 .nav-button:hover {
-    background-color: #ff69b4; /* Pink on hover */
-    color: #fff;
+    background-color: #ff007f; /* Hot pink on hover */
+    color: #fff; /* White text */
 }
 
 /* Main Content Styling */
@@ -48,8 +49,10 @@ main {
     text-align: center;
 }
 
-h1 {
+/* Section Titles */
+h1, h2 {
     margin-bottom: 1rem;
+    color: #ff007f; /* Hot pink */
 }
 
 /* Gallery Styling */
@@ -63,7 +66,7 @@ h1 {
 .gallery img {
     max-width: 100%;
     height: auto;
-    border: 2px solid #00ff00; /* Lime Green border */
+    border: 3px solid #00ff00; /* Neon green border */
     border-radius: 10px;
 }
 
@@ -72,20 +75,21 @@ article {
     margin: 1rem auto;
     max-width: 800px;
     padding: 1rem;
-    background: #fff;
+    background: #000; /* Black background */
+    color: #fff; /* White text */
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 article h2 {
     margin-bottom: 0.5rem;
-    color: #ff69b4; /* Pink */
+    color: #ff007f; /* Hot pink */
 }
 
 /* Footer Styling */
 footer {
-    background-color: #ff69b4; /* Pink */
-    color: #fff;
+    background-color: #ff007f; /* Hot pink */
+    color: #fff; /* White text */
     padding: 1rem;
     text-align: center;
     position: fixed;
@@ -97,9 +101,10 @@ footer {
 .chat-room {
     padding: 2rem;
     text-align: center;
-    border: 2px solid #00ff00; /* Lime Green border */
+    border: 3px solid #00ff00; /* Neon green border */
     border-radius: 10px;
-    background-color: #fff;
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
     margin: 2rem auto;
     max-width: 800px;
 }
@@ -111,30 +116,22 @@ input, textarea {
     margin-top: 0.5rem;
     border: 1px solid #ddd;
     border-radius: 5px;
+    background-color: #fff; /* White background */
+    color: #000; /* Black text */
 }
 
 button {
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 5px;
-    background-color: #00ff00; /* Lime Green */
-    color: #fff;
+    background-color: #ff007f; /* Hot pink */
+    color: #fff; /* White text */
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #ff69b4; /* Pink */
+    background-color: #00ff00; /* Neon green */
+    color: #000; /* Black text */
 }
-
-/* Style for the front page image */
-.IMG_9240 {
-    width: 100%; /* Makes the image responsive */
-    height: auto; /* Maintains aspect ratio */
-    max-width: 1200px; /* Optional: limits the maximum width */
-    margin: 0 auto; /* Centers the image */
-    display: block; /* Ensures the image is treated as a block element */
-    border-radius: 10px; /* Optional: adds rounded corners */
-}
-
