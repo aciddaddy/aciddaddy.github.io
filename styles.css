@@ -11,6 +11,7 @@ body {
     color: #000; /* Black text */
     background-color: #fff; /* White background */
     line-height: 1.6;
+    transition: all 0.3s ease; /* Smooth transition for greyscale mode */
 }
 
 /* Header Styling */
@@ -21,117 +22,101 @@ header {
     border-bottom: 3px solid #00ff00; /* Neon green accent */
 }
 
-nav {
+/* Toggle Switch Styles */
+.toggle-container {
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 1rem;
+    margin-top: 1rem;
 }
 
-.nav-button {
+.switch {
+    position: relative;
     display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: #00ff00; /* Neon green */
-    color: #000; /* Black text */
-    text-decoration: none;
-    border-radius: 50px; /* Oval buttons */
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
+    width: 34px;
+    height: 20px;
 }
 
-.nav-button:hover {
-    background-color: #ff007f; /* Hot pink on hover */
-    color: #fff; /* White text */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
-/* Main Content Styling */
-main {
-    padding: 2rem;
-    text-align: center;
-}
-
-/* Section Titles */
-h1, h2 {
-    margin-bottom: 1rem;
-    color: #ff007f; /* Hot pink */
-}
-
-/* Gallery Styling */
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.gallery img {
-    max-width: 100%;
-    height: auto;
-    border: 3px solid #00ff00; /* Neon green border */
-    border-radius: 10px;
-}
-
-/* Blog Post Styling */
-article {
-    margin: 1rem auto;
-    max-width: 800px;
-    padding: 1rem;
-    background: #000; /* Black background */
-    color: #fff; /* White text */
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-article h2 {
-    margin-bottom: 0.5rem;
-    color: #ff007f; /* Hot pink */
-}
-
-/* Footer Styling */
-footer {
-    background-color: #ff007f; /* Hot pink */
-    color: #fff; /* White text */
-    padding: 1rem;
-    text-align: center;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
-
-/* Chat Room Styling */
-.chat-room {
-    padding: 2rem;
-    text-align: center;
-    border: 3px solid #00ff00; /* Neon green border */
-    border-radius: 10px;
-    background-color: #000; /* Black background */
-    color: #fff; /* White text */
-    margin: 2rem auto;
-    max-width: 800px;
-}
-
-/* Forms and Inputs Styling */
-input, textarea {
-    width: 100%;
-    padding: 0.5rem;
-    margin-top: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #fff; /* White background */
-    color: #000; /* Black text */
-}
-
-button {
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
-    background-color: #ff007f; /* Hot pink */
-    color: #fff; /* White text */
-    font-size: 1rem;
+.slider {
+    position: absolute;
     cursor: pointer;
-    transition: background-color 0.3s;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 20px;
 }
 
-button:hover {
-    background-color: #00ff00; /* Neon green */
-    color: #000; /* Black text */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #00ff00; /* Neon green when checked */
+}
+
+input:checked + .slider:before {
+    transform: translateX(14px);
+}
+
+.toggle-label {
+    margin-left: 0.5rem;
+}
+
+/* Greyscale Mode Styling */
+.greyscale body {
+    filter: grayscale(100%);
+}
+
+/* Add other existing styles here... */
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+
+    .gallery {
+        flex-direction: column;
+    }
+
+    .hero-image {
+        max-width: 100%;
+    }
+
+    .chat-room {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-button {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .hero-image {
+        height: auto;
+        max-width: 100%;
+    }
+
+    article, .chat-room {
+        padding: 0.5rem;
+    }
 }
