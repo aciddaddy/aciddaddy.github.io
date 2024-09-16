@@ -26,7 +26,6 @@ header {
 
 nav {
     display: flex;
-    flex-wrap: wrap; /* Allows wrapping on smaller screens */
     justify-content: center;
     gap: 1rem;
     margin-bottom: 1rem;
@@ -42,7 +41,6 @@ nav {
     font-weight: bold;
     transition: background-color 0.3s, color 0.3s;
     border: 1px solid #000; /* 1pt black line */
-    margin: 0.2rem; /* Margin for spacing between buttons */
 }
 
 .nav-button:hover {
@@ -53,7 +51,7 @@ nav {
 /* Main Content Styling */
 main {
     padding: 2rem;
-    max-width: 100%;
+    max-width: 1200px;
     margin: 0 auto; /* Center content */
 }
 
@@ -61,22 +59,6 @@ main {
 h1, h2 {
     margin-bottom: 1rem;
     color: #fc8eac; /* Pink */
-}
-
-/* Player Containers */
-.bandcamp-player, .soundcloud-player {
-    text-align: center; /* Center player containers */
-    margin: 0 auto;
-    padding: 1rem;
-    max-width: 100%; /* Ensure container doesn’t exceed viewport width */
-}
-
-.bandcamp-player iframe, .soundcloud-player iframe {
-    width: 100%; /* Responsive width */
-    max-width: 100%; /* Max width to fit container */
-    height: auto; /* Maintain aspect ratio */
-    border: 1px solid #000; /* 1pt black line */
-    border-radius: 5px; /* Rounded corners */
 }
 
 /* Gallery Styling */
@@ -97,7 +79,7 @@ h1, h2 {
 /* Blog Post Styling */
 article {
     margin: 1rem auto;
-    max-width: 100%;
+    max-width: 800px;
     padding: 1rem;
     background: #fff; /* White background */
     color: #000; /* Black text */
@@ -108,7 +90,7 @@ article {
 
 article h2 {
     margin-bottom: 0.5rem;
-    color: #fc8eac; /* Pink */
+    color: #fc8eac; /* PInk */
 }
 
 /* Footer Styling */
@@ -129,7 +111,7 @@ footer {
     background-color: #fff; /* White background */
     color: #000; /* Black text */
     margin: 2rem auto;
-    max-width: 1000px; /* Ensure container doesn’t exceed viewport width */
+    max-width: 1000px;
 }
 
 /* Forms and Inputs Styling */
@@ -224,19 +206,19 @@ input:checked + .slider:before {
 /* Responsive Styles */
 @media (max-width: 768px) {
     nav {
-        flex-direction: column; /* Stack navigation links vertically */
-    }
-
-    .nav-button {
-        margin: 0.5rem 0; /* Add vertical margin for spacing */
+        flex-direction: column;
     }
 
     .gallery {
-        flex-direction: column; /* Stack gallery images vertically */
+        flex-direction: column;
     }
 
-    .bandcamp-player, .soundcloud-player {
-        text-align: center; /* Center player containers */
+    .hero-image {
+        max-width: 100%;
+    }
+
+    .chat-room {
+        padding: 1rem;
     }
 }
 
@@ -253,10 +235,5 @@ input:checked + .slider:before {
 
     article, .chat-room {
         padding: 0.5rem;
-    }
-
-    .bandcamp-player iframe, .soundcloud-player iframe {
-        max-width: 100%; /* Ensure iframes scale properly */
-        height: auto; /* Maintain aspect ratio */
     }
 }
