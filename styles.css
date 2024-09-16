@@ -68,7 +68,7 @@ h1, h2 {
 
 .featured-image {
     width: 100%;
-    max-width: 100%; /* Adjust based on your image size */
+    max-width: 100px; /* Adjust based on your image size */
     height: auto;
     border: 0px solid #000; /* 1pt black line */
     border-radius: 10px;
