@@ -240,15 +240,7 @@ input:checked + .slider:before {
     article, .chat-room {
         padding: 0.5rem;    
 }
-
-/* Optional: Adjust size for smaller screens */
-@media (max-width: 768px) {
-    .hero-image {
-        width: 80%; /* Adjust width for tablets */
-        height: auto; /* Maintain aspect ratio */
-    }
-}
-}
+}}
 
 
 
