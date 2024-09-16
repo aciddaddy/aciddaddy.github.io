@@ -1,0 +1,140 @@
+/* Reset some basic elements for consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styling for the body and HTML */
+html, body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #000000;
+    padding: 20px;
+}
+
+/* Header styling */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #4a4a4a;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #6c6c6c;
+}
+
+/* Tab navigation styling */
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    background-color: #ddd;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.tab-button.active {
+    background-color: #4a4a4a;
+    color: white;
+}
+
+.tab-content {
+    display: none;
+}
+
+/* Show the active tab */
+.tab-content {
+    display: block;
+}
+
+/* Music player styling */
+.music {
+    margin-bottom: 40px;
+}
+
+.soundcloud-player iframe {
+    border: none;
+    border-radius: 8px;
+}
+
+/* Chat room styling */
+.chat-room {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 10px;
+}
+
+.chat-box {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+}
+
+.messages {
+    flex: 1;
+    overflow-y: auto;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
+.message {
+    margin-bottom: 10px;
+}
+
+.chat-input {
+    display: flex;
+    padding: 10px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.chat-input button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4a4a4a;
+    color: #fff;
+    cursor: pointer;
+}
+
+.chat-input button:hover {
+    background-color: #333;
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    font-size: 0.9em;
+    color: #6c6c6c;
+    margin-top: 40px;
+}
+
+footer a {
+    color: #4a4a4a;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

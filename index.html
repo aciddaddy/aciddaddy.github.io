@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>acid daddy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>acid daddy</h1>
+        <p>^_^</p>
+    </header>
+    
+    <div class="tabs">
+        <button class="tab-button" onclick="showTab('about')">about me</button>
+        <button class="tab-button" onclick="showTab('music')">music</button>
+        <button class="tab-button" onclick="showTab('label')">label</button>
+        <button class="tab-button" onclick="showTab('blog')">blog</button>
+        <button class="tab-button" onclick="showTab('chat')">chat room</button>
+    </div>
+
+    <main>
+        <section id="about" class="tab-content">
+            <h2>about me</h2>
+            <p>dj ‣ live electronics ‣ records      ☻
+sustainable urban farming  ➭  multi media artist </p>
+        </section>
+        
+        <section id="music" class="tab-content">
+            <h2>music</h2>
+            <div class="soundcloud-player">
+                <!-- Replace with your own SoundCloud embed URL -->
+                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://soundcloud.com/mynameisjarvi/sets"></iframe>
+            </div>
+        </section>
+
+        <section id="label" class="tab-content">
+            <h2>label</h2>
+            <p>the way of the rave / established 2019</p>
+ <div class="bandcamp-player">
+                <!-- Replace with your own Bandcamp embed code -->
+                <iframe style="border: 0; width: 400px; height: 307px;" src="https://bandcamp.com/EmbeddedPlayer/album=3918049185/size=large/bgcol=333333/linkcol=e99708/artwork=small/transparent=true/" seamless><a href="https://identityspectrumrecords.bandcamp.com/album/the-way-of-the-rave-vol-1">The Way Of The Rave Vol. 1 by Various</a></iframe> <br>
+<iframe style="border: 0; width: 400px; height: 274px;" src="https://bandcamp.com/EmbeddedPlayer/album=3143846798/size=large/bgcol=ffffff/linkcol=f171a2/artwork=small/transparent=true/" seamless><a href="https://identityspectrumrecords.bandcamp.com/album/the-way-of-the-rave-vol-2">The Way Of The Rave Vol. 2 by Various</a></iframe> <br>
+<iframe style="border: 0; width: 400px; height: 274px;" src="https://bandcamp.com/EmbeddedPlayer/album=3224027679/size=large/bgcol=ffffff/linkcol=63b2cc/artwork=small/transparent=true/" seamless><a href="https://identityspectrumrecords.bandcamp.com/album/the-way-of-the-rave-vol-3">The Way Of The Rave Vol. 3 by Various</a></iframe>
+
+            </div>
+        </section>
+
+        <section id="blog" class="tab-content">
+            <h2>blog</h2>
+            <p>coming soon ☻</p>
+        </section>
+
+        <section id="chat" class="tab-content">
+            <h2>chat room</h2>
+            <div class="chat-box">
+                <div class="messages">
+                    <!-- Messages will appear here -->
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="message" placeholder="type a message...">
+                    <button onclick="sendMessage()">send</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 acid daddy / identity spectrum records | <a href="#">Privacy Policy</a></p>
+    </footer>
+    
+    <script>
+        function showTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show the clicked tab and add active class to button
+            document.getElementById(tabId).style.display = 'block';
+            document.querySelector(`.tab-button[onclick="showTab('${tabId}')"]`).classList.add('active');
+        }
+
+        function sendMessage() {
+            var message = document.getElementById('message').value;
+            if (message.trim() !== "") {
+                var messagesDiv = document.querySelector('.chat-box .messages');
+                var messageDiv = document.createElement('div');
+                messageDiv.className = 'message';
+                messageDiv.textContent = message;
+                messagesDiv.appendChild(messageDiv);
+                document.getElementById('message').value = '';
+                messagesDiv.scrollTop = messagesDiv.scrollHeight; // Auto-scroll to latest message
+            }
+        }
+
+        // Show the About Me tab by default
+        document.addEventListener('DOMContentLoaded', () => showTab('about'));
+    </script>
+</body>
+</html>
