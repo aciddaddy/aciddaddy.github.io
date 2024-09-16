@@ -148,13 +148,13 @@ footer {
 
 .live-stream h2 {
     margin-bottom: 1rem;
-    color: #ff0; /* Bright yellow */
+    color: #fc8eac; /* Pink */
 }
 
 audio {
     width: 100%;
     max-width: 400px; /* Adjust based on your design */
-    border: 1px solid #000; /* 1pt black line */
+    border: 0px solid #000; /* 1pt black line */
     border-radius: 10px;
 }
 
