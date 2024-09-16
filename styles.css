@@ -58,7 +58,39 @@ main {
 /* Section Titles */
 h1, h2 {
     margin-bottom: 1rem;
-    color: #fc8eac; /* Pink text */
+    color: #fc8eac; /* Pink */
+}
+
+/* Bandcamp Player Styling */
+.bandcamp-player {
+    text-align: left; /* Align content to the left */
+    margin: 0 auto; /* Center player container if width is less than container */
+    padding: 1rem;
+    max-width: 100%; /* Ensure container doesn’t exceed viewport width */
+}
+
+.bandcamp-player iframe {
+    width: 100%; /* Responsive width */
+    max-width: 400px; /* Set a maximum width */
+    height: 120px; /* Set the height */
+    border: 1px solid #000; /* 1pt black line */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* SoundCloud Player Styling */
+.soundcloud-player {
+    text-align: left; /* Align content to the left */
+    margin: 0 auto; /* Center player container if width is less than container */
+    padding: 1rem;
+    max-width: 100%; /* Ensure container doesn’t exceed viewport width */
+}
+
+.soundcloud-player iframe {
+    width: 100%; /* Responsive width */
+    max-width: 500px; /* Set a maximum width */
+    height: 166px; /* Set the height */
+    border: 1px solid #000; /* 1pt black line */
+    border-radius: 5px; /* Rounded corners */
 }
 
 /* Gallery Styling */
@@ -90,12 +122,12 @@ article {
 
 article h2 {
     margin-bottom: 0.5rem;
-    color: #fc8eac; /* Pink text */
+    color: #fc8eac; /* Pink */
 }
 
 /* Footer Styling */
 footer {
-    background-color: #f0f0f0; /* Light pink */
+    background-color: #f0f0f0; /* Light grey */
     color: #000; /* Black text */
     padding: 1rem;
     border-top: 1px solid #000; /* 1pt black line */
@@ -205,60 +237,4 @@ input:checked + .slider:before {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-    }
-
-    .gallery {
-        flex-direction: column;
-    }
-
-    .hero-image {
-        max-width: 100%;
-    }
-
-    .chat-room {
-        padding: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .nav-button {
-        padding: 0.5rem;
-        font-size: 0.9rem;
-    }
-
-    .hero-image {
-        height: auto;
-        max-width: 100%;
-    }
-
-    article, .chat-room {
-        padding: 0.5rem;
-    }
-}
-/* Style for the hero image on the index page */
-.hero-image {
-    max-width: 100%; /* Ensure image is responsive and scales with screen width */
-    height: auto; /* Maintain aspect ratio */
-    border: 1px solid #000; /* 1pt black line */
-    border-radius: 10px; /* Optional: rounded corners */
-    margin-top: 1rem; /* Space above the image */
-    margin-bottom: 1rem; /* Space below the image */
-}
-
-/* Optional: Adjust size for smaller screens */
-@media (max-width: 768px) {
-    .hero-image {
-        width: 80%; /* Adjust width for tablets */
-        height: auto; /* Maintain aspect ratio */
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-image {
-        width: 100%; /* Full width for mobile */
-        height: auto; /* Maintain aspect ratio */
-    }
-}
-
+    nav
