@@ -214,12 +214,12 @@ input:checked + .slider:before {
     }
 
     .hero-image {
-    max-width: 100%; /* Ensure image is responsive and scales with screen width */
-    height: auto; /* Maintain aspect ratio */
-    border: 1px solid #000; /* 1pt black line */
-    border-radius: 10px; /* Optional: rounded corners */
-    margin-top: 1rem; /* Space above the image */
-    margin-bottom: 1rem; /* Space below the image */
+        max-width: 100%; /* Ensure image is responsive and scales with screen width */
+        height: auto; /* Maintain aspect ratio */
+        border: 1px solid #000; /* 1pt black line */
+        border-radius: 10px; /* Optional: rounded corners */
+        margin-top: 1rem; /* Space above the image */
+        margin-bottom: 1rem; /* Space below the image */
     }
         
     .chat-room {
@@ -235,7 +235,12 @@ input:checked + .slider:before {
 
     .hero-image {
         height:auto;
-        max-width: 100%;
+        max-width: 100%; /* Ensure image is responsive and scales with screen width */
+        height: auto; /* Maintain aspect ratio */
+        border: 1px solid #000; /* 1pt black line */
+        border-radius: 10px; /* Optional: rounded corners */
+        margin-top: 1rem; /* Space above the image */
+        margin-bottom: 1rem; /* Space below the image */
     }
     article, .chat-room {
         padding: 0.5rem;    
