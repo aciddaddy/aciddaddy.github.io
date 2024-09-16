@@ -11,15 +11,139 @@ body {
     color: #000; /* Black text */
     background-color: #fff; /* White background */
     line-height: 1.6;
-    transition: all 0.3s ease; /* Smooth transition for greyscale mode */
+    text-align: center; /* Center all text by default */
+    margin: 0;
+    padding: 0;
 }
 
 /* Header Styling */
 header {
-    background-color: #ff007f; /* Hot pink */
+    background-color: #f0f0f0; /* Light pink */
     padding: 1rem;
+    border-bottom: 1px solid #000; /* 1pt black line */
     text-align: center;
-    border-bottom: 3px solid #00ff00; /* Neon green accent */
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.nav-button {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background-color: #00ff00; /* Neon green */
+    color: #000; /* Black text */
+    text-decoration: none;
+    border-radius: 50px; /* Oval buttons */
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    border: 1px solid #000; /* 1pt black line */
+}
+
+.nav-button:hover {
+    background-color: #ff0; /* Bright yellow */
+    color: #000; /* Black text */
+}
+
+/* Main Content Styling */
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto; /* Center content */
+}
+
+/* Section Titles */
+h1, h2 {
+    margin-bottom: 1rem;
+    color: #ff0; /* Bright yellow */
+}
+
+/* Gallery Styling */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.gallery img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #000; /* 1pt black line */
+    border-radius: 10px;
+}
+
+/* Blog Post Styling */
+article {
+    margin: 1rem auto;
+    max-width: 800px;
+    padding: 1rem;
+    background: #fff; /* White background */
+    color: #000; /* Black text */
+    border: 1px solid #000; /* 1pt black line */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+article h2 {
+    margin-bottom: 0.5rem;
+    color: #ff0; /* Bright yellow */
+}
+
+/* Footer Styling */
+footer {
+    background-color: #f0f0f0; /* Light pink */
+    color: #000; /* Black text */
+    padding: 1rem;
+    border-top: 1px solid #000; /* 1pt black line */
+    text-align: center;
+}
+
+/* Chat Room Styling */
+.chat-room {
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid #000; /* 1pt black line */
+    border-radius: 10px;
+    background-color: #fff; /* White background */
+    color: #000; /* Black text */
+    margin: 2rem auto;
+    max-width: 1000px;
+}
+
+/* Forms and Inputs Styling */
+input, textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #000; /* 1pt black line */
+    border-radius: 5px;
+    background-color: #fff; /* White background */
+    color: #000; /* Black text */
+}
+
+button {
+    padding: 0.5rem 1.5rem;
+    border: 1px solid #000; /* 1pt black line */
+    border-radius: 50px; /* Oval buttons */
+    background-color: #ff0; /* Bright yellow */
+    color: #000; /* Black text */
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #00ff00; /* Neon green */
+    color: #000; /* Black text */
+}
+
+/* Greyscale Mode Styling */
+.greyscale body {
+    filter: grayscale(100%);
 }
 
 /* Toggle Switch Styles */
@@ -78,13 +202,6 @@ input:checked + .slider:before {
 .toggle-label {
     margin-left: 0.5rem;
 }
-
-/* Greyscale Mode Styling */
-.greyscale body {
-    filter: grayscale(100%);
-}
-
-/* Add other existing styles here... */
 
 /* Responsive Styles */
 @media (max-width: 768px) {
