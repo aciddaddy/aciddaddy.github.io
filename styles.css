@@ -58,7 +58,7 @@ main {
 /* Section Titles */
 h1, h2 {
     margin-bottom: 1rem;
-    color: #ff0; /* Bright yellow */
+    color: #000; /* Black text */
 }
 
 /* Gallery Styling */
@@ -90,7 +90,7 @@ article {
 
 article h2 {
     margin-bottom: 0.5rem;
-    color: #ff0; /* Bright yellow */
+    color: #000; /* Black text */
 }
 
 /* Footer Styling */
