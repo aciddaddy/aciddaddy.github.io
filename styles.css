@@ -62,7 +62,7 @@ nav {
 
 audio {
     width: 100%;
-    max-width: 600px; /* Adjust based on your design */
+    max-width: 100%; /* Adjust based on your design */
     border: 1px solid #000; /* 1pt black line */
     border-radius: 10px;
 
