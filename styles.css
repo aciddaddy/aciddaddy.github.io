@@ -1,72 +1,108 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Body Styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    color: #000; /* Black text */
+    background-color: #fff; /* White background */
+    line-height: 1.6;
+    text-align: center; /* Center all text by default */
     margin: 0;
     padding: 0;
 }
-
+/* Header Styling */
 header {
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
+    background-color: #f0f0f0; /* Light grey */
+    padding: 1rem;
+    border-bottom: 1px solid #000; /* 1pt black line */
+    text-align: center;
 }
-
 nav {
     display: flex;
-    justify-content: center;
-    gap: 15px;
+    flex-wrap: wrap; /* Allows buttons to wrap to the next line if needed */
+    justify-content: center; /* Center align items horizontally */
+    gap: 1rem;
+    margin-bottom: 1rem;
 }
-
 .nav-button {
-    color: white;
+    display: inline-block;
+    flex: 1 1 auto; /* Allow buttons to grow and shrink */
+    min-width: 150px; /* Minimum width of buttons */
+    padding: 0.5rem 1.5rem;
+    background-color: #00ff00; /* Neon green */
+    color: #000; /* Black text */
     text-decoration: none;
-    padding: 5px 10px;
-    border-radius: 3px;
-    transition: background-color 0.3s ease;
-}
-
-.nav-button:hover {
-    background-color: #555;
-}
-
-main {
-    padding: 20px;
-    text-align: center;
-}
-
-.bandcamp-wrapper {
-    margin-bottom: 30px;
-}
-
-.bandcamp-link {
-    display: block;
-    margin-bottom: 10px;
-    color: #0000EE; /* Color for the Bandcamp link */
-    text-decoration: none;
+    border-radius: 50px; /* Oval buttons */
     font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    border: 1px solid #000; /* 1pt black line */
+    margin: 0.2rem; /* Margin for spacing between buttons */
+    text-align: center; /* Center text in buttons */
+}
+.nav-button:hover {
+    background-color: #ff0; /* Bright yellow */
+    color: #000; /* Black text */
 }
 
-.bandcamp-link:hover {
-    text-decoration: underline;
+/* Square Grid Layout */
+.square-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjust the minmax value to fit your design */
+    gap: 1rem; /* Space between items */
+    max-width: 100%;
+    margin: 0 auto; /* Center container */
+    padding: 2rem; /* Add padding for spacing */
 }
 
-.bandcamp-image {
-    width: 250px; /* Matches the width of Bandcamp player */
-    height: auto; /* Maintain aspect ratio */
-    display: block;
-    border: 1px;
-    margin: 0 auto;
-}
-
-.bandcamp-player {
-    width: 500px; /* Set width to match images */
-    height: 250px; /* Adjust height to fit all tracks if necessary */
-    border: 1px;
-    margin: 10px auto;
-}
-
-footer {
-    background-color: #333;
-    color: white;
+.square-item {
+    border: 1px solid #000; /* Optional: border around text items */
+    padding: 1rem;
     text-align: center;
-    padding: 10px 0;
+    background-color: #fff; /* Optional: background color */
+    border-radius: 10px; /* Optional: rounded corners */
+}
+
+/* Main Content Styling */
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto; /* Center content */
+}
+
+/* Section Titles */
+h1, h2 {
+    margin-bottom: 1rem;
+    color: #fc8eac; /* Pink */
+}
+
+/* Footer Styling */
+footer {
+    background-color: #f0f0f0; /* Light grey */
+    color: #000; /* Black text */
+    padding: 1rem;
+    border-top: 1px solid #000; /* 1pt black line */
+    text-align: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .square-container {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Adjust size for mobile */
+    }
+
+    .nav-button {
+        min-width: 100%; /* Make buttons take full width of the container */
+        padding: 1rem; /* Adjust padding for better spacing on small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-button {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
 }
