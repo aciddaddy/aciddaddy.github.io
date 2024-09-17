@@ -22,6 +22,7 @@ header {
     padding: 1rem;
     border-bottom: 1px solid #000; /* 1pt black line */
     text-align: center;
+    position: relative; /* To ensure that child elements like the audio player are positioned correctly */
 }
 
 nav {
@@ -47,6 +48,22 @@ nav {
     background-color: #ff0; /* Bright yellow */
     color: #000; /* Black text */
 }
+
+/* Live Stream Section */
+.live-stream {
+    margin-bottom: 1rem;
+}
+
+.live-stream h2 {
+    margin-bottom: 0.5rem;
+    color: #fc8eac; /* Pink */
+}
+
+audio {
+    width: 100%;
+    max-width: 600px; /* Adjust based on your design */
+    border: 1px solid #000; /* 1pt black line */
+    border-radius: 10px;
 
 /* Main Content Styling */
 main {
@@ -138,24 +155,6 @@ footer {
     color: #000; /* Black text */
     margin: 2rem auto;
     max-width: 1000px;
-}
-
-/* Live Stream Section */
-.live-stream {
-    margin: 2rem 0;
-    text-align: center;
-}
-
-.live-stream h2 {
-    margin-bottom: 1rem;
-    color: #fc8eac; /* Pink */
-}
-
-audio {
-    width: 100%;
-    max-width: 400px; /* Adjust based on your design */
-    border: 0px solid #000; /* 1pt black line */
-    border-radius: 10px;
 }
 
 /* Forms and Inputs Styling */
