@@ -65,20 +65,20 @@ nav {
     display: flex;
     justify-content: space-between; /* Space images evenly */
     margin-bottom: 1rem; /* Space between images and player */
+    gap: 1rem; /* Gap between images */
 }
 
 .bandcamp-image {
-    flex: 1 1; /* Flex to take equal width */
-    margin: 0 0.5rem; /* Space between images */
-    height: auto;
+    flex: 1; /* Flex to take equal width */
+    height: auto; /* Maintain aspect ratio */
     border: 1px solid #000; /* 1pt black border */
     border-radius: 10px; /* Rounded corners */
 }
 
 .bandcamp-player {
     width: 100%;
-    max-width: 800px; /* Ensure the player doesn't exceed this width */
-    height: auto; /* Adjust height based on width */
+    max-width: 600px; /* Ensure the player doesn't exceed this width */
+    height: 300px; /* Adjust height to ensure all tracks are visible */
     border: 1px solid #000; /* 1pt black border */
     border-radius: 10px; /* Rounded corners */
     margin: 0 auto; /* Center the player */
@@ -86,7 +86,6 @@ nav {
 
 /* Gallery Images Styling */
 .gallery-image {
-    flex: 1 1; /* Flex to take equal width */
     border: 1px solid #000; /* 1pt black border */
     border-radius: 10px; /* Rounded corners */
     margin: 0.5rem; /* Space between images */
