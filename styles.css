@@ -35,6 +35,8 @@ nav {
 
 .nav-button {
     display: inline-block;
+    flex: 1 1 auto; /* Allow buttons to grow and shrink */
+    min-width: 150px; /* Minimum width of buttons */
     padding: 0.5rem 1.5rem;
     background-color: #00ff00; /* Neon green */
     color: #000; /* Black text */
@@ -43,6 +45,8 @@ nav {
     font-weight: bold;
     transition: background-color 0.3s, color 0.3s;
     border: 1px solid #000; /* 1pt black line */
+    margin: 0.2rem; /* Margin for spacing between buttons */
+    text-align: center; /* Center text in buttons */
 }
 
 .nav-button:hover {
