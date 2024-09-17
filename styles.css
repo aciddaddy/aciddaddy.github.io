@@ -1,66 +1,157 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>record label</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Favicon Link -->
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-</head>
-<body>
-    <header>
-        <br>
-        <br>
-        <nav>
-            <a href="index.html" class="nav-button">home</a>
-            <a href="about.html" class="nav-button">about me</a>
-            <a href="music.html" class="nav-button">music</a>
-            <a href="record-label.html" class="nav-button">record label</a>
-            <a href="gallery.html" class="nav-button">gallery</a>
-            <a href="blog.html" class="nav-button">blog</a>
-            <a href="chat.html" class="nav-button">chat room</a>
-        </nav>
-    </header>
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #000; /* Black text */
+    background-color: #fff; /* White background */
+    line-height: 1.6;
+    text-align: center; /* Center all text by default */
+    margin: 0;
+    padding: 0;
+}
+/* Header Styling */
+header {
+    background-color: #f0f0f0; /* Light grey */
+    padding: 1rem;
+    border-bottom: 1px solid #000; /* 1pt black line */
+    text-align: center;
+}
+nav {
+    display: flex;
+    flex-wrap: wrap; /* Allows buttons to wrap to the next line if needed */
+    justify-content: center; /* Center align items horizontally */
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.nav-button {
+    display: inline-block;
+    flex: 1 1 auto; /* Allow buttons to grow and shrink */
+    min-width: 150px; /* Minimum width of buttons */
+    padding: 0.5rem 1.5rem;
+    background-color: #00ff00; /* Neon green */
+    color: #000; /* Black text */
+    text-decoration: none;
+    border-radius: 50px; /* Oval buttons */
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    border: 1px solid #000; /* 1pt black line */
+    margin: 0.2rem; /* Margin for spacing between buttons */
+    text-align: center; /* Center text in buttons */
+}
+.nav-button:hover {
+    background-color: #ff0; /* Bright yellow */
+    color: #000; /* Black text */
+}
+/* Bandcamp Player Styling */
+.bandcamp-wrapper {
+    text-align: center;
+    margin: 2rem auto; /* Center the wrapper and add margin */
+    max-width: 600px; /* Max width for the wrapper */
+}
+/* New styling for images and Bandcamp player */
+.bandcamp-images-wrapper {
+    display: flex;
+    justify-content: space-between; /* Space images evenly */
+    margin-bottom: 1rem; /* Space between images and player */
+}
 
-    <main>
-        <h1>record label</h1>
-        <section class="bandcamp-wrapper">
-            <div class="bandcamp-images-wrapper">
-                <p><a href="https://identityspectrumrecords.bandcamp.com/album/the-way-of-the-rave-vol-1" class="bandcamp-link">The Way Of The Rave Vol. 1 by Various</a></p>
-                <img src="images/IDSP001_SIDE_A.png" alt="Album 1" class="bandcamp-image">
-                <img src="images/IDSP001_SIDE_B.png" alt="Album 1" class="bandcamp-image">
-            </div>
-            <div class="bandcamp-player">
-                <iframe src="https://bandcamp.com/EmbeddedPlayer/album=3918049185/size=large/bgcol=333333/linkcol=e99708/artwork=small/transparent=true/" class="bandcamp-player" seamless></iframe>
-            </div>
-        </section>
+.bandcamp-image {
+    flex: 1 1; /* Flex to take equal width */
+    margin: 0 0.5rem; /* Space between images */
+    height: auto;
+    border: 1px solid #000; /* 1pt black border */
+    border-radius: 10px; /* Rounded corners */
+}
 
-        <section class="bandcamp-wrapper">
-            <div class="bandcamp-images-wrapper">
-                <p><a href="https://identityspectrumrecords.bandcamp.com/album/the-way-of-the-rave-vol-2" class="bandcamp-link">The Way Of The Rave Vol. 2 by Various</a></p>
-                <img src="images/IDSP002_SIDE_A.png" alt="Album 2" class="bandcamp-image">
-                <img src="images/IDSP002_SIDE_B.png" alt="Album 2" class="bandcamp-image">
-            </div>
-            <div class="bandcamp-player">
-                <iframe src="https://bandcamp.com/EmbeddedPlayer/album=3143846798/size=large/bgcol=333333/linkcol=fe7eaf/artwork=small/transparent=true/" class="bandcamp-player" seamless></iframe>
-            </div>
-        </section>
+.bandcamp-player {
+    width: 100%;
+    max-width: 800px; /* Ensure the player doesn't exceed this width */
+    height: auto; /* Adjust height based on width */
+    border: 1px solid #000; /* 1pt black border */
+    border-radius: 10px; /* Rounded corners */
+    margin: 0 auto; /* Center the player */
+}
 
-        <section class="bandcamp-wrapper">
-            <div class="bandcamp-images-wrapper">
-                <p><a href="https://identityspectrumrecords.bandcamp.com/album/the-way-of-the-rave-vol-3" class="bandcamp-link">The Way Of The Rave Vol. 3 by Various</a></p>
-                <img src="images/IDSP003_SIDE_A.png" alt="Album 3" class="bandcamp-image">
-                <img src="images/IDSP003_SIDE_B.png" alt="Album 3" class="bandcamp-image">
-            </div>
-            <div class="bandcamp-player">
-                <iframe src="https://bandcamp.com/EmbeddedPlayer/album=3224027679/size=large/bgcol=333333/linkcol=0f91ff/artwork=small/transparent=true/" class="bandcamp-player" seamless></iframe>
-            </div>
-        </section>
-    </main>
+/* Gallery Styling */
+.gallery {
+    display: flex;
+    flex-wrap: wrap; /* Wrap images to the next line if needed */
+    justify-content: center; /* Center align images horizontally */
+    gap: 1rem; /* Space between images */
+}
 
-    <footer>
-        <p>&copy; 2024 acid daddy | identity spectrum records</p>
-    </footer>
-</body>
-</html>
+.gallery-image {
+    width: 150px; /* Thumbnail width */
+    height: 100px; /* Thumbnail height */
+    object-fit: cover; /* Ensure the image covers the thumbnail without distortion */
+    border: 1px solid #000; /* 1pt black border */
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer; /* Show pointer cursor on hover */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transitions */
+}
+
+.gallery-image:hover {
+    transform: scale(1.1); /* Enlarge image slightly on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+}
+
+/* Lightbox Styling */
+.lightbox {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 999; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.8); /* Black background with opacity */
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Blog Posts Styling */
+	@@ -116,6 +162,11 @@ nav {
+        margin-bottom: 1rem; /* Space between images on small screens */
+    }
+
+    .gallery-image {
+        width: 120px; /* Adjust thumbnail size for smaller screens */
+        height: 80px; /* Adjust thumbnail size for smaller screens */
+    }
+
+    .bandcamp-player {
+        height: 250px; /* Adjust height for smaller screens */
+    }
+	@@ -127,6 +178,11 @@ nav {
+}
+
+@media (max-width: 480px) {
+    .gallery-image {
+        width: 100px; /* Further adjust thumbnail size for very small screens */
+        height: 70px; /* Further adjust thumbnail size for very small screens */
+    }
+
+    .bandcamp-player {
+        height: 200px; /* Further adjust height for very small screens */
+    }
