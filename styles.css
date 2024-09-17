@@ -4,6 +4,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 /* Body Styling */
 body {
     font-family: 'Arial', sans-serif;
@@ -14,6 +15,7 @@ body {
     margin: 0;
     padding: 0;
 }
+
 /* Header Styling */
 header {
     background-color: #f0f0f0; /* Light grey */
@@ -21,6 +23,7 @@ header {
     border-bottom: 1px solid #000; /* 1pt black line */
     text-align: center;
 }
+
 nav {
     display: flex;
     flex-wrap: wrap; /* Allows buttons to wrap to the next line if needed */
@@ -28,6 +31,7 @@ nav {
     gap: 1rem;
     margin-bottom: 1rem;
 }
+
 .nav-button {
     display: inline-block;
     flex: 1 1 auto; /* Allow buttons to grow and shrink */
@@ -43,6 +47,7 @@ nav {
     margin: 0.2rem; /* Margin for spacing between buttons */
     text-align: center; /* Center text in buttons */
 }
+
 .nav-button:hover {
     background-color: #ff0; /* Bright yellow */
     color: #000; /* Black text */
@@ -58,8 +63,8 @@ nav {
 .bandcamp-image {
     width: 100%;
     height: auto;
-    border: 1px solid #000; /* Optional: border around images */
-    border-radius: 10px; /* Optional: rounded corners */
+    border: 1px solid #000; /* 1pt black border */
+    border-radius: 10px; /* Rounded corners */
     margin-bottom: 1rem; /* Space between image and player */
 }
 
@@ -68,6 +73,22 @@ nav {
     height: 300px; /* Adjust height as needed */
     border: 1px solid #000; /* Optional: border around players */
     border-radius: 10px; /* Optional: rounded corners */
+}
+
+/* Gallery Images Styling */
+.gallery-image {
+    border: 1px solid #000; /* 1pt black border */
+    border-radius: 10px; /* Rounded corners */
+    margin: 0.5rem; /* Space between images */
+}
+
+/* Blog Posts Styling */
+.blog-post {
+    border: 1px solid #000; /* 1pt black border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    margin: 1rem; /* Space around blog posts */
+    padding: 1rem; /* Padding inside blog posts */
 }
 
 /* Responsive Styles */
