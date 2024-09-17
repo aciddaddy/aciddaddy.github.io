@@ -1,113 +1,66 @@
-/* Basic Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>record label</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Favicon Link -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <br>
+        <br>
+        <nav>
+            <a href="index.html" class="nav-button">home</a>
+            <a href="about.html" class="nav-button">about me</a>
+            <a href="music.html" class="nav-button">music</a>
+            <a href="record-label.html" class="nav-button">record label</a>
+            <a href="gallery.html" class="nav-button">gallery</a>
+            <a href="blog.html" class="nav-button">blog</a>
+            <a href="chat.html" class="nav-button">chat room</a>
+        </nav>
+    </header>
 
-/* Body Styling */
-body {
-    font-family: 'Arial', sans-serif;
-    color: #000; /* Black text */
-    background-color: #fff; /* White background */
-    line-height: 1.6;
-    text-align: center; /* Center all text by default */
-    margin: 0;
-    padding: 0;
-}
+    <main>
+        <h1>record label</h1>
+        <section class="bandcamp-wrapper">
+            <div class="bandcamp-images-wrapper">
+                <p><a href="https://identityspectrumrecords.bandcamp.com/album/the-way-of-the-rave-vol-1" class="bandcamp-link">The Way Of The Rave Vol. 1 by Various</a></p>
+                <img src="images/IDSP001_SIDE_A.png" alt="Album 1" class="bandcamp-image">
+                <img src="images/IDSP001_SIDE_B.png" alt="Album 1" class="bandcamp-image">
+            </div>
+            <div class="bandcamp-player">
+                <iframe src="https://bandcamp.com/EmbeddedPlayer/album=3918049185/size=large/bgcol=333333/linkcol=e99708/artwork=small/transparent=true/" class="bandcamp-player" seamless></iframe>
+            </div>
+        </section>
 
-/* Header Styling */
-header {
-    background-color: #f0f0f0; /* Light grey */
-    padding: 1rem;
-    border-bottom: 1px solid #000; /* 1pt black line */
-    text-align: center;
-}
+        <section class="bandcamp-wrapper">
+            <div class="bandcamp-images-wrapper">
+                <p><a href="https://identityspectrumrecords.bandcamp.com/album/the-way-of-the-rave-vol-2" class="bandcamp-link">The Way Of The Rave Vol. 2 by Various</a></p>
+                <img src="images/IDSP002_SIDE_A.png" alt="Album 2" class="bandcamp-image">
+                <img src="images/IDSP002_SIDE_B.png" alt="Album 2" class="bandcamp-image">
+            </div>
+            <div class="bandcamp-player">
+                <iframe src="https://bandcamp.com/EmbeddedPlayer/album=3143846798/size=large/bgcol=333333/linkcol=fe7eaf/artwork=small/transparent=true/" class="bandcamp-player" seamless></iframe>
+            </div>
+        </section>
 
-nav {
-    display: flex;
-    flex-wrap: wrap; /* Allows buttons to wrap to the next line if needed */
-    justify-content: center; /* Center align items horizontally */
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
+        <section class="bandcamp-wrapper">
+            <div class="bandcamp-images-wrapper">
+                <p><a href="https://identityspectrumrecords.bandcamp.com/album/the-way-of-the-rave-vol-3" class="bandcamp-link">The Way Of The Rave Vol. 3 by Various</a></p>
+                <img src="images/IDSP003_SIDE_A.png" alt="Album 3" class="bandcamp-image">
+                <img src="images/IDSP003_SIDE_B.png" alt="Album 3" class="bandcamp-image">
+            </div>
+            <div class="bandcamp-player">
+                <iframe src="https://bandcamp.com/EmbeddedPlayer/album=3224027679/size=large/bgcol=333333/linkcol=0f91ff/artwork=small/transparent=true/" class="bandcamp-player" seamless></iframe>
+            </div>
+        </section>
+    </main>
 
-.nav-button {
-    display: inline-block;
-    flex: 1 1 auto; /* Allow buttons to grow and shrink */
-    min-width: 150px; /* Minimum width of buttons */
-    padding: 0.5rem 1.5rem;
-    background-color: #00ff00; /* Neon green */
-    color: #000; /* Black text */
-    text-decoration: none;
-    border-radius: 50px; /* Oval buttons */
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
-    border: 1px solid #000; /* 1pt black line */
-    margin: 0.2rem; /* Margin for spacing between buttons */
-    text-align: center; /* Center text in buttons */
-}
-
-.nav-button:hover {
-    background-color: #ff0; /* Bright yellow */
-    color: #000; /* Black text */
-}
-
-/* Bandcamp Player Styling */
-.bandcamp-wrapper {
-    text-align: center;
-    margin: 2rem auto; /* Center the wrapper and add margin */
-    max-width: 800px; /* Max width for the wrapper */
-}
-
-/* New styling for images and Bandcamp player */
-.bandcamp-images-wrapper {
-    margin-bottom: 1rem; /* Space between images and player */
-}
-
-.bandcamp-link {
-    display: block;
-    margin-bottom: 0.5rem; /* Space between link and images */
-    text-decoration: none;
-    color: #000; /* Black text for the link */
-}
-
-.bandcamp-image {
-    width: 48%; /* Make images 50% smaller and ensure there’s space between them */
-    height: auto;
-    border: 1px solid #000; /* 1pt black border */
-    border-radius: 10px; /* Rounded corners */
-    margin: 0.5%; /* Space between images */
-}
-
-/* Bandcamp Player */
-.bandcamp-player {
-    width: 100%;
-    max-width: 800px; /* Ensure the player doesn't exceed this width */
-    height: 250px; /* Adjust height to fit all tracks */
-    border: 1px solid #000; /* 1pt black border */
-    border-radius: 10px; /* Rounded corners */
-    margin: 0 auto; /* Center the player */
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .bandcamp-images-wrapper {
-        display: block; /* Stack images vertically on small screens */
-    }
-
-    .bandcamp-image {
-        width: 100%; /* Full width on small screens */
-        margin-bottom: 1rem; /* Space between images on small screens */
-    }
-
-    .bandcamp-player {
-        height: 200px; /* Adjust height for smaller screens */
-    }
-}
-
-@media (max-width: 480px) {
-    .bandcamp-player {
-        height: 150px; /* Further adjust height for very small screens */
-    }
-}
+    <footer>
+        <p>&copy; 2024 acid daddy | identity spectrum records</p>
+    </footer>
+</body>
+</html>
