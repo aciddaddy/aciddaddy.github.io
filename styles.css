@@ -72,11 +72,11 @@ nav {
 }
 
 .bandcamp-image {
-    width: 48%; /* Make images 50% smaller and ensure there’s space between them */
-    height: auto;
+    width: 40%; /* Set width to 40% of the container's width */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 200px; /* Maximum width for larger screens */
     border: 1px solid #000; /* 1pt black border */
     border-radius: 10px; /* Rounded corners */
-    margin: 0.5%; /* Space between images */
 }
 
 .bandcamp-player {
@@ -128,11 +128,13 @@ nav {
     }
 
     .bandcamp-images-wrapper {
-        display: block; /* Stack images vertically on small screens */
+        flex-direction: column; /* Stack images vertically on small screens */
+        align-items: center; /* Center images horizontally */
     }
 
     .bandcamp-image {
-        width: 100%; /* Full width on small screens */
+        width: 80%; /* Full width on small screens */
+        max-width: 150px; /* Maximum width for small screens */
         margin-bottom: 1rem; /* Space between images on small screens */
     }
 
