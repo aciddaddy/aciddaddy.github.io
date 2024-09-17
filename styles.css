@@ -4,137 +4,86 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 /* Body Styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     color: #000; /* Black text */
-    background-color: #f5f5dc; /* Beige background */
+    background-color: #fff; /* White background */
     line-height: 1.6;
+    text-align: center; /* Center all text by default */
+    margin: 0;
+    padding: 0;
 }
-
 /* Header Styling */
 header {
-    background-color: #ff69b4; /* Pink */
+    background-color: #f0f0f0; /* Light grey */
     padding: 1rem;
+    border-bottom: 1px solid #000; /* 1pt black line */
     text-align: center;
 }
-
 nav {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap; /* Allows buttons to wrap to the next line if needed */
+    justify-content: center; /* Center align items horizontally */
     gap: 1rem;
+    margin-bottom: 1rem;
 }
-
 .nav-button {
     display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: #00ff00; /* Lime Green */
-    color: #000;
+    flex: 1 1 auto; /* Allow buttons to grow and shrink */
+    min-width: 150px; /* Minimum width of buttons */
+    padding: 0.5rem 1.5rem;
+    background-color: #00ff00; /* Neon green */
+    color: #000; /* Black text */
     text-decoration: none;
     border-radius: 50px; /* Oval buttons */
     font-weight: bold;
     transition: background-color 0.3s, color 0.3s;
+    border: 1px solid #000; /* 1pt black line */
+    margin: 0.2rem; /* Margin for spacing between buttons */
+    text-align: center; /* Center text in buttons */
 }
-
 .nav-button:hover {
-    background-color: #ff69b4; /* Pink on hover */
-    color: #fff;
+    background-color: #ff0; /* Bright yellow */
+    color: #000; /* Black text */
 }
 
-/* Main Content Styling */
-main {
-    padding: 2rem;
+/* Bandcamp Player Styling */
+.bandcamp-wrapper {
     text-align: center;
+    margin: 2rem auto; /* Center the wrapper and add margin */
+    max-width: 800px; /* Max width for the wrapper */
 }
 
-h1 {
-    margin-bottom: 1rem;
-}
-
-/* Gallery Styling */
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.gallery img {
-    max-width: 100%;
+.bandcamp-image {
+    width: 100%;
     height: auto;
-    border: 2px solid #00ff00; /* Lime Green border */
-    border-radius: 10px;
+    border: 1px solid #000; /* Optional: border around images */
+    border-radius: 10px; /* Optional: rounded corners */
+    margin-bottom: 1rem; /* Space between image and player */
 }
 
-/* Blog Post Styling */
-article {
-    margin: 1rem auto;
-    max-width: 800px;
-    padding: 1rem;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-article h2 {
-    margin-bottom: 0.5rem;
-    color: #ff69b4; /* Pink */
-}
-
-/* Footer Styling */
-footer {
-    background-color: #ff69b4; /* Pink */
-    color: #fff;
-    padding: 1rem;
-    text-align: center;
-    position: fixed;
+.bandcamp-player {
     width: 100%;
-    bottom: 0;
+    height: 300px; /* Adjust height as needed */
+    border: 1px solid #000; /* Optional: border around players */
+    border-radius: 10px; /* Optional: rounded corners */
 }
 
-/* Chat Room Styling */
-.chat-room {
-    padding: 2rem;
-    text-align: center;
-    border: 2px solid #00ff00; /* Lime Green border */
-    border-radius: 10px;
-    background-color: #fff;
-    margin: 2rem auto;
-    max-width: 800px;
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .bandcamp-wrapper {
+        max-width: 100%; /* Allow the wrapper to use full width on small screens */
+        padding: 0 1rem; /* Add padding on small screens */
+    }
+
+    .bandcamp-player {
+        height: 250px; /* Adjust height for smaller screens */
+    }
 }
 
-/* Forms and Inputs Styling */
-input, textarea {
-    width: 100%;
-    padding: 0.5rem;
-    margin-top: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+@media (max-width: 480px) {
+    .bandcamp-player {
+        height: 200px; /* Further adjust height for very small screens */
+    }
 }
-
-button {
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
-    background-color: #00ff00; /* Lime Green */
-    color: #fff;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #ff69b4; /* Pink */
-}
-
-/* Style for the front page image */
-.IMG_9240 {
-    width: 100%; /* Makes the image responsive */
-    height: auto; /* Maintains aspect ratio */
-    max-width: 1200px; /* Optional: limits the maximum width */
-    margin: 0 auto; /* Centers the image */
-    display: block; /* Ensures the image is treated as a block element */
-    border-radius: 10px; /* Optional: adds rounded corners */
-}
-
