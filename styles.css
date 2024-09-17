@@ -101,6 +101,11 @@ nav {
     .bandcamp-player {
         height: 250px; /* Adjust height for smaller screens */
     }
+
+    .gallery-image,
+    .blog-post {
+        max-width: 100%; /* Allow images and posts to use full width on small screens */
+    }
 }
 
 @media (max-width: 480px) {
