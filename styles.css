@@ -57,7 +57,7 @@ nav {
 .bandcamp-wrapper {
     text-align: center;
     margin: 2rem auto; /* Center the wrapper and add margin */
-    max-width: 500px; /* Max width for the wrapper */
+    max-width: 600px; /* Max width for the wrapper */
 }
 
 /* New styling for images and Bandcamp player */
@@ -68,7 +68,7 @@ nav {
 }
 
 .bandcamp-image {
-    flex: 1; /* Flex to take equal width */
+    flex: 1 1; /* Flex to take equal width */
     margin: 0 0.5rem; /* Space between images */
     height: auto;
     border: 1px solid #000; /* 1pt black border */
@@ -86,6 +86,7 @@ nav {
 
 /* Gallery Images Styling */
 .gallery-image {
+    flex: 1 1; /* Flex to take equal width */
     border: 1px solid #000; /* 1pt black border */
     border-radius: 10px; /* Rounded corners */
     margin: 0.5rem; /* Space between images */
