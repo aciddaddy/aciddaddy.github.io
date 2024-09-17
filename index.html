@@ -11,14 +11,16 @@
     <!-- <link rel="icon" href="images/303_tab.png" type="image/png"> -->
 </head>
 <body>
+  
+       <!-- Header with Live Status and Audio Player -->
     <header>
-        <!-- Live Stream Audio Player -->
-        <section class="live-stream">
-            <h2>live audio stream</h2>
+        <div class="live-stream">
             <audio controls>
-                <source src="http://your-stream-url:port/stream" type="audio/mpeg">
+                <source src="live-stream-url" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
+            <button id="live-status-button" class="status-button">●</button>
+        </div>
         </section>
         <nav>
             <a href="index.html" class="nav-button">home</a>
