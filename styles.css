@@ -317,9 +317,9 @@ input:checked + .slider:before {
     }
 
     .status-button {
-        width: 15px; /* Smaller size for better fit on small screens */
-        height: 15px; /* Smaller size for better fit on small screens */
-        font-size: 12px; /* Adjust font size for smaller button */
+        width: 8px; /* Smaller size for better fit on small screens */
+        height: 8px; /* Smaller size for better fit on small screens */
+        font-size: 3px; /* Adjust font size for smaller button */
     }
 
 @media (max-width: 480px) {
