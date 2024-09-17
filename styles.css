@@ -40,7 +40,7 @@ main {
 .bandcamp-link {
     display: block;
     margin-bottom: 10px;
-    color: #e99708; /* Color for the Bandcamp link */
+    color: #0000EE; /* Color for the Bandcamp link */
     text-decoration: none;
     font-weight: bold;
 }
@@ -53,13 +53,14 @@ main {
     width: 250px; /* Matches the width of Bandcamp player */
     height: auto; /* Maintain aspect ratio */
     display: block;
+    border: 1px;
     margin: 0 auto;
 }
 
 .bandcamp-player {
     width: 500px; /* Set width to match images */
     height: 250px; /* Adjust height to fit all tracks if necessary */
-    border: none;
+    border: 1px;
     margin: 10px auto;
 }
 
