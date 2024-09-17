@@ -74,13 +74,13 @@ audio {
 
 /* Live Status Button Styling */
 .status-button {
-    background-color: #000; /* Black by default */
-    color: #fff; /* White text */
+    background-color: #fff; /* Black by default */
+    color: #000; /* White text */
     border: none; /* No border */
     border-radius: 50%; /* Circular button */
-    width: 20px; /* Very small size */
-    height: 20px; /* Very small size */
-    font-size: 16px; /* Font size for the dot */
+    width: 10px; /* Very small size */
+    height: 10px; /* Very small size */
+    font-size: 8px; /* Font size for the dot */
     text-align: center;
     line-height: 20px; /* Center text vertically */
     cursor: default; /* Default cursor */
@@ -313,13 +313,13 @@ input:checked + .slider:before {
     }
 
     audio {
-        width: 100%; /* Full width on small screens */
+        width: 50%; /* Full width on small screens */
     }
 
     .status-button {
-        width: 25px; /* Smaller size for better fit on small screens */
-        height: 10px; /* Smaller size for better fit on small screens */
-        font-size: 8px; /* Adjust font size for smaller button */
+        width: 15px; /* Smaller size for better fit on small screens */
+        height: 15px; /* Smaller size for better fit on small screens */
+        font-size: 12px; /* Adjust font size for smaller button */
     }
 
 @media (max-width: 480px) {
