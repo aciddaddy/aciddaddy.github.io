@@ -68,17 +68,20 @@ nav {
 }
 
 .bandcamp-image {
-    width: 50%; /* Take up approximately half of the container's width */
-    height: 250px;
+    flex: 1; /* Flex to take equal width */
+    margin: 0 0.5rem; /* Space between images */
+    height: auto;
     border: 1px solid #000; /* 1pt black border */
     border-radius: 10px; /* Rounded corners */
 }
 
 .bandcamp-player {
     width: 100%;
-    height: 250px; /* Adjust height as needed */
+    max-width: 800px; /* Ensure the player doesn't exceed this width */
+    height: auto; /* Adjust height based on width */
     border: 1px solid #000; /* 1pt black border */
     border-radius: 10px; /* Rounded corners */
+    margin: 0 auto; /* Center the player */
 }
 
 /* Gallery Images Styling */
