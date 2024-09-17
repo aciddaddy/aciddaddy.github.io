@@ -74,13 +74,13 @@ audio {
 
 /* Live Status Button Styling */
 .status-button {
-    background-color: #fff; /* Black by default */
-    color: #000; /* White text */
+    background-color: #000; /* Black by default */
+    color: #fff; /* White text */
     border: none; /* No border */
     border-radius: 50%; /* Circular button */
-    width: 0px; /* Very small size */
-    height: 0px; /* Very small size */
-    font-size: 0px; /* Font size for the dot */
+    width: 20px; /* Very small size */
+    height: 20px; /* Very small size */
+    font-size: 16px; /* Font size for the dot */
     text-align: center;
     line-height: 20px; /* Center text vertically */
     cursor: default; /* Default cursor */
@@ -94,6 +94,29 @@ audio {
 
 .status-button.offline {
     background-color: #000; /* Black when not streaming */
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: center; /* Center items horizontally */
+    }
+
+    .live-stream {
+        flex-direction: column; /* Stack audio player and button vertically */
+        gap: 0.5rem; /* Adjust space between elements */
+    }
+
+    audio {
+        width: 100%; /* Full width on small screens */
+    }
+
+    .status-button {
+        width: 15px; /* Smaller size for better fit on small screens */
+        height: 15px; /* Smaller size for better fit on small screens */
+        font-size: 12px; /* Adjust font size for smaller button */
+    }
 }
 
 /* Main Content Styling */
