@@ -50,7 +50,7 @@ main {
 }
 
 .bandcamp-image {
-    width: 500px; /* Matches the width of Bandcamp player */
+    width: 250px; /* Matches the width of Bandcamp player */
     height: auto; /* Maintain aspect ratio */
     display: block;
     margin: 0 auto;
