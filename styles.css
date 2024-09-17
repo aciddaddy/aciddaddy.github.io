@@ -57,7 +57,7 @@ nav {
 .bandcamp-wrapper {
     text-align: center;
     margin: 2rem auto; /* Center the wrapper and add margin */
-    max-width: 800px; /* Max width for the wrapper */
+    max-width: 500px; /* Max width for the wrapper */
 }
 
 /* New styling for images and Bandcamp player */
