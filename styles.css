@@ -1,70 +1,83 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Body Styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    color: #000; /* Black text */
+    background-color: #fff; /* White background */
+    line-height: 1.6;
+    text-align: center; /* Center all text by default */
     margin: 0;
     padding: 0;
 }
-
+/* Header Styling */
 header {
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
+    background-color: #f0f0f0; /* Light grey */
+    padding: 1rem;
+    border-bottom: 1px solid #000; /* 1pt black line */
+    text-align: center;
+    position: relative; /* To ensure that child elements like the audio player are positioned correctly */
 }
-
 nav {
     display: flex;
-    justify-content: center;
-    gap: 15px;
+    flex-wrap: wrap; /* Allows buttons to wrap to the next line if needed */
+    justify-content: center; /* Center align items horizontally */
+    gap: 1rem;
+    margin-bottom: 1rem;
 }
-
 .nav-button {
-    color: white;
+    display: inline-block;
+    flex: 1 1 auto; /* Allow buttons to grow and shrink */
+    min-width: 150px; /* Minimum width of buttons */
+    padding: 0.5rem 1.5rem;
+    background-color: #00ff00; /* Neon green */
+    color: #000; /* Black text */
     text-decoration: none;
-    padding: 5px 10px;
-    border-radius: 3px;
-    transition: background-color 0.3s ease;
+    border-radius: 50px; /* Oval buttons */
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    border: 1px solid #000; /* 1pt black line */
+    margin: 0.2rem; /* Margin for spacing between buttons */
+    text-align: center; /* Center text in buttons */
 }
-
 .nav-button:hover {
-    background-color: #555;
+    background-color: #ff0; /* Bright yellow */
+    color: #000; /* Black text */
 }
 
-main {
-    padding: 20px;
-    text-align: center;
-}
-
-h1 {
-    margin-bottom: 20px;
-}
-
-.about-content {
-    text-align: left; /* Align text to the left for readability */
-    max-width: 800px; /* Limit the width of the text for readability on large screens */
-    margin: 0 auto; /* Center the content horizontally */
-    padding: 0 10px; /* Add some padding to the sides */
-}
-
-.about-content p {
-    line-height: 1.6; /* Improve readability by increasing line height */
-    margin-bottom: 15px; /* Space between paragraphs */
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-}
-
-/* Responsive design */
+/* Responsive Styling */
 @media (max-width: 768px) {
-    .about-content {
-        padding: 0 15px; /* Increase padding on smaller screens */
+    header {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: center; /* Center items horizontally */
+    }
+}
+
+/* Main Content Styling */
+	@@ -171,6 +114,7 @@ h1, h2 {
+    height: auto;
+    border: 1px solid #000; /* 1pt black line */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Blog Post Styling */
+	@@ -209,6 +153,7 @@ footer {
+    color: #000; /* Black text */
+    margin: 2rem auto;
+    max-width: 1000px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Forms and Inputs Styling */
+	@@ -330,21 +275,6 @@ input:checked + .slider:before {
     }
 }
 
 @media (max-width: 480px) {
     .nav-button {
-        padding: 8px 15px; /* Increase padding for better touch targets on mobile */
-    }
-}
+        padding: 0.5rem;
