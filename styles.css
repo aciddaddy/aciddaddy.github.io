@@ -1,108 +1,70 @@
-/* Basic Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-/* Body Styling */
 body {
-    font-family: 'Arial', sans-serif;
-    color: #000; /* Black text */
-    background-color: #fff; /* White background */
-    line-height: 1.6;
-    text-align: center; /* Center all text by default */
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
-/* Header Styling */
+
 header {
-    background-color: #f0f0f0; /* Light grey */
-    padding: 1rem;
-    border-bottom: 1px solid #000; /* 1pt black line */
-    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
 }
+
 nav {
     display: flex;
-    flex-wrap: wrap; /* Allows buttons to wrap to the next line if needed */
-    justify-content: center; /* Center align items horizontally */
-    gap: 1rem;
-    margin-bottom: 1rem;
+    justify-content: center;
+    gap: 15px;
 }
+
 .nav-button {
-    display: inline-block;
-    flex: 1 1 auto; /* Allow buttons to grow and shrink */
-    min-width: 150px; /* Minimum width of buttons */
-    padding: 0.5rem 1.5rem;
-    background-color: #00ff00; /* Neon green */
-    color: #000; /* Black text */
+    color: white;
     text-decoration: none;
-    border-radius: 50px; /* Oval buttons */
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
-    border: 1px solid #000; /* 1pt black line */
-    margin: 0.2rem; /* Margin for spacing between buttons */
-    text-align: center; /* Center text in buttons */
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
 }
+
 .nav-button:hover {
-    background-color: #ff0; /* Bright yellow */
-    color: #000; /* Black text */
+    background-color: #555;
 }
 
-/* Square Grid Layout */
-.square-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjust the minmax value to fit your design */
-    gap: 1rem; /* Space between items */
-    max-width: 100%;
-    margin: 0 auto; /* Center container */
-    padding: 2rem; /* Add padding for spacing */
-}
-
-.square-item {
-    border: 1px solid #000; /* Optional: border around text items */
-    padding: 1rem;
-    text-align: center;
-    background-color: #fff; /* Optional: background color */
-    border-radius: 10px; /* Optional: rounded corners */
-}
-
-/* Main Content Styling */
 main {
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto; /* Center content */
-}
-
-/* Section Titles */
-h1, h2 {
-    margin-bottom: 1rem;
-    color: #fc8eac; /* Pink */
-}
-
-/* Footer Styling */
-footer {
-    background-color: #f0f0f0; /* Light grey */
-    color: #000; /* Black text */
-    padding: 1rem;
-    border-top: 1px solid #000; /* 1pt black line */
+    padding: 20px;
     text-align: center;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .square-container {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Adjust size for mobile */
-    }
+h1 {
+    margin-bottom: 20px;
+}
 
-    .nav-button {
-        min-width: 100%; /* Make buttons take full width of the container */
-        padding: 1rem; /* Adjust padding for better spacing on small screens */
+.about-content {
+    text-align: left; /* Align text to the left for readability */
+    max-width: 800px; /* Limit the width of the text for readability on large screens */
+    margin: 0 auto; /* Center the content horizontally */
+    padding: 0 10px; /* Add some padding to the sides */
+}
+
+.about-content p {
+    line-height: 1.6; /* Improve readability by increasing line height */
+    margin-bottom: 15px; /* Space between paragraphs */
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .about-content {
+        padding: 0 15px; /* Increase padding on smaller screens */
     }
 }
 
 @media (max-width: 480px) {
     .nav-button {
-        padding: 0.5rem;
-        font-size: 0.9rem;
+        padding: 8px 15px; /* Increase padding for better touch targets on mobile */
     }
 }
