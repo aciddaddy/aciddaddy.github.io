@@ -72,6 +72,29 @@ audio {
 
 }
 
+/* Live Status Button Styling */
+.status-button {
+    background-color: #ccc; /* Grey by default */
+    color: #fff; /* White text */
+    border: 1px solid #000; /* Black border */
+    border-radius: 50px; /* Oval button */
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    margin: 1rem;
+}
+
+.status-button.live {
+    background-color: #00ff00; /* Neon green for live */
+    box-shadow: 0 0 10px #00ff00; /* Neon green glow */
+}
+
+.status-button.offline {
+    background-color: #ccc; /* Grey for offline */
+    box-shadow: none; /* No glow */
+}
+
 /* Main Content Styling */
 main {
     padding: 2rem;
