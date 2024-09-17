@@ -54,68 +54,11 @@ nav {
     color: #000; /* Black text */
 }
 
-/* Live Stream Section */
-.live-stream {
-    margin-bottom: 1rem;
-}
-
-.live-stream h2 {
-    margin-bottom: 0.5rem;
-    color: #fc8eac; /* Pink */
-}
-
-audio {
-    width: 100%;
-    max-width: 100%; /* Adjust based on your design */
-    border: 1px solid #000; /* 1pt black line */
-    border-radius: 10px;
-
-}
-
-/* Live Status Button Styling */
-.status-button {
-    background-color: #000; /* Black by default */
-    color: #fff; /* White text */
-    border: none; /* No border */
-    border-radius: 50%; /* Circular button */
-    width: 20px; /* Very small size */
-    height: 20px; /* Very small size */
-    font-size: 16px; /* Font size for the dot */
-    text-align: center;
-    line-height: 20px; /* Center text vertically */
-    cursor: default; /* Default cursor */
-    transition: background-color 0.3s;
-}
-
-/* Button for live status */
-.status-button.live {
-    background-color: #ff0000; /* Red when live streaming */
-}
-
-.status-button.offline {
-    background-color: #000; /* Black when not streaming */
-}
-
 /* Responsive Styling */
 @media (max-width: 768px) {
     header {
         flex-direction: column; /* Stack items vertically on smaller screens */
         align-items: center; /* Center items horizontally */
-    }
-
-    .live-stream {
-        flex-direction: column; /* Stack audio player and button vertically */
-        gap: 0.5rem; /* Adjust space between elements */
-    }
-
-    audio {
-        width: 100%; /* Full width on small screens */
-    }
-
-    .status-button {
-        width: 15px; /* Smaller size for better fit on small screens */
-        height: 15px; /* Smaller size for better fit on small screens */
-        font-size: 12px; /* Adjust font size for smaller button */
     }
 }
 
@@ -171,6 +114,7 @@ h1, h2 {
     height: auto;
     border: 1px solid #000; /* 1pt black line */
     border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 /* Blog Post Styling */
@@ -209,6 +153,7 @@ footer {
     color: #000; /* Black text */
     margin: 2rem auto;
     max-width: 1000px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 /* Forms and Inputs Styling */
@@ -329,21 +274,6 @@ input:checked + .slider:before {
         padding: 1rem;
     }
 }
-
-.live-stream {
-        flex-direction: column; /* Stack audio player and button vertically */
-        gap: 0.5rem; /* Adjust space between elements */
-    }
-
-    audio {
-        width: 50%; /* Full width on small screens */
-    }
-
-    .status-button {
-        width: 0px; /* Smaller size for better fit on small screens */
-        height: 0px; /* Smaller size for better fit on small screens */
-        font-size: 12px; /* Adjust font size for smaller button */
-    }
 
 @media (max-width: 480px) {
     .nav-button {
