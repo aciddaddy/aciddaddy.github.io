@@ -78,9 +78,9 @@ audio {
     color: #000; /* White text */
     border: none; /* No border */
     border-radius: 50%; /* Circular button */
-    width: 10px; /* Very small size */
-    height: 10px; /* Very small size */
-    font-size: 8px; /* Font size for the dot */
+    width: 0px; /* Very small size */
+    height: 0px; /* Very small size */
+    font-size: 0px; /* Font size for the dot */
     text-align: center;
     line-height: 20px; /* Center text vertically */
     cursor: default; /* Default cursor */
