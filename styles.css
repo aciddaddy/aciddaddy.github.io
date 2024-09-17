@@ -68,7 +68,7 @@ nav {
 }
 
 .bandcamp-image {
-    width: 100%; /* Take up approximately half of the container's width */
+    width: 50%; /* Take up approximately half of the container's width */
     height: 250px;
     border: 1px solid #000; /* 1pt black border */
     border-radius: 10px; /* Rounded corners */
