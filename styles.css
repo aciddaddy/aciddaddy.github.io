@@ -57,7 +57,7 @@ nav {
 .bandcamp-wrapper {
     text-align: center;
     margin: 2rem auto; /* Center the wrapper and add margin */
-    max-width: 800px; /* Max width for the wrapper */
+    max-width: 600px; /* Max width for the wrapper */
 }
 
 .bandcamp-link {
@@ -81,8 +81,8 @@ nav {
 
 .bandcamp-player {
     width: 100%;
-    max-width: 800px; /* Ensure the player doesn't exceed this width */
-    height: 250px; /* Adjust height to fit all tracks */
+    max-width: 600px; /* Ensure the player doesn't exceed this width */
+    height: 300px; /* Adjust height to fit all tracks */
     border: 1px solid #000; /* 1pt black border */
     border-radius: 10px; /* Rounded corners */
     margin: 0 auto; /* Center the player */
@@ -98,8 +98,8 @@ nav {
 }
 
 .gallery-image {
-    width: 150px; /* Set a fixed width for thumbnails */
-    height: 150px; /* Set a fixed height for thumbnails */
+    width: 250px; /* Set a fixed width for thumbnails */
+    height: 250px; /* Set a fixed height for thumbnails */
     object-fit: cover; /* Ensure images cover the thumbnail area */
     border: 1px solid #000; /* 1pt black border */
     border-radius: 10px; /* Rounded corners */
@@ -108,7 +108,7 @@ nav {
 }
 
 .gallery-image:hover {
-    transform: scale(1.1); /* Slightly enlarge image on hover */
+    transform: scale(1.5); /* Slightly enlarge image on hover */
 }
 
 /* Blog Posts Styling */
