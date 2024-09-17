@@ -56,9 +56,18 @@ nav {
 
 /* Responsive Styling */
 @media (max-width: 768px) {
-    header {
-        flex-direction: column; /* Stack items vertically on smaller screens */
+    nav {
+        flex-direction: column;
         align-items: center; /* Center items horizontally */
+    }
+    
+    .nav-button {
+        min-width: 100%; /* Make buttons take full width of the container */
+        padding: 1rem; /* Adjust padding for better spacing on small screens */
+    }
+
+    .gallery {
+        flex-direction: column;
     }
 }
 
@@ -106,195 +115,4 @@ h1, h2 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem;
-}
-
-.gallery img {
-    max-width: 100%;
-    height: auto;
-    border: 1px solid #000; /* 1pt black line */
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-/* Blog Post Styling */
-article {
-    margin: 1rem auto;
-    max-width: 800px;
-    padding: 1rem;
-    background: #fff; /* White background */
-    color: #000; /* Black text */
-    border: 1px solid #000; /* 1pt black line */
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-article h2 {
-    margin-bottom: 0.5rem;
-    color: #fc8eac; /* PInk */
-}
-
-/* Footer Styling */
-footer {
-    background-color: #f0f0f0; /* Light grey */
-    color: #000; /* Black text */
-    padding: 1rem;
-    border-top: 1px solid #000; /* 1pt black line */
-    text-align: center;
-}
-
-/* Chat Room Styling */
-.chat-room {
-    padding: 2rem;
-    text-align: center;
-    border: 1px solid #000; /* 1pt black line */
-    border-radius: 10px;
-    background-color: #fff; /* White background */
-    color: #000; /* Black text */
-    margin: 2rem auto;
-    max-width: 1000px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-/* Forms and Inputs Styling */
-input, textarea {
-    width: 100%;
-    padding: 0.5rem;
-    margin-top: 0.5rem;
-    border: 1px solid #000; /* 1pt black line */
-    border-radius: 5px;
-    background-color: #fff; /* White background */
-    color: #000; /* Black text */
-}
-
-button {
-    padding: 0.5rem 1.5rem;
-    border: 1px solid #000; /* 1pt black line */
-    border-radius: 50px; /* Oval buttons */
-    background-color: #ff0; /* Bright yellow */
-    color: #000; /* Black text */
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #00ff00; /* Neon green */
-    color: #000; /* Black text */
-}
-
-/* Greyscale Mode Styling */
-.greyscale body {
-    filter: grayscale(100%);
-}
-
-/* Toggle Switch Styles */
-.toggle-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 1rem;
-}
-
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 34px;
-    height: 20px;
-}
-
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: .4s;
-    border-radius: 20px;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 12px;
-    width: 12px;
-    border-radius: 50%;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: .4s;
-}
-
-input:checked + .slider {
-    background-color: #00ff00; /* Neon green when checked */
-}
-
-input:checked + .slider:before {
-    transform: translateX(14px);
-}
-
-.toggle-label {
-    margin-left: 0.5rem;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        align-items: center; /* Center items horizontally */
-    }
-    
-    .nav-button {
-        min-width: 100%; /* Make buttons take full width of the container */
-        padding: 1rem; /* Adjust padding for better spacing on small screens */
-    }
-
-    .gallery {
-        flex-direction: column;
-    }
-
-    .hero-image {
-        max-width: 100%; /* Ensure image is responsive and scales with screen width */
-        height: auto; /* Maintain aspect ratio */
-        border: 1px solid #000; /* 1pt black line */
-        border-radius: 10px; /* Optional: rounded corners */
-        margin-top: 1rem; /* Space above the image */
-        margin-bottom: 1rem; /* Space below the image */
-    }
-        
-    .chat-room {
-        padding: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .nav-button {
-        padding: 0.5rem;
-        font-size: 0.9rem;
-    }
-
-    .hero-image {
-        height:auto;
-        max-width: 100%; /* Ensure image is responsive and scales with screen width */
-        height: auto; /* Maintain aspect ratio */
-        border: 1px solid #000; /* 1pt black line */
-        border-radius: 10px; /* Optional: rounded corners */
-        margin-top: 1rem; /* Space above the image */
-        margin-bottom: 1rem; /* Space below the image */
-    }
-    article, .chat-room {
-        padding: 0.5rem;    
-}
-}
-
-
-
-        
+    gap: 1r
