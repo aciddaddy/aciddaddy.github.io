@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>gallery</title>
+    <title>Gallery</title>
     <link rel="stylesheet" href="styles.css">
-<!-- Favicon Link -->
+    <!-- Favicon Link -->
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <!-- Favicon for PNG Format -->
     <!-- <link rel="icon" href="images/303_tab.png" type="image/png"> -->
 </head>
 <body>
     <header>
-       <br>
-        <br>
         <nav>
             <a href="index.html" class="nav-button">home</a>
             <a href="about.html" class="nav-button">about me</a>
@@ -26,16 +24,24 @@
     </header>
 
     <main>
-        <h1>gallery</h1>
+        <h1>Gallery</h1>
         <div class="gallery">
-            <img src="images/IMG_1860.jpg" alt="Gallery Image 1" class="gallery-image">
-            <img src="images/IMG_9240.jpg" alt="Gallery Image 2" class="gallery-image">
+            <img src="images/IMG_1860.jpg" alt="Gallery Image 1" class="gallery-image" onclick="openLightbox('images/IMG_1860.jpg')">
+            <img src="images/IMG_9240.jpg" alt="Gallery Image 2" class="gallery-image" onclick="openLightbox('images/IMG_9240.jpg')">
             <!-- Add more images as needed -->
         </div>
     </main>
 
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-image" class="lightbox-content">
+    </div>
+
     <footer>
         <p>&copy; 2024 acid daddy | identity spectrum records</p>
     </footer>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
