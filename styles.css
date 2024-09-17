@@ -57,38 +57,58 @@ nav {
 .bandcamp-wrapper {
     text-align: center;
     margin: 2rem auto; /* Center the wrapper and add margin */
-    max-width: 600px; /* Max width for the wrapper */
+    max-width: 800px; /* Max width for the wrapper */
 }
 
-/* New styling for images and Bandcamp player */
+.bandcamp-link {
+    display: block;
+    margin-bottom: 0.5rem; /* Space between link and images */
+    text-decoration: none;
+    color: #000; /* Black text for the link */
+}
+
 .bandcamp-images-wrapper {
-    display: flex;
-    justify-content: space-between; /* Space images evenly */
     margin-bottom: 1rem; /* Space between images and player */
-    gap: 1rem; /* Gap between images */
 }
 
 .bandcamp-image {
-    flex: 1; /* Flex to take equal width */
-    height: auto; /* Maintain aspect ratio */
+    width: 48%; /* Make images 50% smaller and ensure there’s space between them */
+    height: auto;
     border: 1px solid #000; /* 1pt black border */
     border-radius: 10px; /* Rounded corners */
+    margin: 0.5%; /* Space between images */
 }
 
 .bandcamp-player {
     width: 100%;
-    max-width: 600px; /* Ensure the player doesn't exceed this width */
-    height: 300px; /* Adjust height to ensure all tracks are visible */
+    max-width: 800px; /* Ensure the player doesn't exceed this width */
+    height: 250px; /* Adjust height to fit all tracks */
     border: 1px solid #000; /* 1pt black border */
     border-radius: 10px; /* Rounded corners */
     margin: 0 auto; /* Center the player */
 }
 
 /* Gallery Images Styling */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center align images */
+    gap: 1rem;
+    margin: 1rem;
+}
+
 .gallery-image {
+    width: 150px; /* Set a fixed width for thumbnails */
+    height: 150px; /* Set a fixed height for thumbnails */
+    object-fit: cover; /* Ensure images cover the thumbnail area */
     border: 1px solid #000; /* 1pt black border */
     border-radius: 10px; /* Rounded corners */
-    margin: 0.5rem; /* Space between images */
+    cursor: pointer; /* Show a pointer cursor for clickable images */
+    transition: transform 0.3s ease; /* Smooth zoom effect on hover */
+}
+
+.gallery-image:hover {
+    transform: scale(1.1); /* Slightly enlarge image on hover */
 }
 
 /* Blog Posts Styling */
@@ -108,7 +128,7 @@ nav {
     }
 
     .bandcamp-images-wrapper {
-        flex-direction: column; /* Stack images vertically on small screens */
+        display: block; /* Stack images vertically on small screens */
     }
 
     .bandcamp-image {
@@ -117,17 +137,17 @@ nav {
     }
 
     .bandcamp-player {
-        height: 250px; /* Adjust height for smaller screens */
+        height: 200px; /* Adjust height for smaller screens */
     }
 
-    .gallery-image,
-    .blog-post {
-        max-width: 100%; /* Allow images and posts to use full width on small screens */
+    .gallery-image {
+        width: 100px; /* Smaller thumbnails on small screens */
+        height: 100px; /* Maintain aspect ratio for thumbnails */
     }
 }
 
 @media (max-width: 480px) {
     .bandcamp-player {
-        height: 200px; /* Further adjust height for very small screens */
+        height: 150px; /* Further adjust height for very small screens */
     }
 }
