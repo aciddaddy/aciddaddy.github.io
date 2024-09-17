@@ -27,7 +27,8 @@ header {
 
 nav {
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Center align items horizontally */
     gap: 1rem;
     margin-bottom: 1rem;
 }
