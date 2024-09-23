@@ -64,5 +64,22 @@
     <footer>
         <p>&copy; 2024 acid daddy | identity spectrum records</p>
     </footer>
+    
+    <script>
+    // Wait for the DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get all the images that need the toggle effect
+        const images = document.querySelectorAll('.bandcamp-image, .gallery-image');
+
+        // Loop through each image and add click event listener
+        images.forEach(image => {
+            image.addEventListener('click', function() {
+                // Toggle the 'enlarged' class on click
+                image.classList.toggle('enlarged');
+            });
+        });
+    });
+</script>
+
 </body>
 </html>
