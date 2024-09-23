@@ -93,7 +93,7 @@ nav {
 /* Hover effect: Enlarge to fit screen without cutting off */
 .bandcamp-image:hover {
     position: relative; /* Keep it within its container */
-    transform: scale(2); /* Enlarge on hover */
+    transform: scale(1.2); /* Enlarge on hover */
     max-width: 100vw; /* Ensure image fits within the viewport width */
     max-height: 100vh; /* Ensure image fits within the viewport height */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
