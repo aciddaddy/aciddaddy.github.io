@@ -64,7 +64,7 @@ nav {
     display: block;
     margin-bottom: 0.5rem; /* Space between link and images */
     text-decoration: none;
-    color: #000; /* Black text for the link */
+    color: #0000EE; /* Blue text for the link */
 }
 
 .bandcamp-player {
@@ -131,7 +131,7 @@ nav {
 
 /* Header Colors for h2 */
 .header1 {
-    color: #fc8eac; /* Color for the first h2 */
+    color: #000000; /* Color for the first h2 */
 }
 
 .header2 {
