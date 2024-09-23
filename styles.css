@@ -85,7 +85,7 @@ nav {
     height: auto; /* Maintain aspect ratio */
     max-width: 200px; /* Maximum width for larger screens */
     border: 1px solid #000; /* 1pt black border */
-    border-radius: 1pt; /* 1pt rounded corners */
+    border-radius: 10pt; /* 1pt rounded corners */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform and shadow */
 }
 
@@ -146,7 +146,7 @@ h2 {
     }
 
     .bandcamp-image {
-        width: 80%; /* Full width on small screens */
+        width: 50%; /* Full width on small screens */
         max-width: 150px; /* Maximum width for small screens */
         margin-bottom: 1rem; /* Space between images on small screens */
         
