@@ -116,7 +116,7 @@ nav {
 
 /* Hover effect */
 .gallery-image:hover {
-    transform: scale(1.1); /* Slightly enlarge image on hover */
+    transform: scale(2); /* Slightly enlarge image on hover */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
 }
 
