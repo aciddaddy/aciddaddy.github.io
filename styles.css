@@ -137,8 +137,7 @@ nav {
     }
 
     .bandcamp-images-wrapper {
-        flex-direction: column; /* Stack images vertically on small screens */
-        align-items: center; /* Center images horizontally */
+        margin-bottom: 1rem; /* Space between images and player */
     }
 
     .bandcamp-image {
