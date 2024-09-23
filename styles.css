@@ -82,10 +82,17 @@ nav {
 
 .bandcamp-image {
     width: 40%; /* Set width to 40% of the container's width */
-    height: auto; /* Maintain aspect ration */
+    height: auto; /* Maintain aspect ratio */
     max-width: 200px; /* Maximum width for larger screens */
-    border: 1px solid #0000; /* 1pt black border */
-    border-radius: 10px; /* Rounded corners */
+    border: 1px solid #000; /* 1pt black border */
+    border-radius: 1pt; /* 1pt rounded corners */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform and shadow */
+}
+
+/* Hover effect */
+.bandcamp-image:hover {
+    transform: scale(1.1); /* Slightly enlarge image on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
 }
 
 /* Gallery Images Styling */
