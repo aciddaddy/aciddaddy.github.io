@@ -6,10 +6,7 @@
     <meta name="description" content="explore music from identity spectrum records, featuring the way of the rave album series.">
     <title>record label | identity spectrum records</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Favicon Link -->
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <!-- Favicon for PNG Format -->
-    <!-- <link rel="icon" href="images/303_tab.png" type="image/png"> -->
 </head>
 <body>
     <header>
@@ -27,11 +24,10 @@
 
     <main>
         <h1>identity spectrum records</h1>
-        <h2>ＣＨＩＣＡＧＯ，　ＩＬ<br>
-            ｅｓｔ　２０１９</h2>
+        <h2 class="header1">ＣＨＩＣＡＧＯ，　ＩＬ<br> ｅｓｔ　２０１９</h2>
 
         <section class="bandcamp-wrapper">
-            <h2><b>The Way Of The Rave Vol. 1</b></h2>
+            <h2 class="header2"><b>The Way Of The Rave Vol. 1</b></h2>
             <h3><i>featuring HURTR, DANA, fana, Sepehr, & Him Hun</i></h3>
             <div class="bandcamp-images-wrapper">
                 <p><a href="https://identityspectrumrecords.bandcamp.com/album/the-way-of-the-rave-vol-1" class="bandcamp-link"> >> get your copy << </a></p>
@@ -44,7 +40,7 @@
         </section>
 
         <section class="bandcamp-wrapper">
-            <h2><b>The Way Of The Rave Vol. 2</b></h2>
+            <h2 class="header3"><b>The Way Of The Rave Vol. 2</b></h2>
             <h3><i>featuring IVVY, Experimental Housewife, gayphextwin, & Acid Daddy</i></h3>
             <div class="bandcamp-images-wrapper">
                 <p><a href="https://identityspectrumrecords.bandcamp.com/album/the-way-of-the-rave-vol-2" class="bandcamp-link"> >> get your copy << </a></p>
@@ -57,7 +53,7 @@
         </section>
 
         <section class="bandcamp-wrapper">
-            <h2><b>The Way Of The Rave Vol. 3</b></h2>
+            <h2 class="header4"><b>The Way Of The Rave Vol. 3</b></h2>
             <h3><i>featuring ViiV, Sister Zo, Snad, & Titonton Duvanté</i></h3>
             <div class="bandcamp-images-wrapper">
                 <p><a href="https://identityspectrumrecords.bandcamp.com/album/the-way-of-the-rave-vol-3" class="bandcamp-link"> >> get your copy << </a></p>
@@ -74,26 +70,15 @@
         <p>&copy; 2024 acid daddy | identity spectrum records</p>
     </footer>
 
-   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Get all elements with the 'bandcamp-image' class
-        const images = document.querySelectorAll('.bandcamp-image');
-        
-        // Loop through each image
-        images.forEach(function(image) {
-            // Add click event listener for each image
-            image.addEventListener('click', function() {
-                // Toggle the 'enlarged' class
-                if (image.classList.contains('enlarged')) {
-                    // If image is enlarged, remove the 'enlarged' class
-                    image.classList.remove('enlarged');
-                } else {
-                    // If image is not enlarged, add the 'enlarged' class
-                    image.classList.add('enlarged');
-                }
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const images = document.querySelectorAll('.bandcamp-image');
+            images.forEach(function(image) {
+                image.addEventListener('click', function() {
+                    image.classList.toggle('enlarged');
+                });
             });
         });
-    });
     </script>
 
 </body>
