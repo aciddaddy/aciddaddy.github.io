@@ -129,6 +129,23 @@ nav {
     padding: 1rem; /* Padding inside blog posts */
 }
 
+/* Header Colors for h2 */
+.header1 {
+    color: #fc8eac; /* Color for the first h2 */
+}
+
+.header2 {
+    color: #e99708; /* Color for the second h2 */
+}
+
+.header3 {
+    color: #f171a2; /* Color for the third h2 */
+}
+
+.header4 {
+    color: #0687f5; /* Color for the fourth h2 */
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     .bandcamp-wrapper {
@@ -144,7 +161,6 @@ nav {
         width: 50%; /* Full width on small screens */
         max-width: 150px; /* Maximum width for small screens */
         margin-bottom: 1rem; /* Space between images on small screens */
-        
     }
 
     .bandcamp-player {
