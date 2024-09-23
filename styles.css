@@ -120,9 +120,14 @@ nav {
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform and shadow */
 }
 
-/* Hover effect */
+/* Ensure enlarged images stay scaled */
+.gallery-image.enlarged {
+    transform: scale(2); /* Enlarged state */
+    z-index: 10; /* Bring to front */
+}
+
+/* Hover effect for gallery images */
 .gallery-image:hover {
-    transform: scale(2); /* Slightly enlarge image on hover */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
 }
 
