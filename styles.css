@@ -129,6 +129,11 @@ nav {
     padding: 1rem; /* Padding inside blog posts */
 }
 
+/* H2 Styling */
+h2 {
+    color: #fc8eac; /* Set color for h2 headers */
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     .bandcamp-wrapper {
