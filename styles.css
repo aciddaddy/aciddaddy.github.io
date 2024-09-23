@@ -77,7 +77,7 @@ nav {
 }
 
 .bandcamp-images-wrapper {
-    margin-bottom: 1rem: /* Space between images and player*/
+    margin-bottom: 1rem; /* Space between images and player*/
 }
 
 .bandcamp-image {
@@ -91,7 +91,7 @@ nav {
 
 /* Hover effect */
 .bandcamp-image:hover {
-    transform: scale(1.1); /* Slightly enlarge image on hover */
+    transform: scale(2); /* Slightly enlarge image on hover */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
 }
 
