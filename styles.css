@@ -145,6 +145,9 @@ nav {
         width: 80%; /* Full width on small screens */
         max-width: 150px; /* Maximum width for small screens */
         margin-bottom: 1rem; /* Space between images on small screens */
+        width: 150px; /* Smaller thumbnails on small screens */
+        height: 150px; /* Maintain aspect ratio for thumbnails */
+        
     }
 
     .bandcamp-player {
