@@ -33,12 +33,6 @@
             <img src="images/IDSP001_SIDE_A.png" alt="Album 1" class="bandcamp-image">
             <img src="images/IDSP001_SIDE_B.png" alt="Album 1" class="bandcamp-image">
             </div>
-           <!-- Modal for enlarged images -->
-<div id="imageModal" class="modal" onclick="closeModal()">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="modalImage">
-    <div id="caption"></div>
-</div>
         <div class="bandcamp-player">
             <iframe src="https://bandcamp.com/EmbeddedPlayer/album=3918049185/size=large/bgcol=333333/linkcol=e99708/artwork=small/transparent=true/" class="bandcamp-player" seamless></iframe>
         </div>
@@ -50,12 +44,6 @@
             <img src="images/IDSP002_SIDE_A.png" alt="Album 2" class="bandcamp-image">
             <img src="images/IDSP002_SIDE_B.png" alt="Album 2" class="bandcamp-image">
             </div>
-            <!-- Modal for enlarged images -->
-<div id="imageModal" class="modal" onclick="closeModal()">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="modalImage">
-    <div id="caption"></div>
-</div>
         <div class="bandcamp-player">
             <iframe src="https://bandcamp.com/EmbeddedPlayer/album=3143846798/size=large/bgcol=333333/linkcol=fe7eaf/artwork=small/transparent=true/" class="bandcamp-player" seamless></iframe>
         </div>
@@ -67,28 +55,6 @@
             <img src="images/IDSP003_SIDE_A.png" alt="Album 3" class="bandcamp-image">
             <img src="images/IDSP003_SIDE_B.png" alt="Album 3" class="bandcamp-image">
             </div>
-            <!-- Modal for enlarged images -->
-<div id="imageModal" class="modal" onclick="closeModal()">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="modalImage">
-    <div id="caption"></div>
-</div>
-              <script>
-        function openModal(image) {
-            const modal = document.getElementById("imageModal");
-            const modalImage = document.getElementById("modalImage");
-            const caption = document.getElementById("caption");
-
-            modal.style.display = "block";
-            modalImage.src = image.src; // Set the modal image source
-            caption.innerHTML = image.alt; // Set the caption text
-        }
-
-        function closeModal() {
-            const modal = document.getElementById("imageModal");
-            modal.style.display = "none"; // Hide the modal
-        }
-    </script>
         <div class="bandcamp-player">
             <iframe src="https://bandcamp.com/EmbeddedPlayer/album=3224027679/size=large/bgcol=333333/linkcol=0f91ff/artwork=small/transparent=true/" class="bandcamp-player" seamless></iframe>
         </div>
