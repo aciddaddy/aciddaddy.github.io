@@ -139,7 +139,7 @@ nav {
 }
 
 .gallery-image:hover {
-    transform: scale(1.5); /* Slightly enlarge image on hover */
+    transform: scale(3); /* Slightly enlarge image on hover */
 }
 
 /* Blog Posts Styling */
