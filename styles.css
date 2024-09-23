@@ -111,7 +111,7 @@ nav {
 }
 
 .gallery-image:hover {
-    transform: scale(3); /* Slightly enlarge image on hover */
+    transform: scale(2); /* Slightly enlarge image on hover */
 }
 
 /* Blog Posts Styling */
