@@ -89,6 +89,12 @@ nav {
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform and shadow */
 }
 
+/* Ensure enlarged images stay scaled */
+.bandcamp-image.enlarged {
+    transform: scale(2); /* Enlarged state */
+    z-index: 10; /* Bring to front */
+}
+
 /* Hover effect */
 .bandcamp-image:hover {
     transform: scale(2); /* Slightly enlarge image on hover */
