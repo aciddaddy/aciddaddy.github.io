@@ -67,18 +67,6 @@ nav {
     color: #000; /* Black text for the link */
 }
 
-.bandcamp-images-wrapper {
-    margin-bottom: 1rem; /* Space between images and player */
-}
-
-.bandcamp-image {
-    width: 40%; /* Set width to 40% of the container's width */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 200px; /* Maximum width for larger screens */
-    border: 1px solid #000; /* 1pt black border */
-    border-radius: 10px; /* Rounded corners */
-}
-
 .bandcamp-player {
     width: 100%;
     max-width: 600px; /* Ensure the player doesn't exceed this width */
@@ -87,6 +75,49 @@ nav {
     border-radius: 10px; /* Rounded corners */
     margin: 0 auto; /* Center the player */
 }
+
+.bandcamp-images-wrapper {
+    display: flex;
+    gap: 10px; /* Adjust spacing between images */
+}
+
+.bandcamp-image {
+    cursor: pointer; /* Indicate that images are clickable */
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 
 /* Gallery Images Styling */
 .gallery {
