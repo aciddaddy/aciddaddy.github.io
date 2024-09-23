@@ -86,9 +86,6 @@ nav {
     max-width: 200px; /* Maximum width for larger screens */
     border: 1px solid #0000; /* 1pt black border */
     border-radius: 10px; /* Rounded corners */
-    object-fit: cover; /* Ensure images cover the thumbnail area */
-    cursor: pointer; /* Show a pointer cursor for clickable images */
-    transition: transform 0.3s ease; /* Smooth zoom effect on hover */
 }
 
 /* Gallery Images Styling */
