@@ -112,6 +112,11 @@ nav {
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
 }
 
+/* Italics for h3 headers */
+h3 {
+    font-style: italic; /* Ensure h3 elements are italicized */
+}
+
 /* Gallery Images Styling */
 .gallery {
     display: flex;
