@@ -89,17 +89,26 @@ nav {
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform and shadow */
     object-fit: cover; /* Ensure images are not distorted */
     image-rendering: crisp-edges; /* Optimize image quality */
+    cursor: pointer;
 }
 
 /* Hover effect: Enlarge slightly and reduce blur */
 .bandcamp-image:hover {
-    position: relative; /* Keep it within its container */
     transform: scale(1.5); /* Enlarge on hover */
     max-width: 100vw; /* Ensure image fits within the viewport width */
     max-height: 100vh; /* Ensure image fits within the viewport height */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
     z-index: 10; /* Make sure it overlays other elements */
     image-rendering: auto; /* Ensure smooth rendering on hover */
+}
+
+/* Class for enlarged image */
+.enlarged {
+    transform: scale(1.5); /* Same scale effect as hover */
+    max-width: 100vw;
+    max-height: 100vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 10;
 }
 
 /* Gallery Images Styling */
@@ -119,12 +128,6 @@ nav {
     border-radius: 10px; /* Rounded corners */
     cursor: pointer; /* Show a pointer cursor for clickable images */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform and shadow */
-}
-
-/* Hover effect */
-.gallery-image:hover {
-    transform: scale(1.5); /* Slightly enlarge image on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
 }
 
 /* Blog Posts Styling */
@@ -149,7 +152,7 @@ nav {
 
     .bandcamp-image {
         width: 80%; /* Full width on small screens */
-        max-width: 150px; /* Maximum width for small screens */
+        max-width: 100px; /* Maximum width for small screens */
         margin-bottom: 1rem; /* Space between images on small screens */
     }
 
