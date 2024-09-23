@@ -70,16 +70,23 @@
         <p>&copy; 2024 acid daddy | identity spectrum records</p>
     </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const images = document.querySelectorAll('.bandcamp-image');
-            images.forEach(function(image) {
-                image.addEventListener('click', function() {
-                    image.classList.toggle('enlarged');
-                });
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const images = document.querySelectorAll('.bandcamp-image');
+        
+        images.forEach(function(image) {
+            image.addEventListener('click', function() {
+                if (image.classList.contains('enlarged')) {
+                    image.classList.remove('enlarged');
+                    image.style.transform = 'scale(1)'; // Reset scale on click
+                } else {
+                    image.classList.add('enlarged');
+                    image.style.transform = 'scale(2)'; // Enlarge on click
+                }
             });
         });
-    </script>
-
+    });
+</script>
+                    
 </body>
 </html>
