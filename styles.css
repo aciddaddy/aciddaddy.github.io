@@ -55,10 +55,10 @@ nav {
 
 /*About Me Image*/
 .about-image {
-    width: 250px; /* Set a fixed width for thumbnails */
-    height: 250px; /* Set a fixed height for thumbnails */
+    width: 100%; /* Set a fixed width for thumbnails */
+    height: 100%; /* Set a fixed height for thumbnails */
     object-fit: cover; /* Ensure images cover the thumbnail area */
-    border: 1px solid #000; /* 1px black border */
+    border: 0px solid #000; /* 1px black border */
     border-radius: 10px; /* Rounded corners */
     cursor: pointer; /* Show a pointer cursor for clickable images */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform and shadow */
