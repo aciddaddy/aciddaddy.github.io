@@ -55,12 +55,13 @@ nav {
 
 /*About Me Image*/
 .about-image {
-    max-width: 100%; /* Ensures the image resizes for smaller screens */
-    height: auto; /* Maintains the aspect ratio */
+    max-width: 200px; /* Smaller size */
+    height: auto; /* Maintains aspect ratio */
     border: 1pt solid black; /* 1pt black border */
     border-radius: 10px; /* Rounded edges */
     display: block; /* Centers the image in its container */
     margin: 20px auto; /* Adds space around the image */
+    cursor: pointer; /* Change cursor to indicate clickable item */
 }
 
 /* Bandcamp Player Styling */
