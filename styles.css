@@ -219,7 +219,7 @@ nav {
     }
 }
 .about-image {
-        width: 100px; /* Smaller thumbnails on small screens */
+        width: 100%; /* Smaller thumbnails on small screens */
         height: 100px; /* Maintain aspect ratio for thumbnails */
     }
 
