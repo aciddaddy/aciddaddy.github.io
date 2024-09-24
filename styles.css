@@ -55,7 +55,7 @@ nav {
 
 /* About Me Image */
 .about-image {
-    width: 100%; /* Full width of the container */
+    width: 50%; /* Full width of the container */
     height: auto; /* Maintain aspect ratio */
     border: none; /* No border */
     border-radius: 0; /* No rounded corners */
