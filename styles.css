@@ -194,7 +194,7 @@ nav {
 }
 
 .featured-image {
-    width: 40%; /* Match the width of the bandcamp images */
+    width: 60%; /* Match the width of the bandcamp images */
     height: auto; /* Maintain aspect ratio */
     max-width: 400px; /* Maximum width for larger screens */
     border: 1px solid #000; /* 1pt black border */
@@ -206,13 +206,13 @@ nav {
 /* Responsive adjustments for small screens */
 @media (max-width: 768px) {
     .featured-image {
-        max-height: 200px; /* Smaller max height on medium screens */
+        max-height: auto; /* Smaller max height on medium screens */
     }
 }
 
 @media (max-width: 480px) {
     .featured-image {
-        max-height: 150px; /* Further reduce size on small screens */
+        max-height: auto; /* Further reduce size on small screens */
     }
 }
 
