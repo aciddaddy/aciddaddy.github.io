@@ -194,7 +194,7 @@ nav {
 }
 
 .featured-image {
-    max-width: 100%; /* Responsive width */
+    max-width: 50%; /* Responsive width */
     height: auto; /* Maintain aspect ratio */
     max-height: 300px; /* Limit height for larger screens */
 }
