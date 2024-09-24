@@ -193,14 +193,20 @@ nav {
     gap: 1rem; /* Space between the images */
 }
 
-.featured-image {
-    width: 60%; /* Match the width of the bandcamp images */
+/* Featured Image Label Section*/
+
+.large-image {
+    width: 80%; /* Adjust this value to make it larger */
     height: auto; /* Maintain aspect ratio */
-    max-width: 400px; /* Maximum width for larger screens */
-    border: 0px solid #000; /* 1pt black border */
-    border-radius: 0pt; /* 1pt rounded corners */
-    margin: 20px auto; /* Center the image with some space */
+    max-width: 500px; /* Maximum width */
+    margin: 20px auto; /* Center the image */
 }
+
+.small-image {
+    width: 60%; /* Smaller size for the images below */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 300px; /* Maximum width */
+    margin: 20px auto; /* Center the images */
 }
 
 /* Responsive adjustments for small screens */
