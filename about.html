@@ -5,15 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Favicon Link -->
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <!-- Favicon for PNG Format -->
-    <!-- <link rel="icon" href="images/303_tab.png" type="image/png"> -->
 </head>
 <body>
     <header>
-        <br>
-        <br>
         <nav>
             <a href="index.html" class="nav-button">home</a>
             <a href="about.html" class="nav-button">about me</a>
@@ -26,20 +21,33 @@
     </header>
 
     <main>
-    <h1>about me</h1>
-    
-    <img src="images/IMG_1860.JPG" alt="deep field - columbus, oh" class="about-image">
+        <h1>about me</h1>
+        
+        <img src="images/IMG_1860.JPG" alt="deep field - columbus, oh" class="about-image">
 
-    <section class="square-container">
-        <div class="square-item">░░░░░░【﻿ｄｊ　／／　ｐｒｏｄｕｃｅｒ　／／　ｌｉｖｅ　ｅｌｅｃｔｒｏｎｉｃｓ　／／　ｖｉｎｙｌ　ｒｅｃｏｒｄｓ　／／　ｍｕｌｔｉ－ｍｅｄｉａ　ｍａｋｅｒ　／／　ｍｙｃｏｌｏｇｙ　／／　ｓｕｓｔａｉｎａｂｌｅ　ｕｒｂａｎ　ｆａｒｍｉｎｇ　／／　ｄｉｙ　ｅｖｅｒｙｔｈｉｎｇ】░░░░░░</div>
-    </section>
-</main>
-    
+        <section class="square-container">
+            <div class="square-item">░░░░░░【﻿ｄｊ　／／　ｐｒｏｄｕｃｅｒ　／／　ｌｉｖｅ　ｅｌｅｃｔｒｏｎｉｃｓ　／／　ｖｉｎｙｌ　ｒｅｃｏｒｄｓ　／／　ｍｕｌｔｉ－ｍｅｄｉａ　ｍａｋｅｒ　／／　ｍｙｃｏｌｏｇｙ　／／　ｓｕｓｔａｉｎａｂｌｅ　ｕｒｂａｎ　ｆａｒｍｉｎｇ　／／　ｄｉｙ　ｅｖｅｒｙｔｈｉｎｇ】░░░░░░</div>
+        </section>
+    </main>
+
     <footer>
         <p>&copy; 2024 acid daddy | identity spectrum records</p>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const aboutImage = document.querySelector('.about-image');
+
+            aboutImage.addEventListener('click', function() {
+                if (aboutImage.classList.contains('enlarged')) {
+                    aboutImage.classList.remove('enlarged');
+                    aboutImage.style.transform = 'scale(1)'; // Reset scale on click
+                } else {
+                    aboutImage.classList.add('enlarged');
+                    aboutImage.style.transform = 'scale(2)'; // Enlarge on click
+                }
+            });
+        });
+    </script>
 </body>
 </html>
