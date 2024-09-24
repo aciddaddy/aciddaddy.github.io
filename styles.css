@@ -194,9 +194,13 @@ nav {
 }
 
 .featured-image {
-    max-width: 50%; /* Responsive width */
+    width: 40%; /* Match the width of the bandcamp images */
     height: auto; /* Maintain aspect ratio */
-    max-height: 300px; /* Limit height for larger screens */
+    max-width: 400px; /* Maximum width for larger screens */
+    border: 1px solid #000; /* 1pt black border */
+    border-radius: 10pt; /* 1pt rounded corners */
+    margin: 20px auto; /* Center the image with some space */
+}
 }
 
 /* Responsive adjustments for small screens */
