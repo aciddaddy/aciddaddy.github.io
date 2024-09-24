@@ -197,8 +197,8 @@ nav {
     width: 60%; /* Match the width of the bandcamp images */
     height: auto; /* Maintain aspect ratio */
     max-width: 400px; /* Maximum width for larger screens */
-    border: 1px solid #000; /* 1pt black border */
-    border-radius: 10pt; /* 1pt rounded corners */
+    border: 0px solid #000; /* 1pt black border */
+    border-radius: 0pt; /* 1pt rounded corners */
     margin: 20px auto; /* Center the image with some space */
 }
 }
