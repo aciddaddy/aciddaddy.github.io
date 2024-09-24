@@ -168,6 +168,10 @@ nav {
     color: #0687f5; /* Color for the fourth h2 */
 }
 
+    .header5 {
+    color: #0bda51; /* Color for the fifth h2 */
+}
+
 /* Chat Container */
 .chat-container {
     width: 100%; /* Full width for responsiveness */
