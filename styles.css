@@ -157,6 +157,19 @@ nav {
     color: #0687f5; /* Color for the fourth h2 */
 }
 
+/* Chat Container */
+.chat-container {
+    width: 100%; /* Full width for responsiveness */
+    max-width: 550px; /* Optional: Limit maximum width */
+    margin: 0 auto; /* Center the chat container */
+}
+
+.chat-container iframe {
+    width: 100%; /* Full width for the iframe */
+    height: 350px; /* Set a default height */
+    border: none; /* Remove border if needed */
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     .bandcamp-wrapper {
@@ -187,5 +200,18 @@ nav {
 @media (max-width: 480px) {
     .bandcamp-player {
         height: 300px; /* Further adjust height for very small screens */
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    .chat-container iframe {
+        height: 300px; /* Adjust height for smaller screens */
+    }
+}
+
+@media (max-width: 400px) {
+    .chat-container iframe {
+        height: 250px; /* Further adjust height for very small screens */
     }
 }
