@@ -55,16 +55,24 @@ nav {
 
 /*About Me Image*/
 .about-image {
-    width: 250px; /* Set width similar to gallery images */
-    height: auto; /* Maintain aspect ratio */
-    cursor: pointer; /* Show pointer cursor for clickable images */
-    transition: transform 0.3s ease; /* Smooth transform */
+    width: 250px; /* Set a fixed width for thumbnails */
+    height: 250px; /* Set a fixed height for thumbnails */
+    object-fit: cover; /* Ensure images cover the thumbnail area */
+    border: 1px solid #000; /* 1px black border */
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer; /* Show a pointer cursor for clickable images */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform and shadow */
 }
 
 /* Ensure enlarged images stay scaled */
 .about-image.enlarged {
     transform: scale(2); /* Enlarged state */
     z-index: 10; /* Bring to front */
+}
+
+/* Hover effect for about me images */
+.about-image:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
 }
 
 /* Bandcamp Player Styling */
