@@ -212,21 +212,21 @@ nav {
 @media (max-width: 768px) {
     .small-image {
         max-height: auto; /* Smaller max height on medium screens */
-        max-width: 250px; /*Smaller max width on medium screens */
+        max-width: 400px; /*Smaller max width on medium screens */
     }
     .large-image {
         max-height: auto; /* Smaller max height on medium screens */
-        max-width: 250px; /* Smaller max width on medium screens */
+        max-width: 400px; /* Smaller max width on medium screens */
 }
 
 @media (max-width: 480px) {
     .small-image {
         max-height: auto; /* Further reduce size on small screens */
-        max-width: 150px; /*Smaller max width on medium screens */
+        max-width: 300px; /*Smaller max width on medium screens */
     }
     .large-image {
         max-height: auto; /* Smaller max height on medium screens */
-        max-width: 150px; /*Smaller max width on medium screens */
+        max-width: 300px; /*Smaller max width on medium screens */
 }
 
 /* Responsive Styles */
