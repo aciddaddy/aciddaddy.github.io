@@ -206,9 +206,9 @@ nav {
 }
 
 .small-image {
-    width: 80%; /* Smaller size for the images below */
+    width: 60%; /* Smaller size for the images below */
     height: auto; /* Maintain aspect ratio */
-    max-width: 400px; /* Maximum width */
+    max-width: 300px; /* Maximum width */
     margin: 20px auto; /* Center the images */
 }
 
@@ -216,7 +216,7 @@ nav {
 @media (max-width: 768px) {
     .small-image {
         max-height: auto; /* Smaller max height on medium screens */
-        max-width: 400px; /*Smaller max width on medium screens */
+        max-width: 300px; /*Smaller max width on medium screens */
     }
     .large-image {
         max-height: auto; /* Smaller max height on medium screens */
@@ -226,7 +226,7 @@ nav {
 @media (max-width: 480px) {
     .small-image {
         max-height: auto; /* Further reduce size on small screens */
-        max-width: 300px; /*Smaller max width on medium screens */
+        max-width: 200px; /*Smaller max width on medium screens */
     }
     .large-image {
         max-height: auto; /* Smaller max height on medium screens */
