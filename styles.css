@@ -55,11 +55,13 @@ nav {
 
 /* About Me Image */
 .about-image {
-    width: 50%; /* Full width of the container */
+    display: block; /* Make the image a block element */
+    max-width: 200px; /* Maximum width of the image */
+    width: 100%; /* Full width of the container */
     height: auto; /* Maintain aspect ratio */
+    margin: 20px auto; /* Center the image with some space */
     border: none; /* No border */
     border-radius: 0; /* No rounded corners */
-    margin: 20px auto; /* Center the image with some space */
 }
 
 /* Bandcamp Player Styling */
@@ -204,15 +206,19 @@ nav {
         width: 100px; /* Smaller thumbnails on small screens */
         height: 100px; /* Maintain aspect ratio for thumbnails */
     }
-}
-.about-image {
-        width: 100%; /* Smaller thumbnails on small screens */
-        height: 100px; /* Maintain aspect ratio for thumbnails */
+
+    .about-image {
+        max-width: 150px; /* Smaller max width on mobile */
     }
+}
 
 @media (max-width: 480px) {
     .bandcamp-player {
         height: 300px; /* Further adjust height for very small screens */
+    }
+
+    .about-image {
+        max-width: 100px; /* Further reduce size on very small screens */
     }
 }
 
