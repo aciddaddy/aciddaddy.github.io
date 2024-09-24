@@ -201,7 +201,7 @@ nav {
 .large-image {
     width: 100%; /* Adjust this value to make it larger */
     height: auto; /* Maintain aspect ratio */
-    max-width: 400px; /* Maximum width */
+    max-width: 600px; /* Maximum width */
     margin: 20px auto; /* Center the image */
 }
 
