@@ -88,7 +88,7 @@ nav {
 }
 
 .bandcamp-images-wrapper {
-    margin-bottom: 1rem; /* Space between images and player*/
+    margin-bottom: 1rem; /* Space between images and player */
 }
 
 .bandcamp-image {
@@ -179,6 +179,37 @@ nav {
     width: 100%; /* Full width for the iframe */
     height: 350px; /* Set a default height */
     border: none; /* Remove border if needed */
+}
+
+/* Centered Images Section */
+.centered-images {
+    text-align: center; /* Center align the text and images */
+    margin: 2rem 0; /* Space above and below the section */
+}
+
+.image-wrapper {
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center the images */
+    gap: 1rem; /* Space between the images */
+}
+
+.featured-image {
+    max-width: 100%; /* Responsive width */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 300px; /* Limit height for larger screens */
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 768px) {
+    .featured-image {
+        max-height: 200px; /* Smaller max height on medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .featured-image {
+        max-height: 150px; /* Further reduce size on small screens */
+    }
 }
 
 /* Responsive Styles */
