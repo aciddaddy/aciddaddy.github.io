@@ -195,9 +195,9 @@ nav {
 
 /* Featured Image Label Section*/
 .large-image {
-    width: 90%; /* Adjust this value to make it larger */
+    width: 10%; /* Adjust this value to make it larger */
     height: auto; /* Maintain aspect ratio */
-    max-width: 400px; /* Maximum width */
+    max-width: 300px; /* Maximum width */
     margin: 20px auto; /* Center the image */
 }
 
