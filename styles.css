@@ -194,16 +194,15 @@ nav {
 }
 
 /* Featured Image Label Section*/
-
 .large-image {
-    width: 80%; /* Adjust this value to make it larger */
+    width: 100%; /* Adjust this value to make it larger */
     height: auto; /* Maintain aspect ratio */
     max-width: 500px; /* Maximum width */
     margin: 20px auto; /* Center the image */
 }
 
 .small-image {
-    width: 60%; /* Smaller size for the images below */
+    width: 100%; /* Smaller size for the images below */
     height: auto; /* Maintain aspect ratio */
     max-width: 300px; /* Maximum width */
     margin: 20px auto; /* Center the images */
