@@ -8,24 +8,26 @@
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <style>
         #gameCanvas {
-            border: 1px solid black;
+            border: 5px solid #fc8eac; /* Updated border color */
             display: block;
             margin: 20px auto;
-            background-color: #f0f0f0; /* Light grey to check visibility */
+            background-color: #000; /* Changed background to black */
         }
         #score {
             text-align: center;
             font-size: 20px;
-            color: black;
+            color: white; /* Changed score color to white for visibility */
             margin-top: 10px;
         }
         #startButton {
             display: block;
             margin: 0 auto;
             position: absolute;
-            top: calc(50% - 20px); /* Center vertically */
+            top: 10px; /* Placed at the top of the game */
             left: calc(50% - 75px); /* Center horizontally (assuming button width is 150px) */
             z-index: 1; /* Ensure it's above the canvas */
+            font-size: 20px; /* Increased font size */
+            padding: 10px 20px; /* Increased padding for a bigger button */
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -63,6 +65,7 @@
             var score = 0;
             var direction = "RIGHT";
             var game;
+            var isGameActive = false;
 
             $("#startButton").click(function() {
                 // Reset game state
@@ -72,6 +75,7 @@
                 snake[0] = { x: 9 * box, y: 9 * box };
                 createFood();
                 clearInterval(game);
+                isGameActive = true; // Start the game when the button is clicked
                 game = setInterval(draw, 100);
             });
 
@@ -83,6 +87,10 @@
             }
 
             $(document).keydown(function(event) {
+                if (!isGameActive) {
+                    return; // Do not change direction if the game is not active
+                }
+
                 if (event.keyCode == 37 && direction != "RIGHT") {
                     direction = "LEFT";
                 } else if (event.keyCode == 38 && direction != "DOWN") {
@@ -91,6 +99,8 @@
                     direction = "RIGHT";
                 } else if (event.keyCode == 40 && direction != "UP") {
                     direction = "DOWN";
+                } else if (event.keyCode == 32) { // Spacebar to start moving
+                    isGameActive = true; // Allow movement
                 }
                 // Prevent default arrow key action (scrolling)
                 event.preventDefault();
@@ -101,7 +111,7 @@
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
                 for (var i = 0; i < snake.length; i++) {
-                    ctx.fillStyle = (i === 0) ? "green" : "white";
+                    ctx.fillStyle = (i === 0) ? "white" : "white"; // Changed the snake color to white
                     ctx.fillRect(snake[i].x, snake[i].y, box, box);
                     ctx.strokeStyle = "black";
                     ctx.strokeRect(snake[i].x, snake[i].y, box, box);
