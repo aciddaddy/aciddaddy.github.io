@@ -4,6 +4,7 @@ $(document).ready(function() {
     var box = 20;
     var snake = [];
     var score = 0;
+    var direction = "RIGHT"; // Initialize the direction
 
     snake[0] = { x: 9 * box, y: 9 * box };
 
@@ -54,7 +55,7 @@ $(document).ready(function() {
                 y: Math.floor(Math.random() * 18 + 1) * box
             };
         } else {
-            snake.pop();
+            snake.pop(); // Remove the last segment of the snake
         }
 
         var newHead = {
@@ -83,4 +84,3 @@ $(document).ready(function() {
 
     var game = setInterval(draw, 100);
 });
-
