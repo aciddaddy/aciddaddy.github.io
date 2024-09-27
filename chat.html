@@ -19,6 +19,14 @@
             color: black;
             margin-top: 10px;
         }
+        #startButton {
+            display: block;
+            margin: 0 auto;
+            position: absolute;
+            top: calc(50% - 20px); /* Center vertically */
+            left: calc(50% - 75px); /* Center horizontally (assuming button width is 150px) */
+            z-index: 1; /* Ensure it's above the canvas */
+        }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
@@ -84,6 +92,8 @@
                 } else if (event.keyCode == 40 && direction != "UP") {
                     direction = "DOWN";
                 }
+                // Prevent default arrow key action (scrolling)
+                event.preventDefault();
             });
 
             function draw() {
