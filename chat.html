@@ -21,13 +21,17 @@
         }
         #startButton {
             display: block;
-            margin: 0 auto;
-            position: absolute;
-            top: 10px; /* Placed at the top of the game */
-            left: calc(50% - 75px); /* Center horizontally (assuming button width is 150px) */
-            z-index: 1; /* Ensure it's above the canvas */
-            font-size: 20px; /* Increased font size */
+            margin: 10px auto; /* Positioned under the header */
+            position: relative; /* Changed to relative for correct placement */
+            font-size: 12px; /* Increased font size */
             padding: 10px 20px; /* Increased padding for a bigger button */
+            background-color: #fc8eac; /* Same color as page buttons */
+            border: none; /* Removed default button border */
+            color: white; /* Text color for visibility */
+            cursor: pointer; /* Change cursor to pointer on hover */
+        }
+        #startButton:hover {
+            background-color: #e07b94; /* Slightly darker on hover */
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -48,10 +52,10 @@
     <main><br>
         <h1>web café</h1>
 
-        <h2>Snake Game</h2>
+        <h2>snake game</h2>
         <canvas id="gameCanvas" width="400" height="400"></canvas>
         <div id="score">Score: 0</div>
-        <button id="startButton">Start Game</button>
+        <button id="startButton">start game</button>
 
         <div class="chat-container">
             <iframe width="550" height="350" scrolling="no" src="https://widget.mibbit.com/?settings=50f1d470165e4250fd454052c020bb92&server=&channel=%23aciddaddy1_test"></iframe>
@@ -76,7 +80,7 @@
                 createFood();
                 clearInterval(game);
                 isGameActive = true; // Start the game when the button is clicked
-                game = setInterval(draw, 100);
+                game = setInterval(draw, 150); // Slowed down the game speed
             });
 
             function createFood() {
@@ -111,7 +115,7 @@
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
                 for (var i = 0; i < snake.length; i++) {
-                    ctx.fillStyle = (i === 0) ? "white" : "white"; // Changed the snake color to white
+                    ctx.fillStyle = (i === 0) ? "#fc8eac" : "white"; // Snake color matches page buttons
                     ctx.fillRect(snake[i].x, snake[i].y, box, box);
                     ctx.strokeStyle = "black";
                     ctx.strokeRect(snake[i].x, snake[i].y, box, box);
