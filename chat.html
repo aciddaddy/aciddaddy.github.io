@@ -21,7 +21,7 @@
         }
         #startButton {
             display: block;
-            margin: 5px auto; /* Positioned closer to the game */
+            margin: 2px auto; /* Positioned closer to the game */
             position: relative; /* Changed to relative for correct placement */
             font-size: 12px; /* Increased font size */
             padding: 10px 20px; /* Increased padding for a bigger button */
@@ -115,7 +115,7 @@
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
                 for (var i = 0; i < snake.length; i++) {
-                    ctx.fillStyle = (i === 0) ? "#fc8eac" : "#fc8eac"; // Snake color matches page buttons
+                    ctx.fillStyle = (i === 0) ? "#00ff00" : "#00ff00"; // Snake color matches page buttons
                     ctx.fillRect(snake[i].x, snake[i].y, box, box);
                     ctx.strokeStyle = "black";
                     ctx.strokeRect(snake[i].x, snake[i].y, box, box);
