@@ -8,7 +8,7 @@
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <style>
         #gameCanvas {
-            border: 5px solid #fc8eac; /* Updated border color */
+            border: 3px solid #fc8eac; /* Thinner border */
             display: block;
             margin: 20px auto;
             background-color: #000; /* Changed background to black */
@@ -21,7 +21,7 @@
         }
         #startButton {
             display: block;
-            margin: 10px auto; /* Positioned under the header */
+            margin: 5px auto; /* Positioned closer to the game */
             position: relative; /* Changed to relative for correct placement */
             font-size: 12px; /* Increased font size */
             padding: 10px 20px; /* Increased padding for a bigger button */
@@ -115,7 +115,7 @@
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
                 for (var i = 0; i < snake.length; i++) {
-                    ctx.fillStyle = (i === 0) ? "#fc8eac" : "white"; // Snake color matches page buttons
+                    ctx.fillStyle = (i === 0) ? "#fc8eac" : "#fc8eac"; // Snake color matches page buttons
                     ctx.fillRect(snake[i].x, snake[i].y, box, box);
                     ctx.strokeStyle = "black";
                     ctx.strokeRect(snake[i].x, snake[i].y, box, box);
