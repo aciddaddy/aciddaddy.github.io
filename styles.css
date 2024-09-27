@@ -168,7 +168,7 @@ nav {
     color: #0687f5; /* Color for the fourth h2 */
 }
 
-.header5 {
+ .header5 {
     color: #0bda51; /* Color for the fifth h2 */
 }
 
@@ -221,7 +221,6 @@ nav {
     .large-image {
         max-height: auto; /* Smaller max height on medium screens */
         max-width: 400px; /* Smaller max width on medium screens */
-    }
 }
 
 @media (max-width: 480px) {
@@ -232,7 +231,6 @@ nav {
     .large-image {
         max-height: auto; /* Smaller max height on medium screens */
         max-width: 300px; /*Smaller max width on medium screens */
-    }
 }
 
 /* Responsive Styles */
@@ -287,23 +285,4 @@ nav {
     .chat-container iframe {
         height: 250px; /* Further adjust height for very small screens */
     }
-}
-
-/* Snake Game Styles */
-body {
-    background: #000;
-    color: #fff;
-}
-
-#gameCanvas {
-    border: 1px solid #fff; /* White border around the game */
-    display: block;
-    margin: 20px auto; /* Center the canvas */
-}
-
-#score {
-    text-align: center;
-    font-size: 20px;
-    color: white; /* Make score text white */
-    margin-top: 10px;
 }
