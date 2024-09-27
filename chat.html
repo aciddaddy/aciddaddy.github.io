@@ -33,6 +33,12 @@
         #startButton:hover {
             background-color: #e07b94; /* Slightly darker on hover */
         }
+        #message {
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace; /* Courier New font */
+            color: white; /* Message color */
+            margin-bottom: 10px; /* Spacing below the message */
+        }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
@@ -51,8 +57,9 @@
 
     <main><br>
         <h1>web café</h1>
-
+<br>
         <h2>snake game</h2>
+        <div id="message">use arrow keys to feed snake</div> <!-- Message added -->
         <canvas id="gameCanvas" width="400" height="400"></canvas>
         <div id="score">Score: 0</div>
         <button id="startButton">start game</button>
