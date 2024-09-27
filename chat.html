@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>chat room</title>
+    <title>web café</title>
     <link rel="stylesheet" href="styles.css">
     <!-- Favicon Link -->
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
@@ -17,12 +17,28 @@
             <a href="record-label.html" class="nav-button">record label</a>
             <a href="gallery.html" class="nav-button">gallery</a>
             <a href="blog.html" class="nav-button">blog</a>
-            <a href="chat.html" class="nav-button">chat room</a>
+            <a href="chat.html" class="nav-button">web café</a>
         </nav>
     </header>
 
     <main><br>
-        <h1>chat room</h1>
+        <h1>web café</h1>
+         <div class="b-panel">
+    Score:
+    <span id="g-score">0</span>
+    <div class="b-panel_right">
+      Change color:
+      <label><input onclick="ChangeGameColor(1)" type="radio" name="color" />Red</label>
+      <label><input onclick="ChangeGameColor(0)" type="radio" checked="checked" name="color" />Green</label>
+      <label><input onclick="ChangeGameColor(2)" type="radio" name="color" />Blue</label>
+    </div>
+  </div>
+  <canvas id="g-game"></canvas>
+  <div id="g-endgame" class="b-msgbox">
+    <div id="g-leaderboard"></div>
+    <button class="b-button" onclick="SaveScore(game.score,this)">Save score</button>
+    <button class="b-button" onclick="(function(){window.location.href = window.location.pathname})()">New game</button>
+</div>
         <div class="chat-container">
             <!-- Insert your chat room embed code here -->
             <iframe width="550" height="350" scrolling="no" src="https://widget.mibbit.com/?settings=50f1d470165e4250fd454052c020bb92&server=&channel=%23aciddaddy1_test"></iframe>
