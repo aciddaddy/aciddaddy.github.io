@@ -16,6 +16,7 @@
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Shadow effect */
             padding: 15px; /* Padding inside the blog post */
             margin-bottom: 20px; /* Spacing between blog posts */
+            background-color: #f0f0f0; /* Change this color to match the header */
         }
 
         /* Responsive image styling */
@@ -26,11 +27,12 @@
             margin: 0 auto; /* Center the image */
             cursor: pointer; /* Change cursor to indicate clickable */
             transition: transform 0.3s ease; /* Smooth transition for scaling */
+            transform: scale(1.2); /* Start slightly larger */
         }
 
         /* Enlarged state for images */
         .enlarged {
-            transform: scale(2); /* Scale up the image */
+            transform: scale(2.5); /* Scale up the image more */
             z-index: 1000; /* Ensure the enlarged image is above others */
             position: relative; /* Position relative for z-index to work */
         }
@@ -121,10 +123,10 @@
                 image.addEventListener('click', function() {
                     if (image.classList.contains('enlarged')) {
                         image.classList.remove('enlarged');
-                        image.style.transform = 'scale(3)'; // Reset scale on click
+                        image.style.transform = 'scale(1.2)'; // Reset to larger starting size
                     } else {
                         image.classList.add('enlarged');
-                        image.style.transform = 'scale(5)'; // Enlarge on click
+                        image.style.transform = 'scale(2.5)'; // Enlarge even more on click
                     }
                 });
             });
