@@ -33,6 +33,11 @@
         .chat-container {
             margin-top: 20px;
         }
+        .control-btn {
+            width: 60px;
+            height: 60px;
+            margin: 10px;
+        }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
@@ -62,10 +67,10 @@
     </div>
         
     <div>
-        <button onclick="u()" type="button" id="U">U</button>
-        <button onclick="l()" type="button" id="L">L</button>
-        <button onclick="r()" type="button" id="R">R</button>
-        <button onclick="d()" type="button" id="D">D</button>
+        <button onclick="u()" type="button" class="control-btn">U</button>
+        <button onclick="l()" type="button" class="control-btn">L</button>
+        <button onclick="r()" type="button" class="control-btn">R</button>
+        <button onclick="d()" type="button" class="control-btn">D</button>
     </div>
         
     <script>
@@ -106,6 +111,17 @@
     function d() {
         if (direction !== "UP") direction = "DOWN";
     }
+
+    // Set up touch event listeners for buttons
+    $(".control-btn").on("touchstart", function(event) {
+        event.preventDefault(); // Prevent default touch behavior
+        switch ($(this).text()) {
+            case 'L': l(); break;
+            case 'U': u(); break;
+            case 'R': r(); break;
+            case 'D': d(); break;
+        }
+    });
 
     function startGame() {
         snake = [];
