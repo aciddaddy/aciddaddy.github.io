@@ -7,22 +7,27 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <style>
-    .soundcloud-wrapper {
-        border: 1px solid black; /* 1pt black border */
-        border-radius: 10px; /* Rounded edges */
-        overflow: hidden; /* Ensures border rounds off correctly */
-        margin: 0 auto 15px; /* Center the wrapper and space below */
-        width: calc(100% - 40px); /* Set width slightly smaller than the page */
-        max-width: 800px; /* Optional max width for larger screens */
-        background-color: #f0f0f0; /* Background color of the player */
-    }
-    iframe {
-        width: 100%; /* Make iframe responsive within the wrapper */
-        border: none; /* Remove border from iframe */
-    }
-</style>
+        .soundcloud-wrapper {
+            border: 1px solid black; /* 1pt black border */
+            border-radius: 10px; /* Rounded edges */
+            overflow: hidden; /* Ensures content stays within rounded corners */
+            margin: 0 auto 15px; /* Center the wrapper and space below */
+            width: calc(100% - 40px); /* Set width slightly smaller than the page */
+            max-width: 800px; /* Optional max width for larger screens */
+            background-color: #f0f0f0; /* Background color of the player */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow for better visibility */
+        }
 
+        iframe {
+            width: 100%; /* Make iframe responsive within the wrapper */
+            border: none; /* Remove border from iframe */
+            border-radius: 10px; /* Match iframe corners with wrapper corners */
+        }
+
+        /* Other styles... (keep your existing styles here) */
+    </style>
 </head>
+
 <body>
     <header>
         <nav>
