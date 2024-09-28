@@ -239,7 +239,7 @@ a:hover {
 .image-wrapper {
     display: flex; /* Use flexbox for layout */
     justify-content: center; /* Center the images */
-    gap: 1rem; /* Space between the images */
+    gap: 0.5rem; /* Adjusted space between the images */
 }
 
 /* Featured Image Label Section */
