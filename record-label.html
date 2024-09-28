@@ -31,6 +31,13 @@
             max-width: 100%; /* Allow images to maintain their natural width */
             height: auto; /* Maintain aspect ratio */
             display: block; /* Ensure images are block elements for better centering */
+            transition: transform 0.3s ease; /* Smooth transition for scaling */
+            cursor: pointer; /* Show pointer cursor on hover */
+        }
+
+        .bandcamp-image.enlarged {
+            transform: scale(2); /* Enlarge the image */
+            z-index: 10; /* Bring enlarged image above others */
         }
 
         .bandcamp-player {
@@ -121,17 +128,11 @@
         
         images.forEach(function(image) {
             image.addEventListener('click', function() {
-                if (image.classList.contains('enlarged')) {
-                    image.classList.remove('enlarged');
-                    image.style.transform = 'scale(1)'; // Reset scale on click
-                } else {
-                    image.classList.add('enlarged');
-                    image.style.transform = 'scale(2)'; // Enlarge on click
-                }
+                image.classList.toggle('enlarged'); // Toggle enlargement on click
             });
         });
     });
 </script>
-                    
+
 </body>
 </html>
