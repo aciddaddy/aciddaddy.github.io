@@ -8,12 +8,11 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <style>
-        h3 {
-            font-family: 'Courier New', Courier, monospace; /* Apply Courier New font */
-        }
 
         .bandcamp-wrapper {
             margin: 10px 0; /* Space between sections */
+            display: flex; /* Use flexbox for alignment */
+            justify-content: center; /* Center the content horizontally */
         }
 
         .bandcamp-content {
@@ -21,8 +20,18 @@
             border-radius: 8px; /* Rounded edges */
             background-color: #f0f0f0; /* Background color */
             padding: 15px; /* Padding around content */
-            width: fit-content; /* Width to fit the content */
-            margin: 0 auto; /* Center the section */
+            max-width: 700px; /* Set a max width for consistency */
+            width: 100%; /* Allow it to fill the space */
+            display: flex; /* Use flexbox for alignment */
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center items horizontally */
+        }
+
+        .bandcamp-images-wrapper {
+            display: flex; /* Align images side by side */
+            justify-content: center; /* Center images horizontally */
+            gap: 10px; /* Space between images */
+            margin-bottom: 10px; /* Space below images */
         }
 
         .bandcamp-player {
