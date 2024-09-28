@@ -94,32 +94,31 @@
     });
 
     // Touch event listeners for mobile control
-$("#gameCanvas").on("touchstart", function(event) {
-    if (!isGameActive) {
-        startGame(); // Start game on touch
-    } else {
-        // Prevent default touch actions
-        event.preventDefault();
+    $("#gameCanvas").on("touchstart", function(event) {
+        event.preventDefault(); // Prevent default touch actions
 
-        var touchX = event.touches[0].clientX - canvas.offsetLeft;
-        var touchY = event.touches[0].clientY - canvas.offsetTop;
+        if (!isGameActive) {
+            startGame(); // Start game on touch
+        } else {
+            var touchX = event.touches[0].clientX - canvas.getBoundingClientRect().left;
+            var touchY = event.touches[0].clientY - canvas.getBoundingClientRect().top;
 
-        // Calculate the center point of the canvas
-        var centerX = canvas.width / 2;
-        var centerY = canvas.height / 2;
+            // Calculate the center point of the canvas
+            var centerX = canvas.width / 2;
+            var centerY = canvas.height / 2;
 
-        // Determine direction based on tap location relative to center
-        if (touchX < centerX && direction != "RIGHT") {
-            direction = "LEFT";
-        } else if (touchX > centerX && direction != "LEFT") {
-            direction = "RIGHT";
-        } else if (touchY < centerY && direction != "DOWN") {
-            direction = "UP";
-        } else if (touchY > centerY && direction != "UP") {
-            direction = "DOWN";
+            // Determine direction based on tap location relative to center
+            if (touchX < centerX && direction != "RIGHT") {
+                direction = "LEFT";
+            } else if (touchX > centerX && direction != "LEFT") {
+                direction = "RIGHT";
+            } else if (touchY < centerY && direction != "DOWN") {
+                direction = "UP";
+            } else if (touchY > centerY && direction != "UP") {
+                direction = "DOWN";
+            }
         }
-    }
-});
+    });
 
     function startGame() {
         // Reset game state
@@ -193,10 +192,9 @@ $("#gameCanvas").on("touchstart", function(event) {
         }
         return false;
     }
-</script>
+    </script>
 
 </main>
-
 
     <footer>
         <p>&copy; 2024 acid daddy | identity spectrum records</p>
