@@ -23,6 +23,7 @@
         .bandcamp-images-wrapper {
             display: flex; /* Align images side by side */
             justify-content: center; /* Center images horizontally */
+            align-items: center; /* Center images vertically */
             gap: 5px; /* Reduce space between images */
             margin: 10px 0; /* Space above and below images */
         }
@@ -30,6 +31,8 @@
         .bandcamp-image {
             max-width: 400px; /* Set max width for images */
             height: auto; /* Maintain aspect ratio */
+            display: block; /* Ensure images are block elements for better centering */
+            margin: auto; /* Center images inside their flex container */
         }
 
         .bandcamp-player {
