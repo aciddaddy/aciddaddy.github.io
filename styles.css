@@ -172,14 +172,18 @@ a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
 }
 
-/* Blog Posts Styling */
-.blog-post {
-    border: 1px solid #000; /* 1pt black border */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
-    margin: 1rem; /* Space around blog posts */
-    padding: 1rem; /* Padding inside blog posts */
-}
+ /* Blog Posts Styling */
+        .blog-posts {
+            width: 80%; /* Set the width of the blog posts */
+            max-width: 600px; /* Maximum width for larger screens */
+            margin: 0 auto; /* Center the blog posts */
+            border: 1px solid black; /* 1pt black border */
+            border-radius: 10px; /* Rounded edges */
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Shadow effect */
+            padding: 15px; /* Padding inside the blog post */
+            margin-bottom: 20px; /* Spacing between blog posts */
+            background-color: #f0f0f0; /* Change this color to match the header */
+        }
 
 .blog-posts h2 {
     font-family: 'Arial', sans-serif; /* Use the same font as the body */
