@@ -50,153 +50,151 @@
     </header>
 
     <main><br>
-    <h1></h1>
-<br>
-    <h2 style="font-family: 'Courier New', Courier, monospace;">snake game</h2> <!-- Title font changed to Courier -->
-    <div id="message"> [ use arrow keys to feed snake. press space bar or tap screen to begin ] </div> <!-- Message added -->
-    <canvas id="gameCanvas" width="400" height="400"></canvas>
-    <div id="score">score: 0</div>
+        <h1></h1>
+        <br>
+        <h2 style="font-family: 'Courier New', Courier, monospace;">snake game</h2> <!-- Title font changed to Courier -->
+        <div id="message"> [ use arrow keys to feed snake. press space bar or tap screen to begin ] </div> <!-- Message added -->
+        <canvas id="gameCanvas" width="400" height="400"></canvas>
+        <div id="score">score: 0</div>
 
-    <div class="chat-container">
-        <iframe width="550" height="350" scrolling="no" src="https://widget.mibbit.com/?settings=50f1d470165e4250fd454052c020bb92&server=&channel=%23aciddaddy1_test"></iframe>
-    </div>
+        <div class="chat-container">
+            <iframe width="550" height="350" scrolling="no" src="https://widget.mibbit.com/?settings=50f1d470165e4250fd454052c020bb92&server=&channel=%23aciddaddy1_test"></iframe>
+        </div>
 
-    <script>
-    var canvas = $("#gameCanvas")[0];
-    var ctx = canvas.getContext("2d");
-    var box = 20;
-    var snake = [];
-    var score = 0;
-    var direction = "RIGHT";
-    var game;
-    var isGameActive = false;
+        <script>
+            var canvas = $("#gameCanvas")[0];
+            var ctx = canvas.getContext("2d");
+            var box = 20;
+            var snake = [];
+            var score = 0;
+            var direction = "RIGHT";
+            var game;
+            var isGameActive = false;
 
-    $(document).keydown(function(event) {
-        if (event.keyCode == 32 && !isGameActive) { // Spacebar to start the game
-            startGame();
-        }
+            $(document).keydown(function(event) {
+                if (event.keyCode == 32 && !isGameActive) { // Spacebar to start the game
+                    startGame();
+                }
 
-        if (!isGameActive) {
-            return; // Do not change direction if the game is not active
-        }
+                if (!isGameActive) {
+                    return; // Do not change direction if the game is not active
+                }
 
-        if (event.keyCode == 37 && direction != "RIGHT") {
-            direction = "LEFT";
-        } else if (event.keyCode == 38 && direction != "DOWN") {
-            direction = "UP";
-        } else if (event.keyCode == 39 && direction != "LEFT") {
-            direction = "RIGHT";
-        } else if (event.keyCode == 40 && direction != "UP") {
-            direction = "DOWN";
-        }
-        // Prevent default arrow key action (scrolling)
-        event.preventDefault();
-    });
+                if (event.keyCode == 37 && direction != "RIGHT") {
+                    direction = "LEFT";
+                } else if (event.keyCode == 38 && direction != "DOWN") {
+                    direction = "UP";
+                } else if (event.keyCode == 39 && direction != "LEFT") {
+                    direction = "RIGHT";
+                } else if (event.keyCode == 40 && direction != "UP") {
+                    direction = "DOWN";
+                }
+                // Prevent default arrow key action (scrolling)
+                event.preventDefault();
+            });
 
-    // Touch event listeners for mobile control
-$("#gameCanvas").on("touchstart", function(event) {
-    if (!isGameActive) {
-        startGame(); // Start game on touch
-    } else {
-        // Prevent default touch actions
-        event.preventDefault();
+            // Touch event listeners for mobile control
+            $("#gameCanvas").on("touchstart", function(event) {
+                if (!isGameActive) {
+                    startGame(); // Start game on touch
+                } else {
+                    event.preventDefault(); // Prevent default touch actions
 
-        var touchX = event.touches[0].clientX - canvas.offsetLeft;
-        var touchY = event.touches[0].clientY - canvas.offsetTop;
+                    var touchX = event.touches[0].clientX - canvas.getBoundingClientRect().left;
+                    var touchY = event.touches[0].clientY - canvas.getBoundingClientRect().top;
 
-        // Calculate the center point of the canvas
-        var centerX = canvas.width / 2;
-        var centerY = canvas.height / 2;
+                    // Calculate the center point of the canvas
+                    var centerX = canvas.width / 2;
+                    var centerY = canvas.height / 2;
 
-        // Determine direction based on tap location relative to center
-        if (touchX < centerX && direction != "RIGHT") {
-            direction = "LEFT";
-        } else if (touchX > centerX && direction != "LEFT") {
-            direction = "RIGHT";
-        } else if (touchY < centerY && direction != "DOWN") {
-            direction = "UP";
-        } else if (touchY > centerY && direction != "UP") {
-            direction = "DOWN";
-        }
-    }
-});
+                    // Determine direction based on tap location relative to center
+                    if (touchX < centerX && direction != "RIGHT") {
+                        direction = "LEFT";
+                    } else if (touchX > centerX && direction != "LEFT") {
+                        direction = "RIGHT";
+                    } else if (touchY < centerY && direction != "DOWN") {
+                        direction = "UP";
+                    } else if (touchY > centerY && direction != "UP") {
+                        direction = "DOWN";
+                    }
+                }
+            });
 
-    function startGame() {
-        // Reset game state
-        snake = [];
-        score = 0;
-        direction = "RIGHT";
-        snake[0] = { x: 9 * box, y: 9 * box };
-        createFood();
-        clearInterval(game);
-        isGameActive = true; // Start the game
-        game = setInterval(draw, 150); // Slowed down the game speed
-    }
-
-    function createFood() {
-        food = {
-            x: Math.floor(Math.random() * 18 + 1) * box,
-            y: Math.floor(Math.random() * 18 + 1) * box
-        };
-    }
-
-    function draw() {
-        ctx.fillStyle = "#000";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        for (var i = 0; i < snake.length; i++) {
-            ctx.fillStyle = (i === 0) ? "#00ff00" : "#00ff00"; // Snake color matches page buttons
-            ctx.fillRect(snake[i].x, snake[i].y, box, box);
-            ctx.strokeStyle = "black";
-            ctx.strokeRect(snake[i].x, snake[i].y, box, box);
-        }
-
-        // Change apple color to #fc8eac
-        ctx.fillStyle = "#fc8eac"; // Apple color
-        ctx.fillRect(food.x, food.y, box, box);
-
-        var snakeX = snake[0].x;
-        var snakeY = snake[0].y;
-
-        if (direction == "LEFT") snakeX -= box;
-        if (direction == "UP") snakeY -= box;
-        if (direction == "RIGHT") snakeX += box;
-        if (direction == "DOWN") snakeY += box;
-
-        if (snakeX == food.x && snakeY == food.y) {
-            score++;
-            $("#score").text("Score: " + score);
-            createFood();
-        } else {
-            snake.pop();
-        }
-
-        var newHead = {
-            x: snakeX,
-            y: snakeY
-        };
-
-        if (snakeX < 0 || snakeY < 0 || snakeX >= canvas.width || snakeY >= canvas.height || collision(newHead, snake)) {
-            clearInterval(game);
-            alert("Game Over! Your score: " + score);
-            document.location.reload();
-        }
-
-        snake.unshift(newHead);
-    }
-
-    function collision(head, array) {
-        for (var i = 0; i < array.length; i++) {
-            if (head.x == array[i].x && head.y == array[i].y) {
-                return true;
+            function startGame() {
+                // Reset game state
+                snake = [];
+                score = 0;
+                direction = "RIGHT";
+                snake[0] = { x: 9 * box, y: 9 * box };
+                createFood();
+                clearInterval(game);
+                isGameActive = true; // Start the game
+                game = setInterval(draw, 150); // Slowed down the game speed
             }
-        }
-        return false;
-    }
-</script>
 
-</main>
+            function createFood() {
+                food = {
+                    x: Math.floor(Math.random() * 18 + 1) * box,
+                    y: Math.floor(Math.random() * 18 + 1) * box
+                };
+            }
 
+            function draw() {
+                ctx.fillStyle = "#000";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                for (var i = 0; i < snake.length; i++) {
+                    ctx.fillStyle = (i === 0) ? "#00ff00" : "#00ff00"; // Snake color matches page buttons
+                    ctx.fillRect(snake[i].x, snake[i].y, box, box);
+                    ctx.strokeStyle = "black";
+                    ctx.strokeRect(snake[i].x, snake[i].y, box, box);
+                }
+
+                // Change apple color to #fc8eac
+                ctx.fillStyle = "#fc8eac"; // Apple color
+                ctx.fillRect(food.x, food.y, box, box);
+
+                var snakeX = snake[0].x;
+                var snakeY = snake[0].y;
+
+                if (direction == "LEFT") snakeX -= box;
+                if (direction == "UP") snakeY -= box;
+                if (direction == "RIGHT") snakeX += box;
+                if (direction == "DOWN") snakeY += box;
+
+                if (snakeX == food.x && snakeY == food.y) {
+                    score++;
+                    $("#score").text("Score: " + score);
+                    createFood();
+                } else {
+                    snake.pop();
+                }
+
+                var newHead = {
+                    x: snakeX,
+                    y: snakeY
+                };
+
+                if (snakeX < 0 || snakeY < 0 || snakeX >= canvas.width || snakeY >= canvas.height || collision(newHead, snake)) {
+                    clearInterval(game);
+                    alert("Game Over! Your score: " + score);
+                    document.location.reload();
+                }
+
+                snake.unshift(newHead);
+            }
+
+            function collision(head, array) {
+                for (var i = 0; i < array.length; i++) {
+                    if (head.x == array[i].x && head.y == array[i].y) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        </script>
+
+    </main>
 
     <footer>
         <p>&copy; 2024 acid daddy | identity spectrum records</p>
