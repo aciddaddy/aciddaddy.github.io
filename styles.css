@@ -54,7 +54,12 @@ nav {
     color: #000; /* Black text */
 }
 
-/* Change the font for all links */
+/* Make all links bold */
+a {
+    font-weight: bold; /* Set links to bold */
+}
+
+/* Change the font for links */
 a {
     font-family: 'Courier New', Courier, monospace; /* Set to Courier */
     font-size: 16px; /* Adjust the font size as needed */
@@ -100,6 +105,7 @@ a:hover {
     color: #0000EE; /* Blue text for the link */
 }
 
+/* Bandcamp Player */
 .bandcamp-player {
     width: 100%;
     max-width: 600px; /* Ensure the player doesn't exceed this width */
@@ -109,10 +115,12 @@ a:hover {
     margin: 0 auto; /* Center the player */
 }
 
+/* Bandcamp Images Wrapper */
 .bandcamp-images-wrapper {
     margin-bottom: 1rem; /* Space between images and player */
 }
 
+/* Bandcamp Image */
 .bandcamp-image {
     width: 40%; /* Set width to 40% of the container's width */
     height: auto; /* Maintain aspect ratio */
@@ -240,7 +248,7 @@ a:hover {
     gap: 1rem; /* Space between the images */
 }
 
-/* Featured Image Label Section*/
+/* Featured Image Label Section */
 .large-image {
     width: 100%; /* Adjust this value to make it larger */
     height: auto; /* Maintain aspect ratio */
@@ -259,7 +267,7 @@ a:hover {
 @media (max-width: 768px) {
     .small-image {
         max-height: auto; /* Smaller max height on medium screens */
-        max-width: 300px; /*Smaller max width on medium screens */
+        max-width: 300px; /* Smaller max width on medium screens */
     }
     .large-image {
         max-height: auto; /* Smaller max height on medium screens */
@@ -270,11 +278,11 @@ a:hover {
 @media (max-width: 480px) {
     .small-image {
         max-height: auto; /* Further reduce size on small screens */
-        max-width: 200px; /*Smaller max width on medium screens */
+        max-width: 200px; /* Smaller max width on medium screens */
     }
     .large-image {
         max-height: auto; /* Smaller max height on medium screens */
-        max-width: 300px; /*Smaller max width on medium screens */
+        max-width: 300px; /* Smaller max width on medium screens */
     }
 }
 
