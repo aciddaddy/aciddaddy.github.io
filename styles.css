@@ -153,10 +153,8 @@ nav {
 
 .blog-posts h2 {
     color: white; /* Change to your desired text color */
-    text-shadow: 2px 2px 0px black, /* Outline color */
-                 -2px -2px 0px black,
-                 2px -2px 0px black,
-                 -2px 2px 0px black; /* You can adjust the pixels for thickness */
+    -webkit-text-stroke: 1px #fc8eac; /* Outline effect */
+    text-stroke: 1px #fc8eac; /* Outline effect for standard browsers */
 }
 
 /* Header Colors for h2 */
