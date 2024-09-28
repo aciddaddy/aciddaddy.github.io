@@ -100,6 +100,14 @@
     var game;
     var isGameActive = false;
 
+    // Track button states
+    var buttonState = {
+        left: false,
+        up: false,
+        down: false,
+        right: false
+    };
+
     $(document).keydown(function(event) {
         if (event.keyCode == 32 && !isGameActive) {
             startGame();
@@ -111,56 +119,68 @@
 
         switch (event.keyCode) {
             case 37: // Left
-                if (direction !== "RIGHT") direction = "LEFT";
+                buttonState.left = true;
                 break;
             case 38: // Up
-                if (direction !== "DOWN") direction = "UP";
+                buttonState.up = true;
                 break;
             case 39: // Right
-                if (direction !== "LEFT") direction = "RIGHT";
+                buttonState.right = true;
                 break;
             case 40: // Down
-                if (direction !== "UP") direction = "DOWN";
+                buttonState.down = true;
                 break;
         }
         event.preventDefault();
     });
 
-    $("#gameCanvas").on("touchstart", function(event) {
-        event.preventDefault();
-
-        if (!isGameActive) {
-            startGame();
-        } else {
-            var touchX = event.touches[0].clientX - canvas.getBoundingClientRect().left;
-            var touchY = event.touches[0].clientY - canvas.getBoundingClientRect().top;
-
-            if (touchX < canvas.width / 3 && direction !== "RIGHT") {
-                direction = "LEFT";
-            } else if (touchX > (canvas.width * 2) / 3 && direction !== "LEFT") {
-                direction = "RIGHT";
-            } else if (touchY < canvas.height / 3 && direction !== "DOWN") {
-                direction = "UP";
-            } else if (touchY > (canvas.height * 2) / 3 && direction !== "UP") {
-                direction = "DOWN";
-            }
+    $(document).keyup(function(event) {
+        switch (event.keyCode) {
+            case 37: // Left
+                buttonState.left = false;
+                break;
+            case 38: // Up
+                buttonState.up = false;
+                break;
+            case 39: // Right
+                buttonState.right = false;
+                break;
+            case 40: // Down
+                buttonState.down = false;
+                break;
         }
     });
 
-    $("#leftBtn").on("click", function() {
-        if (direction !== "RIGHT") direction = "LEFT";
+    // Touch event for mobile control
+    $("#gameCanvas").on("touchstart", function(event) {
+        event.preventDefault();
+        if (!isGameActive) {
+            startGame();
+        }
     });
 
-    $("#upBtn").on("click", function() {
-        if (direction !== "DOWN") direction = "UP";
+    $("#leftBtn").on("mousedown touchstart", function() {
+        buttonState.left = true;
     });
 
-    $("#downBtn").on("click", function() {
-        if (direction !== "UP") direction = "DOWN";
+    $("#upBtn").on("mousedown touchstart", function() {
+        buttonState.up = true;
     });
 
-    $("#rightBtn").on("click", function() {
-        if (direction !== "LEFT") direction = "RIGHT";
+    $("#downBtn").on("mousedown touchstart", function() {
+        buttonState.down = true;
+    });
+
+    $("#rightBtn").on("mousedown touchstart", function() {
+        buttonState.right = true;
+    });
+
+    // Release the button on mouseup/touchend
+    $(".control-btn").on("mouseup touchend", function() {
+        buttonState.left = false;
+        buttonState.up = false;
+        buttonState.down = false;
+        buttonState.right = false;
     });
 
     function startGame() {
@@ -184,6 +204,12 @@
     function draw() {
         ctx.fillStyle = "#000";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Change direction based on button states
+        if (buttonState.left && direction !== "RIGHT") direction = "LEFT";
+        if (buttonState.up && direction !== "DOWN") direction = "UP";
+        if (buttonState.right && direction !== "LEFT") direction = "RIGHT";
+        if (buttonState.down && direction !== "UP") direction = "DOWN";
 
         for (var i = 0; i < snake.length; i++) {
             ctx.fillStyle = (i === 0) ? "#00ff00" : "#00ff00";
@@ -241,5 +267,4 @@
         <p>&copy; 2024 acid daddy | identity spectrum records</p>
     </footer>
     <br>
-</body>
-</html>
+</
