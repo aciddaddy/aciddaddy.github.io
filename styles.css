@@ -155,6 +155,11 @@ nav {
     color: #fc8eac; /* Change to your desired text color */
     -webkit-text-stroke: 1px #000; /* Outline effect */
     text-stroke: 1px #000; /* Outline effect for standard browsers */
+    color: white; /* Change to your desired text color */
+    text-shadow: 2px 2px 0px black, /* Outline color */
+                 -2px -2px 0px black,
+                 2px -2px 0px black,
+                 -2px 2px 0px black; /* You can adjust the pixels for thickness */
 }
 
 /* Header Colors for h2 */
