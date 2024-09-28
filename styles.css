@@ -172,18 +172,18 @@ a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
 }
 
- /* Blog Posts Styling */
-        .blog-posts {
-            width: 80%; /* Set the width of the blog posts */
-            max-width: 600px; /* Maximum width for larger screens */
-            margin: 0 auto; /* Center the blog posts */
-            border: 1px solid black; /* 1pt black border */
-            border-radius: 10px; /* Rounded edges */
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Shadow effect */
-            padding: 15px; /* Padding inside the blog post */
-            margin-bottom: 20px; /* Spacing between blog posts */
-            background-color: #f0f0f0; /* Change this color to match the header */
-        }
+/* Blog Posts Styling */
+.blog-posts {
+    width: 80%; /* Set the width of the blog posts */
+    max-width: 600px; /* Maximum width for larger screens */
+    margin: 0 auto; /* Center the blog posts */
+    border: 1px solid black; /* 1pt black border */
+    border-radius: 10px; /* Rounded edges */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    padding: 15px; /* Padding inside the blog post */
+    margin-bottom: 20px; /* Spacing between blog posts */
+    background-color: #f0f0f0; /* Change this color to match the header */
+}
 
 .blog-posts h2 {
     font-family: 'Arial', sans-serif; /* Use the same font as the body */
@@ -269,6 +269,30 @@ a:hover {
     }
 }
 
+/* Responsive Styles for Mobile */
+@media (max-width: 768px) {
+    .blog-posts,
+    .bandcamp-wrapper,
+    .chat-container {
+        width: 90%; /* Set to 90% width on mobile */
+        max-width: none; /* Remove the max-width restriction */
+        margin: 0 auto; /* Center align the sections */
+    }
+
+    /* Adjust other sections as needed */
+    .gallery {
+        width: 90%; /* Adjust gallery width */
+        margin: 0 auto; /* Center the gallery */
+    }
+
+    .about-image,
+    .large-image,
+    .small-image {
+        max-width: 100%; /* Allow images to take full width */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+
 @media (max-width: 480px) {
     .small-image {
         max-height: auto; /* Further reduce size on small screens */
@@ -277,47 +301,6 @@ a:hover {
     .large-image {
         max-height: auto; /* Smaller max height on medium screens */
         max-width: 300px; /* Smaller max width on medium screens */
-    }
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .bandcamp-wrapper {
-        max-width: 100%; /* Allow the wrapper to use full width on small screens */
-        padding: 0 1rem; /* Add padding on small screens */
-    }
-
-    .bandcamp-images-wrapper {
-        margin-bottom: 1rem; /* Space between images and player */
-    }
-
-    .bandcamp-image {
-        width: 50%; /* Full width on small screens */
-        max-width: 150px; /* Maximum width for small screens */
-        margin-bottom: 1rem; /* Space between images on small screens */
-    }
-
-    .bandcamp-player {
-        height: 300px; /* Adjust height for smaller screens */
-    }
-
-    .gallery-image {
-        width: 100px; /* Smaller thumbnails on small screens */
-        height: 100px; /* Maintain aspect ratio for thumbnails */
-    }
-
-    .about-image {
-        max-width: 300px; /* Smaller max width on mobile */
-    }
-}
-
-@media (max-width: 480px) {
-    .bandcamp-player {
-        height: 300px; /* Further adjust height for very small screens */
-    }
-
-    .about-image {
-        max-width: 200px; /* Further reduce size on very small screens */
     }
 }
 
