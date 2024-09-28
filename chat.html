@@ -53,9 +53,9 @@
     <h1></h1>
 <br>
     <h2 style="font-family: 'Courier New', Courier, monospace;">snake game</h2> <!-- Title font changed to Courier -->
-    <div id="message"> [ use arrow keys to feed snake. press space bar to begin ] </div> <!-- Message added -->
+    <div id="message"> [ use arrow keys to feed snake. press space bar or tap screen to begin ] </div> <!-- Message added -->
     <canvas id="gameCanvas" width="400" height="400"></canvas>
-    <div id="score">Score: 0</div>
+    <div id="score">score: 0</div>
 
     <div class="chat-container">
         <iframe width="550" height="350" scrolling="no" src="https://widget.mibbit.com/?settings=50f1d470165e4250fd454052c020bb92&server=&channel=%23aciddaddy1_test"></iframe>
@@ -97,33 +97,21 @@
     $("#gameCanvas").on("touchstart", function(event) {
         if (!isGameActive) {
             startGame(); // Start game on touch
-        }
-    });
-
-    $("#gameCanvas").on("touchmove", function(event) {
-        var touchEndX = event.touches[0].clientX;
-        var touchEndY = event.touches[0].clientY;
-
-        // Calculate touch direction
-        var diffX = touchEndX - (touchStartX || touchEndX);
-        var diffY = touchEndY - (touchStartY || touchEndY);
-
-        if (Math.abs(diffX) > Math.abs(diffY)) {
-            if (diffX > 0 && direction != "LEFT") {
-                direction = "RIGHT";
-            } else if (diffX < 0 && direction != "RIGHT") {
-                direction = "LEFT";
-            }
         } else {
-            if (diffY > 0 && direction != "UP") {
-                direction = "DOWN";
-            } else if (diffY < 0 && direction != "DOWN") {
+            var touchX = event.touches[0].clientX - canvas.offsetLeft;
+            var touchY = event.touches[0].clientY - canvas.offsetTop;
+
+            // Determine direction based on tap location
+            if (touchX < snake[0].x && direction != "RIGHT") {
+                direction = "LEFT";
+            } else if (touchX > snake[0].x && direction != "LEFT") {
+                direction = "RIGHT";
+            } else if (touchY < snake[0].y && direction != "DOWN") {
                 direction = "UP";
+            } else if (touchY > snake[0].y && direction != "UP") {
+                direction = "DOWN";
             }
         }
-
-        // Prevent default scrolling
-        event.preventDefault();
     });
 
     function startGame() {
@@ -156,7 +144,8 @@
             ctx.strokeRect(snake[i].x, snake[i].y, box, box);
         }
 
-        ctx.fillStyle = "red";
+        // Change apple color to #fc8eac
+        ctx.fillStyle = "#fc8eac"; // Apple color
         ctx.fillRect(food.x, food.y, box, box);
 
         var snakeX = snake[0].x;
