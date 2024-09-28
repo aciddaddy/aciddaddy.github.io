@@ -33,6 +33,23 @@
         .chat-container {
             margin-top: 20px; /* Added margin for balanced spacing */
         }
+        .controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .controls button {
+            font-size: 18px;
+            margin: 5px;
+            padding: 10px 15px;
+            background-color: #fc8eac;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        .controls button:active {
+            background-color: #ff4f8b;
+        }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
@@ -56,6 +73,13 @@
     <div id="message"> [ use arrow keys to feed snake. press space bar or tap screen to begin ] </div> <!-- Message added -->
     <canvas id="gameCanvas" width="400" height="400"></canvas>
     <div id="score">score: 0</div>
+
+    <div class="controls">
+        <button id="leftBtn">Left</button>
+        <button id="upBtn">Up</button>
+        <button id="downBtn">Down</button>
+        <button id="rightBtn">Right</button>
+    </div>
 
     <div class="chat-container">
         <iframe width="550" height="350" scrolling="no" src="https://widget.mibbit.com/?settings=50f1d470165e4250fd454052c020bb92&server=&channel=%23aciddaddy1_test"></iframe>
@@ -119,6 +143,23 @@
                 direction = "DOWN";
             }
         }
+    });
+
+    // Button controls
+    $("#leftBtn").on("click", function() {
+        if (direction !== "RIGHT") direction = "LEFT";
+    });
+
+    $("#upBtn").on("click", function() {
+        if (direction !== "DOWN") direction = "UP";
+    });
+
+    $("#downBtn").on("click", function() {
+        if (direction !== "UP") direction = "DOWN";
+    });
+
+    $("#rightBtn").on("click", function() {
+        if (direction !== "LEFT") direction = "RIGHT";
     });
 
     function startGame() {
@@ -199,7 +240,4 @@
 
     <footer>
         <p>&copy; 2024 acid daddy | identity spectrum records</p>
-    </footer>
-    <br>
-</body>
-</html>
+   
