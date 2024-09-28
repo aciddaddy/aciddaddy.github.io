@@ -10,6 +10,7 @@
     <style>
         h3 {
             font-family: 'Courier New', Courier, monospace; /* Apply Courier New font */
+            text-align: center; /* Center h3 text */
         }
 
         .bandcamp-wrapper {
@@ -17,7 +18,27 @@
             border-radius: 8px; /* Rounded edges */
             background-color: #f0f0f0; /* Change to match your desired background color */
             padding: 15px; /* Add some padding */
-            margin: 10px 0; /* Space between sections */
+            margin: 10px auto; /* Space between sections and center */
+            max-width: 700px; /* Max width for consistency */
+            text-align: center; /* Center text inside the container */
+        }
+
+        .bandcamp-images-wrapper {
+            display: flex; /* Align images side by side */
+            justify-content: center; /* Center images horizontally */
+            gap: 10px; /* Space between images */
+            margin: 10px 0; /* Space above and below images */
+        }
+
+        .bandcamp-image {
+            max-width: 100px; /* Set max width for images */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .bandcamp-player {
+            width: 100%; /* Match width of the container */
+            max-width: 600px; /* Set a max width if needed */
+            margin: 0 auto; /* Center the player */
         }
     </style>
 </head>
@@ -43,9 +64,9 @@
         </section>
 
         <h1></h1>
-        <h4 class="header1">ＣＨＩＣＡＧＯ，　ＩＬ<br> ｅｓｔ　２０１９</h4>
+        <h4 class="header1" style="text-align: center;">ＣＨＩＣＡＧＯ，　ＩＬ<br> ｅｓｔ　２０１９</h4>
          
-         <section class="bandcamp-wrapper">
+        <section class="bandcamp-wrapper">
             <h2 class="header2"><b>The Way Of The Rave Vol. 1</b></h2>
             <h3><i>featuring HURTR, DANA, fana, Sepehr, & Him Hun</i></h3>
             <div class="bandcamp-images-wrapper">
@@ -84,7 +105,7 @@
             </div>
         </section>
 
-       <section class="centered-images">
+        <section class="centered-images">
             <div class="image-wrapper">
                 <img src="images/IDSP_ShirtDesign2024_Back.jpg" alt="IDSP logo" class="featured-image small-image"><br>
             </div>
@@ -92,7 +113,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 acid daddy | identity spectrum records</p>
+        <p style="text-align: center;">&copy; 2024 acid daddy | identity spectrum records</p>
     </footer>
     <br>
 
