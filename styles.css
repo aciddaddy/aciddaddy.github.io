@@ -42,10 +42,11 @@ nav {
     text-decoration: none;
     border-radius: 50px; /* Oval buttons */
     font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; /* Add shadow transition */
     border: 1px solid #000; /* 1pt black line */
     margin: 0.2rem; /* Margin for spacing between buttons */
     text-align: center; /* Center text in buttons */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
 }
 
 .nav-button:hover {
@@ -200,7 +201,7 @@ a:hover {
     color: #0687f5; /* Color for the fourth h2 */
 }
 
- .header5 {
+.header5 {
     color: #0bda51; /* Color for the fifth h2 */
 }
 
@@ -253,6 +254,7 @@ a:hover {
     .large-image {
         max-height: auto; /* Smaller max height on medium screens */
         max-width: 400px; /* Smaller max width on medium screens */
+    }
 }
 
 @media (max-width: 480px) {
@@ -263,6 +265,7 @@ a:hover {
     .large-image {
         max-height: auto; /* Smaller max height on medium screens */
         max-width: 300px; /*Smaller max width on medium screens */
+    }
 }
 
 /* Responsive Styles */
