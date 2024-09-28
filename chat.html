@@ -120,6 +120,11 @@
         }
     });
 
+    // Touch end event to prevent scrolling
+    $("#gameCanvas").on("touchmove", function(event) {
+        event.preventDefault(); // Prevent default touch actions
+    });
+
     function startGame() {
         // Reset game state
         snake = [];
