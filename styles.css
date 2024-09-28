@@ -151,6 +151,14 @@ nav {
     padding: 1rem; /* Padding inside blog posts */
 }
 
+.blog-posts h2 {
+    color: white; /* Change to your desired text color */
+    text-shadow: 2px 2px 0px black, /* Outline color */
+                 -2px -2px 0px black,
+                 2px -2px 0px black,
+                 -2px 2px 0px black; /* You can adjust the pixels for thickness */
+}
+
 /* Header Colors for h2 */
 .header1 {
     color: #000000; /* Color for the first h2 */
