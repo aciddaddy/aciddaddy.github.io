@@ -62,18 +62,32 @@
             color: #000; /* Black text */
         }
 
-        /* Blog Posts Styling */
-        .blog-posts {
-            width: 80%; /* Set the width of the blog posts */
-            max-width: 600px; /* Maximum width for larger screens */
-            margin: 0 auto; /* Center the blog posts */
-            border: 1px solid black; /* 1pt black border */
-            border-radius: 10px; /* Rounded edges */
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Shadow effect */
-            padding: 15px; /* Padding inside the blog post */
-            margin-bottom: 20px; /* Spacing between blog posts */
-            background-color: #f0f0f0; /* Change this color to match the header */
-        }
+        /* Blog Post Title Styling */
+    h2 {
+        color: #fc8eac; /* Title color */
+        font-size: 30px; /* Font size */
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Shadow effect */
+        position: relative; /* For outline positioning */
+        display: inline-block; /* Ensure outline fits the text */
+    }
+
+    /* Outline effect */
+    h2::before {
+        content: ''; /* Create a pseudo-element for the outline */
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: transparent;
+        border: 1px solid black; /* Black outline */
+        z-index: -1; /* Place it behind the text */
+    }
+
+    /* Bold links */
+    a {
+        font-weight: bold; /* Make links bold */
+    }
 
         /* Image Styling to Maintain Aspect Ratio */
         .gallery-image {
