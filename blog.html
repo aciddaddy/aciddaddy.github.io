@@ -1,296 +1,177 @@
-/* Basic Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* Body Styling */
-body {
-    font-family: 'Arial', sans-serif;
-    color: #000; /* Black text */
-    background-color: #fff; /* White background */
-    line-height: 1.6;
-    text-align: center; /* Center all text by default */
-    margin: 0;
-    padding: 0;
-}
+        /* Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #000; /* Black text */
+            background-color: #fff; /* White background */
+            line-height: 1.6;
+            text-align: center; /* Center all text by default */
+            margin: 0;
+            padding: 0;
+        }
 
-/* Header Styling */
-header {
-    background-color: #f0f0f0; /* Light grey */
-    padding: 1rem;
-    border-bottom: 1px solid #000; /* 1pt black line */
-    text-align: center;
-}
+        /* Header Styling */
+        header {
+            background-color: #f0f0f0; /* Light grey */
+            padding: 1rem;
+            border-bottom: 1px solid #000; /* 1pt black line */
+            text-align: center;
+        }
 
-nav {
-    display: flex;
-    flex-wrap: wrap; /* Allows buttons to wrap to the next line if needed */
-    justify-content: center; /* Center align items horizontally */
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
+        nav {
+            display: flex;
+            flex-wrap: wrap; /* Allows buttons to wrap to the next line if needed */
+            justify-content: center; /* Center align items horizontally */
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
 
-.nav-button {
-    display: inline-block;
-    flex: 1 1 auto; /* Allow buttons to grow and shrink */
-    min-width: 150px; /* Minimum width of buttons */
-    padding: 0.5rem 1.5rem;
-    background-color: #00ff00; /* Neon green */
-    color: #000; /* Black text */
-    text-decoration: none;
-    border-radius: 50px; /* Oval buttons */
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
-    border: 1px solid #000; /* 1pt black line */
-    margin: 0.2rem; /* Margin for spacing between buttons */
-    text-align: center; /* Center text in buttons */
-}
+        .nav-button {
+            display: inline-block;
+            flex: 1 1 auto; /* Allow buttons to grow and shrink */
+            min-width: 150px; /* Minimum width of buttons */
+            padding: 0.5rem 1.5rem;
+            background-color: #00ff00; /* Neon green */
+            color: #000; /* Black text */
+            text-decoration: none;
+            border-radius: 50px; /* Oval buttons */
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+            border: 1px solid #000; /* 1pt black line */
+            margin: 0.2rem; /* Margin for spacing between buttons */
+            text-align: center; /* Center text in buttons */
+        }
 
-.nav-button:hover {
-    background-color: #ff0; /* Bright yellow */
-    color: #000; /* Black text */
-}
+        .nav-button:hover {
+            background-color: #ff0; /* Bright yellow */
+            color: #000; /* Black text */
+        }
 
-/* About Me Image */
-.about-image {
-    display: block; /* Make the image a block element */
-    max-width: 400px; /* Maximum width of the image */
-    width: 100%; /* Full width of the container */
-    height: auto; /* Maintain aspect ratio */
-    margin: 20px auto; /* Center the image with some space */
-    border: none; /* No border */
-    border-radius: 0; /* No rounded corners */
-}
+        /* Blog Posts Styling */
+        .blog-posts {
+            width: 80%; /* Set the width of the blog posts */
+            max-width: 600px; /* Maximum width for larger screens */
+            margin: 0 auto; /* Center the blog posts */
+            border: 1px solid black; /* 1pt black border */
+            border-radius: 10px; /* Rounded edges */
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Shadow effect */
+            padding: 15px; /* Padding inside the blog post */
+            margin-bottom: 20px; /* Spacing between blog posts */
+            background-color: #f0f0f0; /* Change this color to match the header */
+        }
 
-/* Bandcamp Player Styling */
-.bandcamp-wrapper {
-    text-align: center;
-    margin: 2rem auto; /* Center the wrapper and add margin */
-    max-width: 600px; /* Max width for the wrapper */
-}
+        .blog-posts h2 {
+            color: white; /* Change to your desired text color */
+            text-shadow: 
+                1px 1px 0px black, 
+                -1px -1px 0px black,
+                1px -1px 0px black,
+                -1px 1px 0px black,
+                0px 0px 5px black; /* Softer outline effect */
+        }
 
-.bandcamp-link {
-    display: block;
-    margin-bottom: 0.5rem; /* Space between link and images */
-    text-decoration: none;
-    color: #0000EE; /* Blue text for the link */
-}
+        /* Other styles... (remaining styles here) */
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="nav-button">home</a>
+            <a href="about.html" class="nav-button">about me</a>
+            <a href="music.html" class="nav-button">music</a>
+            <a href="record-label.html" class="nav-button">record label</a>
+            <a href="gallery.html" class="nav-button">gallery</a>
+            <a href="blog.html" class="nav-button">blog</a>
+            <a href="chat.html" class="nav-button">web café</a>
+        </nav>
+    </header>
 
-.bandcamp-player {
-    width: 100%;
-    max-width: 600px; /* Ensure the player doesn't exceed this width */
-    height: 300px; /* Adjust height to fit all tracks */
-    border: 1px solid #000; /* 1pt black border */
-    border-radius: 10px; /* Rounded corners */
-    margin: 0 auto; /* Center the player */
-}
+    <main><br>
+        <h1></h1>
 
-.bandcamp-images-wrapper {
-    margin-bottom: 1rem; /* Space between images and player */
-}
+        <section id="blog-post-1" class="blog-posts">
+            <h2>otherworld</h2>
+            <p class="Courier New">october 26th, 2024</p><br>the acid family presents: otherworld, featuring jenny arcade (deep field), frail808 (rev), dana + pat bosman (acid family), and i'll be doing a live set. get your tickets: <a href="https://events.humanitix.com/acid-family-halloween">here</a> </p>
+            <img src='https://i.postimg.cc/bvzXknLB/otherworld-inkbleed-v3-01.png' alt='otherworld-inkbleed-v3-01' class="gallery-image"/>
+        </section>
 
-.bandcamp-image {
-    width: 40%; /* Set width to 40% of the container's width */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 200px; /* Maximum width for larger screens */
-    border: 1px solid #000; /* 1pt black border */
-    border-radius: 10pt; /* 1pt rounded corners */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform and shadow */
-}
+        <section id="blog-post-2" class="blog-posts">
+            <h2>SALTFEST IV: sail the salty seas</h2>
+            <p class="Courier New">october 11-12th, 2024</p><br>playing on saturday of SALTFEST. 2 nights of music, 28 artists. get your tickets: <a href="https://ra.co/events/2004211">here</a></p>
+            <img src="https://i.postimg.cc/650FwqBV/1641-ECB5-5-BD4-4-F35-A03-B-E783D3-B38-E80.jpg" alt="SALTFEST IV" class="gallery-image">
+        </section>
 
-/* Ensure enlarged images stay scaled */
-.bandcamp-image.enlarged {
-    transform: scale(2); /* Enlarged state */
-    z-index: 10; /* Bring to front */
-}
+        <section id="blog-post-3" class="blog-posts">
+            <h2>world wide web...site</h2>
+            <p class="Courier New">september 2024</p><br>
+            <p>sharing my creations here for now.</p>
+        </section>
+        
+        <!-- Modal for displaying images -->
+        <div id="myModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="img01">
+        </div>
+        
+        <!-- Add more blog posts as needed -->
+    </main>
 
-/* Hover effect */
-.bandcamp-image:hover {
-    transform: scale(2); /* Slightly enlarge image on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
-}
+    <footer>
+        <p>&copy; 2024 acid daddy | identity spectrum records</p>
+    </footer>
+    <br>
 
-/* Gallery Images Styling */
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Center align images */
-    gap: 1rem;
-    margin: 1rem;
-}
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const galleryImages = document.querySelectorAll('.gallery-image');
 
-.gallery-image {
-    width: 250px; /* Set a fixed width for thumbnails */
-    height: 250px; /* Set a fixed height for thumbnails */
-    object-fit: cover; /* Ensure images cover the thumbnail area */
-    border: 1px solid #000; /* 1px black border */
-    border-radius: 10px; /* Rounded corners */
-    cursor: pointer; /* Show a pointer cursor for clickable images */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform and shadow */
-}
+            galleryImages.forEach(function(image) {
+                image.addEventListener('click', function() {
+                    if (image.classList.contains('enlarged')) {
+                        image.classList.remove('enlarged');
+                        image.style.transform = 'scale(1)'; // Reset to normal size
+                    } else {
+                        image.classList.add('enlarged');
+                        image.style.transform = 'scale(2.5)'; // Enlarge even more on click
+                    }
+                });
+            });
+        });
 
-/* Ensure enlarged images stay scaled */
-.gallery-image.enlarged {
-    transform: scale(2); /* Enlarged state */
-    z-index: 10; /* Bring to front */
-}
+        function openModal(img) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("img01");
+            modal.style.display = "block";
+            modalImg.src = img.src;
+        }
 
-/* Hover effect for gallery images */
-.gallery-image:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
-}
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
 
-/* Blog Posts Styling */
-.blog-post {
-    border: 1px solid #000; /* 1pt black border */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
-    margin: 1rem; /* Space around blog posts */
-    padding: 1rem; /* Padding inside blog posts */
-}
-
-.blog-posts h2 {
-    color: white; /* Change to your desired text color */
-    text-shadow: 2px 2px 0px black, /* Outline color */
-                 -2px -2px 0px black,
-                 2px -2px 0px black,
-                 -2px 2px 0px black; /* You can adjust the pixels for thickness */
-}
-
-/* Header Colors for h2 */
-.header1 {
-    color: #000000; /* Color for the first h2 */
-}
-
-.header2 {
-    color: #e99708; /* Color for the second h2 */
-}
-
-.header3 {
-    color: #f171a2; /* Color for the third h2 */
-}
-
-.header4 {
-    color: #0687f5; /* Color for the fourth h2 */
-}
-
- .header5 {
-    color: #0bda51; /* Color for the fifth h2 */
-}
-
-/* Chat Container */
-.chat-container {
-    width: 100%; /* Full width for responsiveness */
-    max-width: 550px; /* Optional: Limit maximum width */
-    margin: 0 auto; /* Center the chat container */
-}
-
-.chat-container iframe {
-    width: 100%; /* Full width for the iframe */
-    height: 350px; /* Set a default height */
-    border: none; /* Remove border if needed */
-}
-
-/* Centered Images Section */
-.centered-images {
-    text-align: center; /* Center align the text and images */
-    margin: 2rem 0; /* Space above and below the section */
-}
-
-.image-wrapper {
-    display: flex; /* Use flexbox for layout */
-    justify-content: center; /* Center the images */
-    gap: 1rem; /* Space between the images */
-}
-
-/* Featured Image Label Section*/
-.large-image {
-    width: 100%; /* Adjust this value to make it larger */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 600px; /* Maximum width */
-    margin: 20px auto; /* Center the image */
-}
-
-.small-image {
-    width: 60%; /* Smaller size for the images below */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 300px; /* Maximum width */
-    margin: 20px auto; /* Center the images */
-}
-
-/* Responsive adjustments for small screens */
-@media (max-width: 768px) {
-    .small-image {
-        max-height: auto; /* Smaller max height on medium screens */
-        max-width: 300px; /*Smaller max width on medium screens */
-    }
-    .large-image {
-        max-height: auto; /* Smaller max height on medium screens */
-        max-width: 400px; /* Smaller max width on medium screens */
-}
-
-@media (max-width: 480px) {
-    .small-image {
-        max-height: auto; /* Further reduce size on small screens */
-        max-width: 200px; /*Smaller max width on medium screens */
-    }
-    .large-image {
-        max-height: auto; /* Smaller max height on medium screens */
-        max-width: 300px; /*Smaller max width on medium screens */
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .bandcamp-wrapper {
-        max-width: 100%; /* Allow the wrapper to use full width on small screens */
-        padding: 0 1rem; /* Add padding on small screens */
-    }
-
-    .bandcamp-images-wrapper {
-        margin-bottom: 1rem; /* Space between images and player */
-    }
-
-    .bandcamp-image {
-        width: 50%; /* Full width on small screens */
-        max-width: 150px; /* Maximum width for small screens */
-        margin-bottom: 1rem; /* Space between images on small screens */
-    }
-
-    .bandcamp-player {
-        height: 300px; /* Adjust height for smaller screens */
-    }
-
-    .gallery-image {
-        width: 100px; /* Smaller thumbnails on small screens */
-        height: 100px; /* Maintain aspect ratio for thumbnails */
-    }
-
-    .about-image {
-        max-width: 300px; /* Smaller max width on mobile */
-    }
-}
-
-@media (max-width: 480px) {
-    .bandcamp-player {
-        height: 300px; /* Further adjust height for very small screens */
-    }
-
-    .about-image {
-        max-width: 200px; /* Further reduce size on very small screens */
-    }
-}
-
-/* Responsive Adjustments */
-@media (max-width: 600px) {
-    .chat-container iframe {
-        height: 300px; /* Adjust height for smaller screens */
-    }
-}
-
-@media (max-width: 400px) {
-    .chat-container iframe {
-        height: 250px; /* Further adjust height for very small screens */
-    }
-}
+        // Close the modal if the user clicks anywhere outside of the image
+        window.onclick = function(event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
