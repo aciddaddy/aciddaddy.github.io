@@ -109,15 +109,13 @@
             var touchY = event.touches[0].clientY - canvas.getBoundingClientRect().top;
 
             // Determine direction based on tap location
-            if (touchX < canvas.width / 2 && direction !== "RIGHT") {
+            if (touchX < canvas.width / 3 && direction !== "RIGHT") {
                 direction = "LEFT";
-            } else if (touchX > canvas.width / 2 && direction !== "LEFT") {
+            } else if (touchX > (canvas.width * 2) / 3 && direction !== "LEFT") {
                 direction = "RIGHT";
-            }
-
-            if (touchY < canvas.height / 2 && direction !== "DOWN") {
+            } else if (touchY < canvas.height / 3 && direction !== "DOWN") {
                 direction = "UP";
-            } else if (touchY > canvas.height / 2 && direction !== "UP") {
+            } else if (touchY > (canvas.height * 2) / 3 && direction !== "UP") {
                 direction = "DOWN";
             }
         }
