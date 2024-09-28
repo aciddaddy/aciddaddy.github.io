@@ -61,12 +61,12 @@
         <iframe width="550" height="350" scrolling="no" src="https://widget.mibbit.com/?settings=50f1d470165e4250fd454052c020bb92&server=&channel=%23aciddaddy1_test"></iframe>
     </div>
         
-<div>
-  <button onclick="u()" type="button" id="U">U</button>
-  <button onclick="l()" type="button" id="L">L</button>
-  <button onclick="r()" type="button" id="R">R</button>
-  <button onclick="d()" type="button" id="D">D</button>
-</div>
+    <div>
+        <button onclick="u()" type="button" id="U">U</button>
+        <button onclick="l()" type="button" id="L">L</button>
+        <button onclick="r()" type="button" id="R">R</button>
+        <button onclick="d()" type="button" id="D">D</button>
+    </div>
         
     <script>
     var canvas = $("#gameCanvas")[0];
@@ -88,42 +88,24 @@
         event.preventDefault();
         if (!isGameActive) {
             startGame();
-        } else {
-            var touchX = event.originalEvent.touches[0].clientX - $(this).offset().left;
-            var touchY = event.originalEvent.touches[0].clientY - $(this).offset().top;
+        }
+    });
 
-            //Snake Directions;
+    function l() {
+        if (direction !== "RIGHT") direction = "LEFT";
+    }
 
-// left key
-  function l() {
-    if(snake.dx === 0) {
-      snake.dx = -grid;
-      snake.dy = 0;
+    function u() {
+        if (direction !== "DOWN") direction = "UP";
     }
-  }
 
-  // up key
-  function u() {
-    if(snake.dy === 0) {
-      snake.dy = -grid;
-      snake.dx = 0;
+    function r() {
+        if (direction !== "LEFT") direction = "RIGHT";
     }
-  }
 
-  // right key 
-  function r() {
-    if(snake.dx === 0) {
-      snake.dx = grid;
-      snake.dy = 0;
+    function d() {
+        if (direction !== "UP") direction = "DOWN";
     }
-  }
-  // down key 
-  function d() {
-    if(snake.dy === 0) {
-      snake.dy = grid;
-      snake.dx = 0;
-    }
-  }
 
     function startGame() {
         snake = [];
