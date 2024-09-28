@@ -33,28 +33,6 @@
         .chat-container {
             margin-top: 20px;
         }
-        .controls {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .control-btn {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background-color: #fc8eac;
-            border: none;
-            color: white;
-            font-size: 24px;
-            margin: 10px;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.2s, transform 0.2s;
-        }
-        .control-btn:active {
-            background-color: #ff4f8b;
-            transform: scale(0.95);
-        }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
@@ -75,16 +53,9 @@
     <h1></h1>
 <br>
     <h2 style="font-family: 'Courier New', Courier, monospace;">snake game</h2>
-    <div id="message"> [ use arrow keys to feed snake. press space bar or tap screen to begin ] </div>
+    <div id="message"> [ tap screen to begin and change direction ] </div>
     <canvas id="gameCanvas" width="400" height="400"></canvas>
     <div id="score">score: 0</div>
-
-    <div class="controls">
-        <button id="leftBtn" class="control-btn">←</button>
-        <button id="upBtn" class="control-btn">↑</button>
-        <button id="downBtn" class="control-btn">↓</button>
-        <button id="rightBtn" class="control-btn">→</button>
-    </div>
 
     <div class="chat-container">
         <iframe width="550" height="350" scrolling="no" src="https://widget.mibbit.com/?settings=50f1d470165e4250fd454052c020bb92&server=&channel=%23aciddaddy1_test"></iframe>
@@ -100,87 +71,31 @@
     var game;
     var isGameActive = false;
 
-    // Track button states
-    var buttonState = {
-        left: false,
-        up: false,
-        down: false,
-        right: false
-    };
-
     $(document).keydown(function(event) {
         if (event.keyCode == 32 && !isGameActive) {
             startGame();
         }
-
-        if (!isGameActive) {
-            return;
-        }
-
-        switch (event.keyCode) {
-            case 37: // Left
-                buttonState.left = true;
-                break;
-            case 38: // Up
-                buttonState.up = true;
-                break;
-            case 39: // Right
-                buttonState.right = true;
-                break;
-            case 40: // Down
-                buttonState.down = true;
-                break;
-        }
-        event.preventDefault();
     });
 
-    $(document).keyup(function(event) {
-        switch (event.keyCode) {
-            case 37: // Left
-                buttonState.left = false;
-                break;
-            case 38: // Up
-                buttonState.up = false;
-                break;
-            case 39: // Right
-                buttonState.right = false;
-                break;
-            case 40: // Down
-                buttonState.down = false;
-                break;
-        }
-    });
-
-    // Touch event for mobile control
     $("#gameCanvas").on("touchstart", function(event) {
         event.preventDefault();
         if (!isGameActive) {
             startGame();
+        } else {
+            var touchX = event.originalEvent.touches[0].clientX - $(this).offset().left;
+            var touchY = event.originalEvent.touches[0].clientY - $(this).offset().top;
+
+            // Determine direction based on touch position
+            if (touchX < canvas.width / 3) {
+                if (direction !== "RIGHT") direction = "LEFT";
+            } else if (touchX > canvas.width * 2 / 3) {
+                if (direction !== "LEFT") direction = "RIGHT";
+            } else if (touchY < canvas.height / 3) {
+                if (direction !== "DOWN") direction = "UP";
+            } else if (touchY > canvas.height * 2 / 3) {
+                if (direction !== "UP") direction = "DOWN";
+            }
         }
-    });
-
-    $("#leftBtn").on("mousedown touchstart", function() {
-        buttonState.left = true;
-    });
-
-    $("#upBtn").on("mousedown touchstart", function() {
-        buttonState.up = true;
-    });
-
-    $("#downBtn").on("mousedown touchstart", function() {
-        buttonState.down = true;
-    });
-
-    $("#rightBtn").on("mousedown touchstart", function() {
-        buttonState.right = true;
-    });
-
-    // Release the button on mouseup/touchend
-    $(".control-btn").on("mouseup touchend", function() {
-        buttonState.left = false;
-        buttonState.up = false;
-        buttonState.down = false;
-        buttonState.right = false;
     });
 
     function startGame() {
@@ -204,12 +119,6 @@
     function draw() {
         ctx.fillStyle = "#000";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        // Change direction based on button states
-        if (buttonState.left && direction !== "RIGHT") direction = "LEFT";
-        if (buttonState.up && direction !== "DOWN") direction = "UP";
-        if (buttonState.right && direction !== "LEFT") direction = "RIGHT";
-        if (buttonState.down && direction !== "UP") direction = "DOWN";
 
         for (var i = 0; i < snake.length; i++) {
             ctx.fillStyle = (i === 0) ? "#00ff00" : "#00ff00";
@@ -267,4 +176,5 @@
         <p>&copy; 2024 acid daddy | identity spectrum records</p>
     </footer>
     <br>
-</
+</body>
+</html>
