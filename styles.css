@@ -152,9 +152,9 @@ nav {
 }
 
 .blog-posts h2 {
-    color: white; /* Change to your desired text color */
-    -webkit-text-stroke: 1px #fc8eac; /* Outline effect */
-    text-stroke: 1px #fc8eac; /* Outline effect for standard browsers */
+    color: #fc8eac; /* Change to your desired text color */
+    -webkit-text-stroke: 1px #000; /* Outline effect */
+    text-stroke: 1px #000; /* Outline effect for standard browsers */
 }
 
 /* Header Colors for h2 */
