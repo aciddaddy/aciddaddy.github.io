@@ -53,6 +53,27 @@ nav {
     color: #000; /* Black text */
 }
 
+/* Change the font for all links */
+a {
+    font-family: 'Courier New', Courier, monospace; /* Set to Courier */
+    font-size: 16px; /* Adjust the font size as needed */
+    color: #0000EE; /* Default link color */
+    text-decoration: none; /* Remove underline */
+}
+
+/* Change the font for links on hover */
+a:hover {
+    color: #00FF00; /* Change color on hover */
+    text-decoration: underline; /* Add underline on hover */
+}
+
+/* Specific style for the bandcamp link if you have it */
+.bandcamp-link {
+    font-family: 'Courier New', Courier, monospace; /* Set to Courier */
+    font-size: 18px; /* Adjust size if necessary */
+    color: #1E90FF; /* Custom color for this link */
+}
+
 /* About Me Image */
 .about-image {
     display: block; /* Make the image a block element */
