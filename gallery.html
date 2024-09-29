@@ -12,15 +12,18 @@
             flex-wrap: wrap;
             justify-content: center;
         }
+
         .gallery-image {
-            width: 100%; /* Full width on mobile */
-            max-width: 200px; /* Limit max width */
+            width: calc(50% - 20px); /* Two images side by side on mobile */
+            max-width: 150px; /* Limit max width for thumbnails */
             margin: 10px; /* Space between images */
             transition: transform 0.3s; /* Smooth transition for scaling */
+            cursor: pointer; /* Change cursor to pointer */
         }
+
         @media (min-width: 600px) {
             .gallery-image {
-                width: calc(50% - 20px); /* Side by side on larger screens */
+                width: calc(33.33% - 20px); /* Three images side by side on larger screens */
             }
         }
     </style>
@@ -54,20 +57,25 @@
     <script>
     document.addEventListener("DOMContentLoaded", function() {
         const galleryImages = document.querySelectorAll('.gallery-image');
-        
+
         galleryImages.forEach(function(image) {
             image.addEventListener('click', function() {
                 if (image.classList.contains('enlarged')) {
                     image.classList.remove('enlarged');
                     image.style.transform = 'scale(1)'; // Reset scale on click
                 } else {
+                    // Reset any enlarged image before enlarging the new one
+                    galleryImages.forEach(img => {
+                        img.classList.remove('enlarged');
+                        img.style.transform = 'scale(1)';
+                    });
                     image.classList.add('enlarged');
                     image.style.transform = 'scale(2)'; // Enlarge on click
                 }
             });
         });
     });
-</script>
+    </script>
     
 </body>
 </html>
