@@ -77,38 +77,114 @@
         <br>
     </main>
 
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>music</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <style>
+        .soundcloud-wrapper {
+            border: 1px solid black; /* 1pt black border */
+            border-radius: 10px; /* Rounded edges */
+            overflow: hidden; /* Ensures content stays within rounded corners */
+            margin: 0 auto 15px; /* Center the wrapper and space below */
+            width: calc(100% - 40px); /* Set width slightly smaller than the page */
+            max-width: 800px; /* Optional max width for larger screens */
+            background-color: #f0f0f0; /* Background color of the player */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow for better visibility */
+        }
+
+        iframe {
+            width: 100%; /* Make iframe responsive within the wrapper */
+            border: none; /* Remove border from iframe */
+            border-radius: 10px; /* Match iframe corners with wrapper corners */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="nav-button">home</a>
+            <a href="about.html" class="nav-button">about me</a>
+            <a href="music.html" class="nav-button">music</a>
+            <a href="record-label.html" class="nav-button">record label</a>
+            <a href="gallery.html" class="nav-button">gallery</a>
+            <a href="blog.html" class="nav-button">blog</a>
+            <a href="chat.html" class="nav-button">web café</a>
+        </nav>
+    </header>
+
+    <main><br>
+        <h1></h1><br>
+        <h2 class="header1" style="font-weight: normal; font-size: 24px;">ｌｉｖｅ　ＰＡ</h2>
+        <div class="soundcloud-wrapper">
+            <iframe height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1857764445&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+        </div>
+        <div style="font-size: 10px; color: #cccccc; line-break: anywhere; word-break: normal; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif; font-weight: 100;">
+            <a href="https://soundcloud.com/mynameisjarvi" title="acid daddy" target="_blank" style="color: #cccccc; text-decoration: none;">acid daddy</a> · <a href="https://soundcloud.com/mynameisjarvi/acid-daddy-live-pa-dianes-hunting-club-2023" title="acid daddy [live PA] @ diane&#x27;s hunting club 2023" target="_blank" style="color: #cccccc; text-decoration: none;">acid daddy [live PA] @ diane&#x27;s hunting club 2023</a>
+        </div>
+        <br>
+        <h2 class="header1" style="font-weight: normal; font-size: 24px;">ｒｅｃｏｒｄｅｄ　ｌｉｖｅ</h2>
+        <div class="soundcloud-wrapper">
+            <iframe height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/316360516&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+        </div>
+        <div style="font-size: 10px; color: #cccccc; line-break: anywhere; word-break: normal; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif; font-weight: 100;">
+            <a href="https://soundcloud.com/mynameisjarvi" title="acid daddy" target="_blank" style="color: #cccccc; text-decoration: none;">acid daddy</a> · <a href="https://soundcloud.com/mynameisjarvi/sets/live-recordings" title="live recordings" target="_blank" style="color: #cccccc; text-decoration: none;">live recordings</a>
+        </div>
+        <br>
+        <h2 class="header1" style="font-weight: normal; font-size: 24px;">ｔｒａｃｋｓ</h2>
+        <div class="soundcloud-wrapper">
+            <iframe height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/316358760&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+        </div>
+        <div style="font-size: 10px; color: #cccccc; line-break: anywhere; word-break: normal; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif; font-weight: 100;">
+            <a href="https://soundcloud.com/mynameisjarvi" title="acid daddy" target="_blank" style="color: #cccccc; text-decoration: none;">acid daddy</a> · <a href="https://soundcloud.com/mynameisjarvi/sets/tracks" title="tracks" target="_blank" style="color: #cccccc; text-decoration: none;">tracks</a>
+        </div>
+        <br>
+        <h2 class="header1" style="font-weight: normal; font-size: 24px;">ｇｕｅｓｔ　ｍｉｘｅｓ</h2>
+        <div class="soundcloud-wrapper">
+            <iframe height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/316359706&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+        </div>
+        <div style="font-size: 10px; color: #cccccc; line-break: anywhere; word-break: normal; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif; font-weight: 100;">
+            <a href="https://soundcloud.com/mynameisjarvi" title="acid daddy" target="_blank" style="color: #cccccc; text-decoration: none;">acid daddy</a> · <a href="https://soundcloud.com/mynameisjarvi/sets/mixes" title="mixes" target="_blank" style="color: #cccccc; text-decoration: none;">mixes</a>
+        </div>
+        <br>
+    </main>
+
     <!-- Buy Me a Coffee Button -->
-<div id="bmc-button-container" class="bmc-button-container"></div>
+    <div id="bmc-button-container"></div>
 
-<style>
-.bmc-button-container {
-    display: inline-block; /* Center the button */
-    border: 1px solid black; /* 1pt black border */
-    border-radius: 5px; /* Rounded edges */
-    padding: 5px; /* Padding around the button */
-    margin-top: 10px; /* Space above the button */
-    font-size: 0.9em; /* Smaller font size */
-}
-</style>
+    <script>
+        window.onload = function() {
+            var bmcScript = document.createElement('script');
+            bmcScript.type = 'text/javascript';
+            bmcScript.src = 'https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js';
+            bmcScript.setAttribute('data-name', 'bmc-button');
+            bmcScript.setAttribute('data-slug', 'aciddaddy');
+            bmcScript.setAttribute('data-color', '#FFDD00');
+            bmcScript.setAttribute('data-emoji', '☕');
+            bmcScript.setAttribute('data-font', 'Arial');
+            bmcScript.setAttribute('data-text', 'Buy me a coffee');
+            bmcScript.setAttribute('data-outline-color', '#000000');
+            bmcScript.setAttribute('data-font-color', '#000000');
+            bmcScript.setAttribute('data-coffee-color', '#ffffff');
+            bmcScript.setAttribute('style', 'border: 1px solid black; border-radius: 5px; padding: 5px; display: inline-block;'); // Add styles directly to the script element
+            
+            document.getElementById('bmc-button-container').appendChild(bmcScript);
+        };
+    </script>
+    
+    <br>
+    <footer>
+        <p>&copy; 2024 acid daddy | identity spectrum records</p>
+    </footer>
+    <br>
+</body>
+</html>
 
-<script>
-    window.onload = function() {
-        var bmcScript = document.createElement('script');
-        bmcScript.type = 'text/javascript';
-        bmcScript.src = 'https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js';
-        bmcScript.setAttribute('data-name', 'bmc-button');
-        bmcScript.setAttribute('data-slug', 'aciddaddy');
-        bmcScript.setAttribute('data-color', '#FFDD00');
-        bmcScript.setAttribute('data-emoji', '☕');
-        bmcScript.setAttribute('data-font', 'Arial');
-        bmcScript.setAttribute('data-text', 'Buy me a coffee');
-        bmcScript.setAttribute('data-outline-color', '#000000');
-        bmcScript.setAttribute('data-font-color', '#000000');
-        bmcScript.setAttribute('data-coffee-color', '#ffffff');
-        
-        document.getElementById('bmc-button-container').appendChild(bmcScript);
-    };
-</script>
 <br>
     <footer>
         <p>&copy; 2024 acid daddy | identity spectrum records</p>
