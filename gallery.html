@@ -26,6 +26,37 @@
                 width: calc(33.33% - 20px); /* Three images side by side on larger screens */
             }
         }
+
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%; /* Limit the width to 90% of the viewport */
+            max-height: 90%; /* Limit the height to 90% of the viewport */
+            transition: transform 0.3s; /* Smooth transition for scaling */
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer; /* Change cursor to pointer */
+        }
     </style>
 </head>
 <body>
@@ -44,38 +75,51 @@
     <main><br>
         <h1></h1>
         <div class="gallery">
-            <img src="images/IMG_1860.jpg" alt="deep field//columbus, oh" class="gallery-image">
-            <img src="images/IMG_9240.jpg" alt="intervisiones//puebla, mx" class="gallery-image">
+            <img src="images/IMG_1860.jpg" alt="deep field//columbus, oh" class="gallery-image" onclick="enlargeImage(this)">
+            <img src="images/IMG_9240.jpg" alt="intervisiones//puebla, mx" class="gallery-image" onclick="enlargeImage(this)">
             <!-- Add more images as needed -->
         </div>
     </main>
+    
     <footer>
         <p>&copy; 2024 acid daddy | identity spectrum records</p>
     </footer>
     <br>
 
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const galleryImages = document.querySelectorAll('.gallery-image');
+    <!-- Modal for displaying images -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
 
-        galleryImages.forEach(function(image) {
-            image.addEventListener('click', function() {
-                if (image.classList.contains('enlarged')) {
-                    image.classList.remove('enlarged');
-                    image.style.transform = 'scale(1)'; // Reset scale on click
+    <script>
+        function enlargeImage(img) {
+            const modal = document.getElementById("myModal");
+            const modalImg = document.getElementById("img01");
+            modal.style.display = "block";
+            modalImg.src = img.src;
+
+            // Adjust modal image size
+            modalImg.onload = function() {
+                const aspectRatio = modalImg.naturalWidth / modalImg.naturalHeight;
+                if (aspectRatio > 1) {
+                    modalImg.style.width = '90%';
+                    modalImg.style.height = 'auto';
                 } else {
-                    // Reset any enlarged image before enlarging the new one
-                    galleryImages.forEach(img => {
-                        img.classList.remove('enlarged');
-                        img.style.transform = 'scale(1)';
-                    });
-                    image.classList.add('enlarged');
-                    image.style.transform = 'scale(2)'; // Enlarge on click
+                    modalImg.style.height = '90%';
+                    modalImg.style.width = 'auto';
                 }
-            });
-        });
-    });
+            };
+
+            modalImg.onclick = function() {
+                modal.style.display = "none";
+            };
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
     </script>
-    
 </body>
 </html>
