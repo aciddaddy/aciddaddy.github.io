@@ -242,6 +242,19 @@ a:hover {
     gap: 0.5rem; /* Adjusted space between the images */
 }
 
+#gameCanvas {
+    border: 4px solid #fc8eac;
+    display: block;
+    margin: 20px auto;
+    background-color: #000;
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    aspect-ratio: 1;
+    touch-action: none; /* Prevent default touch actions */
+}
+
+
 /* Featured Image Label Section */
 .large-image {
     width: 100%; /* Adjust this value to make it larger */
