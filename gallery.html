@@ -5,10 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gallery</title>
     <link rel="stylesheet" href="styles.css">
-<!-- Favicon Link -->
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <!-- Favicon for PNG Format -->
-    <!-- <link rel="icon" href="images/303_tab.png" type="image/png"> -->
+    <style>
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .gallery-image {
+            width: 100%; /* Full width on mobile */
+            max-width: 200px; /* Limit max width */
+            margin: 10px; /* Space between images */
+            transition: transform 0.3s; /* Smooth transition for scaling */
+        }
+        @media (min-width: 600px) {
+            .gallery-image {
+                width: calc(50% - 20px); /* Side by side on larger screens */
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
