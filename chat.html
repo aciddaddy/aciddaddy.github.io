@@ -93,8 +93,11 @@
 
     // Start game on space bar for desktop
     $(document).keydown(function(event) {
-        if (event.keyCode == 32 && !isGameActive) {
-            startGame();
+        if (event.keyCode == 32) { // Space bar
+            event.preventDefault(); // Prevent the default scrolling action
+            if (!isGameActive) {
+                startGame();
+            }
         }
     });
 
