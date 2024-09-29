@@ -183,47 +183,5 @@
     </footer>
     <br>
 
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const galleryImages = document.querySelectorAll('.gallery-image');
-
-        galleryImages.forEach(function(image) {
-            image.addEventListener('click', function() {
-                if (image.classList.contains('enlarged')) {
-                    image.classList.remove('enlarged');
-                    image.style.transform = 'scale(1)'; // Reset to normal size
-                } else {
-                    image.classList.add('enlarged');
-                    image.style.transform = 'scale(2.5)'; // Enlarge even more on click
-                }
-            });
-        });
-    });
-
-    function openModal(img) {
-        var modal = document.getElementById("myModal");
-        var modalImg = document.getElementById("img01");
-        var closeButton = modal.querySelector(".close"); // Get the close button
-        modal.style.display = "block";
-        modalImg.src = img.src;
-        closeButton.style.display = "block"; // Show the close button
-    }
-
-    function closeModal() {
-        var modal = document.getElementById("myModal");
-        var closeButton = modal.querySelector(".close"); // Get the close button
-        modal.style.display = "none";
-        closeButton.style.display = "none"; // Hide the close button again
-    }
-
-    // Close the modal if the user clicks anywhere outside of the image
-    window.onclick = function(event) {
-        var modal = document.getElementById("myModal");
-        if (event.target == modal) {
-            closeModal();
-        }
-    }
-    </script>
-
 </body>
 </html>
