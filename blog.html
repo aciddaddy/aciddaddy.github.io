@@ -81,6 +81,8 @@
             height: auto; /* Maintain the aspect ratio */
             display: block; /* Ensure there's no extra space below the image */
             margin: 0 auto; /* Center the image */
+            transition: transform 0.3s; /* Smooth transition for scaling */
+            cursor: pointer; /* Change cursor to pointer */
         }
 
         /* New Courier Class */
@@ -99,7 +101,6 @@
             color: #000; /* Color of the close button */
             cursor: pointer; /* Change cursor to pointer */
         }
-        /* Other styles... (remaining styles here) */
     </style>
 </head>
 <body>
@@ -121,13 +122,13 @@
         <section id="blog-post-1" class="blog-posts">
             <h2 class="courier">otherworld</h2>
             <p class="courier">october 26th, 2024</p><br>the acid family presents: otherworld, featuring <b>jenny arcade</b> <i>(deep field)</i>, <b>frail808</b> <i>(&lt;&lt;rev)</i>, <b>dana + pat bosman</b> <i>(acid family)</i>, and i'll be doing a live set. get your tickets: <a href="https://events.humanitix.com/acid-family-halloween">HERE</a> </p>
-            <img src='https://i.postimg.cc/bvzXknLB/otherworld-inkbleed-v3-01.png' alt='otherworld-inkbleed-v3-01' class="gallery-image"/>
+            <img src='https://i.postimg.cc/bvzXknLB/otherworld-inkbleed-v3-01.png' alt='otherworld-inkbleed-v3-01' class="gallery-image" onclick="enlargeImage(this)"/>
         </section>
 
         <section id="blog-post-2" class="blog-posts">
             <h2 class="courier">SALTFEST IV: sail the salty seas</h2>
             <p class="courier">october 11-12th, 2024</p><br>playing on saturday of SALTFEST IV. 2 nights of music, 28 artists. get your tickets: <a href="https://ra.co/events/2004211">HERE</a></p>
-            <img src="https://i.postimg.cc/650FwqBV/1641-ECB5-5-BD4-4-F35-A03-B-E783D3-B38-E80.jpg" alt="SALTFEST IV" class="gallery-image">
+            <img src="https://i.postimg.cc/650FwqBV/1641-ECB5-5-BD4-4-F35-A03-B-E783D3-B38-E80.jpg" alt="SALTFEST IV" class="gallery-image" onclick="enlargeImage(this)">
         </section>
 
         <section id="blog-post-3" class="blog-posts">
@@ -150,5 +151,24 @@
     </footer>
     <br>
 
+    <script>
+        function enlargeImage(img) {
+            const modal = document.getElementById("myModal");
+            const modalImg = document.getElementById("img01");
+            modal.style.display = "block";
+            modalImg.src = img.src;
+            modalImg.style.transform = 'scale(2)'; // Enlarge on click
+
+            modalImg.onclick = function() {
+                modal.style.display = "none";
+                modalImg.style.transform = 'scale(1)'; // Reset scale
+            };
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
 </body>
 </html>
