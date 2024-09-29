@@ -90,16 +90,25 @@
             font-family: 'Courier New', Courier, monospace; /* Ensure the font is applied correctly */
         }
 
-        /* New styles for modal close button */
-        .modal .close {
-            display: none; /* Hide the close button by default */
-            position: absolute; /* Position it absolutely within the modal */
-            top: 20px; /* Adjust as needed */
-            right: 30px; /* Adjust as needed */
-            font-size: 40px; /* Size of the close button */
-            font-weight: bold; /* Make it bold */
-            color: #000; /* Color of the close button */
-            cursor: pointer; /* Change cursor to pointer */
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%; /* Limit the width to 90% of the viewport */
+            max-height: 90%; /* Limit the height to 90% of the viewport */
+            transition: transform 0.3s; /* Smooth transition for scaling */
         }
     </style>
 </head>
@@ -157,11 +166,21 @@
             const modalImg = document.getElementById("img01");
             modal.style.display = "block";
             modalImg.src = img.src;
-            modalImg.style.transform = 'scale(2)'; // Enlarge on click
+
+            modalImg.onload = function() {
+                // Calculate aspect ratio to fit within 90% of the viewport
+                const aspectRatio = modalImg.naturalWidth / modalImg.naturalHeight;
+                if (aspectRatio > 1) {
+                    modalImg.style.width = '90%';
+                    modalImg.style.height = 'auto';
+                } else {
+                    modalImg.style.height = '90%';
+                    modalImg.style.width = 'auto';
+                }
+            };
 
             modalImg.onclick = function() {
                 modal.style.display = "none";
-                modalImg.style.transform = 'scale(1)'; // Reset scale
             };
         }
 
