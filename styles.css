@@ -185,17 +185,6 @@ a:hover {
     background-color: #f0f0f0; /* Change this color to match the header */
 }
 
-.blog-posts h2 {
-    font-family: 'Arial', sans-serif; /* Use the same font as the body */
-    font-size: 30pt; /* Set font size to 30pt */
-    color: #000; /* Black text */
-    position: relative; /* Position for the outline effect */
-    display: inline-block; /* Make the element inline */
-    -webkit-text-stroke: 1px #fff; /* 1pt white outline */
-    text-stroke: 1px #fff; /* Outline effect for standard browsers */
-    text-shadow: 2px 2px 0 #000; /* Black shadow effect */
-}
-
 /* Header Colors for h2 */
 .header1 {
     color: #000000; /* Color for the first h2 */
