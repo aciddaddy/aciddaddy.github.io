@@ -9,10 +9,18 @@
     <style>
         /* Your existing styles... */
 
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Center the gallery images */
+        }
+
         .gallery-image {
-            width: 100px; /* Set the width for thumbnails */
+            max-width: 100px; /* Set the maximum width for thumbnails */
+            height: auto; /* Maintain aspect ratio */
             transition: transform 0.3s; /* Smooth transition for scaling */
             cursor: pointer; /* Change cursor to pointer */
+            margin: 10px; /* Space between images */
         }
     </style>
 </head>
