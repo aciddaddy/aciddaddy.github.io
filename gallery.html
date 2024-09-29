@@ -7,54 +7,11 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <style>
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+        /* Your existing styles... */
 
         .gallery-image {
-            width: calc(50% - 20px); /* Two images side by side on mobile */
-            max-width: 150px; /* Limit max width for thumbnails */
-            margin: 10px; /* Space between images */
+            width: 100px; /* Set the width for thumbnails */
             transition: transform 0.3s; /* Smooth transition for scaling */
-            cursor: pointer; /* Change cursor to pointer */
-        }
-
-        @media (min-width: 600px) {
-            .gallery-image {
-                width: calc(33.33% - 20px); /* Three images side by side on larger screens */
-            }
-        }
-
-        /* Modal Styles */
-        .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1000; /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
-        }
-
-        .modal-content {
-            margin: auto;
-            display: block;
-            max-width: 90%; /* Limit the width to 90% of the viewport */
-            max-height: 90%; /* Limit the height to 90% of the viewport */
-            transition: transform 0.3s; /* Smooth transition for scaling */
-        }
-
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: #fff;
-            font-size: 40px;
-            font-weight: bold;
             cursor: pointer; /* Change cursor to pointer */
         }
     </style>
@@ -75,50 +32,24 @@
     <main><br>
         <h1></h1>
         <div class="gallery">
-            <img src="images/IMG_1860.jpg" alt="deep field//columbus, oh" class="gallery-image" onclick="enlargeImage(this)">
-            <img src="images/IMG_9240.jpg" alt="intervisiones//puebla, mx" class="gallery-image" onclick="enlargeImage(this)">
+            <img src="images/IMG_1860.jpg" alt="deep field//columbus, oh" class="gallery-image" onclick="toggleImageSize(this)">
+            <img src="images/IMG_9240.jpg" alt="intervisiones//puebla, mx" class="gallery-image" onclick="toggleImageSize(this)">
             <!-- Add more images as needed -->
         </div>
     </main>
-    
+
     <footer>
         <p>&copy; 2024 acid daddy | identity spectrum records</p>
     </footer>
     <br>
 
-    <!-- Modal for displaying images -->
-    <div id="myModal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="img01">
-    </div>
-
     <script>
-        function enlargeImage(img) {
-            const modal = document.getElementById("myModal");
-            const modalImg = document.getElementById("img01");
-            modal.style.display = "block";
-            modalImg.src = img.src;
-
-            // Adjust modal image size
-            modalImg.onload = function() {
-                const aspectRatio = modalImg.naturalWidth / modalImg.naturalHeight;
-                if (aspectRatio > 1) {
-                    modalImg.style.width = '90%';
-                    modalImg.style.height = 'auto';
-                } else {
-                    modalImg.style.height = '90%';
-                    modalImg.style.width = 'auto';
-                }
-            };
-
-            modalImg.onclick = function() {
-                modal.style.display = "none";
-            };
-        }
-
-        function closeModal() {
-            const modal = document.getElementById("myModal");
-            modal.style.display = "none";
+        function toggleImageSize(img) {
+            if (img.style.transform === "scale(1.5)") {
+                img.style.transform = "scale(1)";
+            } else {
+                img.style.transform = "scale(1.5)";
+            }
         }
     </script>
 </body>
