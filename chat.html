@@ -18,6 +18,11 @@
             aspect-ratio: 1;
             touch-action: none; /* Prevent default touch actions */
         }
+        @media (max-width: 600px) {
+            #gameCanvas {
+                max-width: calc(100% - 40px); /* slightly smaller than full width */
+            }
+        }
         #score {
             text-align: center;
             font-size: 20px;
@@ -99,6 +104,9 @@
                 startGame();
             }
         }
+        if ([37, 38, 39, 40].includes(event.keyCode)) {
+            event.preventDefault(); // Prevent default scrolling action
+        }
     });
 
     // Start game on touch for mobile
@@ -118,18 +126,14 @@
         var y = touch.clientY - rect.top;
 
         if (y < rect.height / 2) {
-            // Tap on the upper half of the canvas
             if (direction !== "DOWN") direction = "UP";
         } else {
-            // Tap on the lower half of the canvas
             if (direction !== "UP") direction = "DOWN";
         }
 
         if (x < rect.width / 2) {
-            // Tap on the left half of the canvas
             if (direction !== "RIGHT") direction = "LEFT";
         } else {
-            // Tap on the right half of the canvas
             if (direction !== "LEFT") direction = "RIGHT";
         }
     });
