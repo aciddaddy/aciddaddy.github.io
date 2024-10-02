@@ -47,8 +47,17 @@
             height: 60px;
             margin: 10px;
         }
+        .game-container {
+            margin: 20px auto;
+            max-width: 800px; /* Optional max width */
+            padding: 20px; /* Add padding */
+            background-color: #f0f0f0; /* Background color */
+            border-radius: 10px; /* Rounded edges */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow */
+        }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/@christianliebel/paint/dist/elements/index.js" type="module"></script>
 </head>
 <body>
     <header>
@@ -79,11 +88,20 @@
             <button onclick="d()" type="button" class="control-btn">D</button>
         </div>
         <br>
-        <!-- Chat Room --!>
+
+        <!-- Paint Game -->
+        <h2 style="font-family: 'Courier New', Courier, monospace;">◦ Paint Game ◦</h2>
+        <div class="game-container">
+            <paint-element></paint-element>
+        </div>
+        <br>
+
+        <!-- Chat Room -->
         <div class="chat-container">
             <iframe width="550" height="350" scrolling="no" src="https://widget.mibbit.com/?settings=50f1d470165e4250fd454052c020bb92&server=irc.chat4all.net&channel=%23aciddaddy.net"></iframe>
         </div>
         <br>
+
         <!-- Buy Me a Coffee button -->
         <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="aciddaddy" data-color="#fc8eac" data-emoji="" data-font="Bree" data-text="buymeacoffee.com" data-outline-color="#000000" data-font-color="#FFFFFF" data-coffee-color="#00FF00"></script>
     </main>
