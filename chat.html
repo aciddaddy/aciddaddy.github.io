@@ -91,9 +91,7 @@
 
     <!-- Paint Game -->
     <h2 style="font-family: 'Courier New', Courier, monospace;">◦ Paint Game ◦</h2>
-    <div class="game-container">
-        <paint-element style="width: 100%; height: 400px;"></paint-element>
-    </div>
+    <paint-app style="width: 100%; height: 400px;"></paint-app>
     <br>
 
     <!-- Chat Room -->
@@ -108,6 +106,13 @@
 
 <!-- Include Paint Game Script -->
 <script src="https://unpkg.com/@christianliebel/paint/dist/elements/index.js" type="module"></script>
+
+<!-- Optional: Listen for title changes -->
+<script>
+    document.addEventListener('titlechange', (event) => {
+        console.log('Document title changed to:', event.detail.title);
+    });
+</script>
 
         <br>
     <footer>
