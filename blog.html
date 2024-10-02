@@ -17,49 +17,49 @@
         /* Body Styling */
         body {
             font-family: 'Arial', sans-serif;
-            color: #000; /* Black text */
-            background-color: #fff; /* White background */
+            color: #000;
+            background-color: #fff;
             line-height: 1.6;
-            text-align: center; /* Center all text by default */
+            text-align: center;
             margin: 0;
             padding: 0;
         }
 
         /* Header Styling */
         header {
-            background-color: #f0f0f0; /* Light grey */
+            background-color: #f0f0f0;
             padding: 1rem;
-            border-bottom: 1px solid #000; /* 1pt black line */
+            border-bottom: 1px solid #000;
             text-align: center;
         }
 
         nav {
             display: flex;
-            flex-wrap: wrap; /* Allows buttons to wrap to the next line if needed */
-            justify-content: center; /* Center align items horizontally */
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 1rem;
             margin-bottom: 1rem;
         }
 
         .nav-button {
             display: inline-block;
-            flex: 1 1 auto; /* Allow buttons to grow and shrink */
-            min-width: 150px; /* Minimum width of buttons */
+            flex: 1 1 auto;
+            min-width: 150px;
             padding: 0.5rem 1.5rem;
-            background-color: #00ff00; /* Neon green */
-            color: #000; /* Black text */
+            background-color: #00ff00;
+            color: #000;
             text-decoration: none;
-            border-radius: 50px; /* Oval buttons */
+            border-radius: 50px;
             font-weight: bold;
             transition: background-color 0.3s, color 0.3s;
-            border: 1px solid #000; /* 1pt black line */
-            margin: 0.2rem; /* Margin for spacing between buttons */
-            text-align: center; /* Center text in buttons */
+            border: 1px solid #000;
+            margin: 0.2rem;
+            text-align: center;
         }
 
         .nav-button:hover {
-            background-color: #ff0; /* Bright yellow */
-            color: #000; /* Black text */
+            background-color: #ff0;
+            color: #000;
         }
 
         /* Blog Posts Styling */
@@ -67,48 +67,48 @@
             width: 80%; /* Set the width of the blog posts */
             max-width: 600px; /* Maximum width for larger screens */
             margin: 0 auto; /* Center the blog posts */
-            border: 1px solid black; /* 1pt black border */
-            border-radius: 10px; /* Rounded edges */
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Shadow effect */
-            padding: 15px; /* Padding inside the blog post */
-            margin-bottom: 20px; /* Spacing between blog posts */
-            background-color: #f0f0f0; /* Change this color to match the header */
+            border: 1px solid black;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #f0f0f0;
         }
 
         /* Image Styling to Maintain Aspect Ratio */
         .gallery-image {
-            max-width: 100%; /* Ensure the image does not exceed the container width */
-            height: auto; /* Maintain the aspect ratio */
-            display: block; /* Ensure there's no extra space below the image */
-            margin: 0 auto; /* Center the image */
-            transition: transform 0.3s; /* Smooth transition for scaling */
-            cursor: pointer; /* Change cursor to pointer */
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            transition: transform 0.3s;
+            cursor: pointer;
         }
 
         /* New Courier Class */
         .courier {
-            font-family: 'Courier New', Courier, monospace; /* Ensure the font is applied correctly */
+            font-family: 'Courier New', Courier, monospace;
         }
 
         /* Modal Styles */
         .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1000; /* Sit on top */
+            display: none;
+            position: fixed;
+            z-index: 1000;
             left: 0;
             top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
         }
 
         .modal-content {
             margin: auto;
             display: block;
-            max-width: 90%; /* Limit the width to 90% of the viewport */
-            max-height: 90%; /* Limit the height to 90% of the viewport */
-            transition: transform 0.3s; /* Smooth transition for scaling */
+            max-width: 90%;
+            max-height: 90%;
+            transition: transform 0.3s;
         }
     </style>
 </head>
@@ -144,13 +144,13 @@
             <h2 class="courier">world wide web...site</h2>
             <p class="courier">september 2024</p><br>
             <p>sharing my creations here for now.<br>
-oooo         o8o <br> 
-`888         `"' <br>
- 888 .oo.   oooo <br> 
- 888P"Y88b  `888 <br> 
- 888   888   888 <br> 
- 888   888   888 <br> 
-o888o o888o o888o <br> 
+oooo         o8o 
+`888         `"' 
+ 888 .oo.   oooo 
+ 888P"Y88b  `888  
+ 888   888   888  
+ 888   888   888  
+o888o o888o o888o
             </p>
         </section>
         
@@ -181,7 +181,6 @@ o888o o888o o888o <br>
             modalImg.src = img.src;
 
             modalImg.onload = function() {
-                // Calculate aspect ratio to fit within 90% of the viewport
                 const aspectRatio = modalImg.naturalWidth / modalImg.naturalHeight;
                 if (aspectRatio > 1) {
                     modalImg.style.width = '90%';
