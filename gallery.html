@@ -8,7 +8,6 @@
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <style>
         /* Your existing styles... */
-
         .gallery {
             display: flex;
             flex-wrap: wrap;
@@ -21,6 +20,39 @@
             transition: transform 0.3s; /* Smooth transition for scaling */
             cursor: pointer; /* Change cursor to pointer */
             margin: 5px; /* Space between images */
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
+            justify-content: center; /* Center the image horizontally */
+            align-items: center; /* Center the image vertically */
+            display: flex; /* Use flex to center content */
+        }
+
+        .modal img {
+            max-width: 90%; /* Responsive image */
+            max-height: 90%; /* Responsive image */
+            margin: auto; /* Center image in modal */
+            display: block; /* Centering */
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -44,6 +76,12 @@
             <img src="images/IMG_9240.jpg" alt="intervisiones//puebla, mx" class="gallery-image" onclick="toggleImageSize(this)">
             <!-- Add more images as needed -->
         </div>
+
+        <!-- Modal for enlarged image -->
+        <div class="modal" id="myModal" onclick="closeModal()">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="">
+        </div>
     </main>
 
     <footer>
@@ -53,11 +91,15 @@
 
     <script>
         function toggleImageSize(img) {
-            if (img.style.transform === "scale(2)") {
-                img.style.transform = "scale(1)";
-            } else {
-                img.style.transform = "scale(2)";
-            }
+            const modal = document.getElementById("myModal");
+            const modalImg = document.getElementById("modalImage");
+            modal.style.display = "flex"; // Show modal
+            modalImg.src = img.src; // Set modal image source
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none"; // Hide modal
         }
     </script>
 </body>
