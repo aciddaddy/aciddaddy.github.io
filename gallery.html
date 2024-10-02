@@ -22,35 +22,11 @@
             margin: 5px; /* Space between images */
         }
 
-        /* Modal styles */
-        .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1000; /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
-            display: flex; /* Use flex to center content */
-            justify-content: center; /* Center the image horizontally */
-            align-items: center; /* Center the image vertically */
-        }
-
-        .modal img {
-            max-width: 90%; /* Responsive image */
-            max-height: 90%; /* Responsive image */
-            margin: auto; /* Center image in modal */
-        }
-
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: white;
-            font-size: 30px;
-            font-weight: bold;
-            cursor: pointer;
+        /* Centered image enlargement */
+        .enlarged {
+            transform: scale(1.5); /* Slightly enlarge the image */
+            position: relative; /* Position relative to keep it in flow */
+            z-index: 10; /* Ensure it appears above other content */
         }
     </style>
 </head>
@@ -74,12 +50,6 @@
             <img src="images/IMG_9240.jpg" alt="intervisiones//puebla, mx" class="gallery-image" onclick="toggleImageSize(this)">
             <!-- Add more images as needed -->
         </div>
-
-        <!-- Modal for enlarged image -->
-        <div class="modal" id="myModal" onclick="closeModal()">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <img id="modalImage" src="" alt="">
-        </div>
     </main>
 
     <footer>
@@ -89,15 +59,14 @@
 
     <script>
         function toggleImageSize(img) {
-            const modal = document.getElementById("myModal");
-            const modalImg = document.getElementById("modalImage");
-            modal.style.display = "flex"; // Show modal
-            modalImg.src = img.src; // Set modal image source
-        }
+            // Remove the enlarged class from all images
+            const images = document.querySelectorAll('.gallery-image');
+            images.forEach(image => {
+                image.classList.remove('enlarged');
+            });
 
-        function closeModal() {
-            const modal = document.getElementById("myModal");
-            modal.style.display = "none"; // Hide modal
+            // Add the enlarged class to the clicked image
+            img.classList.toggle('enlarged');
         }
     </script>
 </body>
