@@ -39,8 +39,12 @@
             color: black;
             margin-bottom: 10px;
         }
-        .chat-container {
+        .chat-container, .paint-container {
             margin-top: 20px;
+            width: 100%; /* Ensure full width */
+            max-width: 550px; /* Same width as chat room */
+            margin-left: auto;
+            margin-right: auto;
         }
         .control-btn {
             width: 60px;
@@ -91,12 +95,14 @@
 
     <!-- Paint Game -->
     <h2 style="font-family: 'Courier New', Courier, monospace;">◦ paint ◦</h2>
-    <paint-app style="width: 100%; height: 400px;"></paint-app>
+    <div class="paint-container">
+        <paint-app style="width: 100%; height: 400px;"></paint-app>
+    </div>
     <br>
 
     <!-- Chat Room -->
     <div class="chat-container">
-        <iframe width="550" height="350" scrolling="no" src="https://widget.mibbit.com/?settings=50f1d470165e4250fd454052c020bb92&server=irc.chat4all.net&channel=%23aciddaddy.net"></iframe>
+        <iframe width="100%" height="350" scrolling="no" src="https://widget.mibbit.com/?settings=50f1d470165e4250fd454052c020bb92&server=irc.chat4all.net&channel=%23aciddaddy.net"></iframe>
     </div>
     <br>
 
@@ -114,13 +120,13 @@
     });
 </script>
 
-        <br>
-    <footer>
-        <p>&copy; 2024 acid daddy | identity spectrum records</p>
-    </footer>
-    <br>
+<br>
+<footer>
+    <p>&copy; 2024 acid daddy | identity spectrum records</p>
+</footer>
+<br>
 
-    <script>
+<script>
     var canvas = $("#gameCanvas")[0];
     var ctx = canvas.getContext("2d");
     var box = 20;
