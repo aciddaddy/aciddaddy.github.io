@@ -34,10 +34,10 @@
             margin-top: 10px;
         }
         #message {
-            text-align: center;
-            font-family: 'Courier New', Courier, monospace;
-            color: black;
-            margin-bottom: 10px;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    margin: 5px 0 10px; /* Adjusted margins */
         }
         .chat-container, .paint-container {
             margin-top: 20px;
@@ -75,12 +75,10 @@
         <div class="chat-container">
             <iframe width="100%" height="350" scrolling="no" src="https://widget.mibbit.com/?settings=50f1d470165e4250fd454052c020bb92&server=irc.chat4all.net&channel=%23aciddaddy.net"></iframe>
         </div>
-        <br>
-
         <h2 style="font-family: 'Courier New', Courier, monospace;">snake game</h2>
-        <div id="message"> [mobile: tap screen to begin]<br>[desktop: press spacebar to begin] </div>
-        <canvas id="gameCanvas" width="550" height="550"></canvas> <!-- Adjusted width/height -->
-        <div id="score">score: 0</div>
+<div id="message"> [mobile: tap screen to begin]<br>[desktop: press spacebar to begin] </div>
+<canvas id="gameCanvas" width="550" height="550"></canvas>
+<div id="score">score: 0</div>
 
         <!-- Control buttons -->
         <div>
