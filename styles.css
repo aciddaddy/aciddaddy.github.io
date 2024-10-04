@@ -331,14 +331,17 @@ a:hover {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.8);
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
 }
 
 .modal-content {
-    margin: auto;
-    display: block;
     max-width: 90%; /* Allow the image to take up to 90% of the width */
     max-height: 90%; /* Ensure it doesn't exceed 90% height */
     height: auto; /* Maintain aspect ratio */
     width: auto; /* Maintain aspect ratio */
     transition: transform 0.3s;
+    border: 1px solid #fff; /* Optional: add a border */
+    border-radius: 10px; /* Optional: rounded corners */
 }
