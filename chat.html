@@ -6,7 +6,9 @@
     <title>web café</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    
+
+    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="aciddaddy" data-description="Support me on Buy me a coffee!" data-message="" data-color="#00FF00" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+
     <style>
         #gameCanvas {
             border: 4px solid #fc8eac;
@@ -18,6 +20,8 @@
             height: auto;
             aspect-ratio: 1; /* Keep the aspect ratio */
             touch-action: none; /* Prevent default touch actions */
+            position: relative; /* Ensure relative positioning */
+            z-index: 10; /* Set a higher z-index */
         }
         @media (max-width: 600px) {
             #gameCanvas {
@@ -37,6 +41,13 @@
             color: black;
             margin: 5px 0 10px; /* Adjusted margins */
         }
+        .chat-container, .paint-container {
+            margin-top: 20px;
+            width: 100%; /* Ensure full width */
+            max-width: 550px; /* Same width for consistency */
+            margin-left: auto;
+            margin-right: auto;
+        }
         .control-btn {
             width: 60px;
             height: 60px;
@@ -44,6 +55,7 @@
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/@christianliebel/paint/dist/elements/index.js" type="module"></script>
 </head>
 <body>
     <header>
@@ -60,12 +72,18 @@
     <br>
     <main><br>
         <h1 class="header1" style="font-weight: normal; font-size: 24px;">◦ ｗｅｂ　ｃａｆｅ ◦</h1><br>
-        
+
+        <!-- Chat Room -->
+        <div class="chat-container">
+            <iframe width="100%" height="350" scrolling="no" src="https://widget.mibbit.com/?settings=50f1d470165e4250fd454052c020bb92&server=irc.chat4all.net&channel=%23aciddaddy.net"></iframe>
+        </div>
+        <br>
         <h2 style="font-family: 'Courier New', Courier, monospace;">snake game</h2>
         <div id="message"> [mobile: tap screen to begin]<br>[desktop: press spacebar to begin] </div>
-        <canvas id="gameCanvas" width="550" height="550"></canvas>
+        <canvas id="gameCanvas" width="550" height="550" tabindex="0"></canvas>
         <div id="score">score: 0</div>
 
+        <!-- Control buttons -->
         <div>
             <button onclick="u()" type="button" class="control-btn">U</button>
             <button onclick="l()" type="button" class="control-btn">L</button>
@@ -73,8 +91,29 @@
             <button onclick="d()" type="button" class="control-btn">D</button>
         </div>
         <br>
+
+        <!-- Paint Game -->
+        <h2 style="font-family: 'Courier New', Courier, monospace;">paint</h2>
+        <div class="paint-container" style="border: 2px solid #000; padding: 10px;">
+            <paint-app style="width: 100%; height: 400px;"></paint-app>
+        </div>
+        <br>
+
+        <!-- Buy Me a Coffee button -->
+        <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="aciddaddy" data-color="#fc8eac" data-emoji="" data-font="Bree" data-text="buymeacoffee.com" data-outline-color="#000000" data-font-color="#FFFFFF" data-coffee-color="#00FF00"></script>
     </main>
 
+    <!-- Include Paint Game Script -->
+    <script src="https://unpkg.com/@christianliebel/paint/dist/elements/index.js" type="module"></script>
+
+    <!-- Optional: Listen for title changes -->
+    <script>
+        document.addEventListener('titlechange', (event) => {
+            console.log('Document title changed to:', event.detail.title);
+        });
+    </script>
+
+    <br>
     <footer>
         <p>&copy; 2024 acid daddy | identity spectrum records</p>
     </footer>
@@ -89,15 +128,18 @@
         var direction = "RIGHT";
         var game;
         var isGameActive = false;
-        var food;
 
         // Start game on space bar for desktop
         $(document).keydown(function(event) {
-            if (event.key === " " || event.keyCode === 32) {
-                event.preventDefault();
+            if (event.key === " " || event.keyCode === 32) { // Space bar
+                event.preventDefault(); // Prevent the default scrolling action
+                $("#gameCanvas").focus(); // Focus on canvas to ensure it captures the event
                 if (!isGameActive) {
                     startGame();
                 }
+            }
+            if ([37, 38, 39, 40].includes(event.keyCode)) {
+                event.preventDefault(); // Prevent default scrolling action
             }
         });
 
@@ -109,21 +151,64 @@
             }
         });
 
+        // Touch handling for direction change
+        $("#gameCanvas").on("touchmove", function(event) {
+            event.preventDefault();
+            var touch = event.originalEvent.touches[0];
+            var rect = canvas.getBoundingClientRect();
+            var x = touch.clientX - rect.left;
+            var y = touch.clientY - rect.top;
+
+            if (y < rect.height / 2) {
+                if (direction !== "DOWN") direction = "UP";
+            } else {
+                if (direction !== "UP") direction = "DOWN";
+            }
+
+            if (x < rect.width / 2) {
+                if (direction !== "RIGHT") direction = "LEFT";
+            } else {
+                if (direction !== "LEFT") direction = "RIGHT";
+            }
+        });
+
         // Button control for direction change
-        function l() { if (direction !== "RIGHT") direction = "LEFT"; }
-        function u() { if (direction !== "DOWN") direction = "UP"; }
-        function r() { if (direction !== "LEFT") direction = "RIGHT"; }
-        function d() { if (direction !== "UP") direction = "DOWN"; }
+        function l() {
+            if (direction !== "RIGHT") direction = "LEFT";
+        }
+
+        function u() {
+            if (direction !== "DOWN") direction = "UP";
+        }
+
+        function r() {
+            if (direction !== "LEFT") direction = "RIGHT";
+        }
+
+        function d() {
+            if (direction !== "UP") direction = "DOWN";
+        }
+
+        // Set up touch event listeners for buttons
+        $(".control-btn").on("touchstart", function(event) {
+            event.preventDefault(); // Prevent default touch behavior
+            switch ($(this).text()) {
+                case 'L': l(); break;
+                case 'U': u(); break;
+                case 'R': r(); break;
+                case 'D': d(); break;
+            }
+        });
 
         // Start game logic
         function startGame() {
-            snake = [{ x: 9 * box, y: 9 * box }];
+            snake = [];
             score = 0;
             direction = "RIGHT";
+            snake[0] = { x: 9 * box, y: 9 * box };
             createFood();
             clearInterval(game);
             isGameActive = true;
-            $("#score").text("Score: " + score);
             game = setInterval(draw, 150);
         }
 
@@ -141,7 +226,7 @@
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             for (var i = 0; i < snake.length; i++) {
-                ctx.fillStyle = (i === 0) ? "#00ff00" : "#fff";
+                ctx.fillStyle = (i === 0) ? "#00ff00" : "#fff"; // Set the color of the snake
                 ctx.fillRect(snake[i].x, snake[i].y, box, box);
                 ctx.strokeStyle = "black";
                 ctx.strokeRect(snake[i].x, snake[i].y, box, box);
@@ -153,12 +238,12 @@
             var snakeX = snake[0].x;
             var snakeY = snake[0].y;
 
-            if (direction === "LEFT") snakeX -= box;
-            if (direction === "UP") snakeY -= box;
-            if (direction === "RIGHT") snakeX += box;
-            if (direction === "DOWN") snakeY += box;
+            if (direction == "LEFT") snakeX -= box;
+            if (direction == "UP") snakeY -= box;
+            if (direction == "RIGHT") snakeX += box;
+            if (direction == "DOWN") snakeY += box;
 
-            if (snakeX === food.x && snakeY === food.y) {
+            if (snakeX == food.x && snakeY == food.y) {
                 score++;
                 $("#score").text("Score: " + score);
                 createFood();
@@ -166,7 +251,10 @@
                 snake.pop();
             }
 
-            var newHead = { x: snakeX, y: snakeY };
+            var newHead = {
+                x: snakeX,
+                y: snakeY
+            };
 
             if (snakeX < 0 || snakeY < 0 || snakeX >= canvas.width || snakeY >= canvas.height || collision(newHead, snake)) {
                 clearInterval(game);
@@ -179,7 +267,12 @@
 
         // Collision detection
         function collision(head, array) {
-            return array.some(segment => head.x === segment.x && head.y === segment.y);
+            for (var i = 0; i < array.length; i++) {
+                if (head.x == array[i].x && head.y == array[i].y) {
+                    return true;
+                }
+            }
+            return false;
         }
     </script>
 </body>
