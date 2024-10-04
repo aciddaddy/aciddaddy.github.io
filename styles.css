@@ -152,8 +152,8 @@ a:hover {
 }
 
 .gallery-image {
-    width: 250px; /* Set a fixed width for thumbnails */
-    height: 250px; /* Set a fixed height for thumbnails */
+    width: 150px; /* Set a fixed width for thumbnails */
+    height: 150px; /* Set a fixed height for thumbnails */
     object-fit: cover; /* Ensure images cover the thumbnail area */
     border: 1px solid #000; /* 1px black border */
     border-radius: 10px; /* Rounded corners */
@@ -163,7 +163,7 @@ a:hover {
 
 /* Ensure enlarged images stay scaled */
 .gallery-image.enlarged {
-    transform: scale(2); /* Enlarged state */
+    transform: scale(1.5); /* Enlarged state */
     z-index: 10; /* Bring to front */
 }
 
