@@ -6,38 +6,6 @@
     <title>gallery</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <style>
-        /* Your existing styles... */
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center; /* Center the gallery images */
-        }
-
-        .gallery-image {
-            max-width: 150px; /* Set the maximum width for thumbnails */
-            height: auto; /* Maintain aspect ratio */
-            transition: transform 0.3s; /* Smooth transition for scaling */
-            cursor: pointer; /* Change cursor to pointer */
-            margin: 5px; /* Space between images */
-        }
-
-        /* Centered image enlargement */
-        .enlarged {
-            transform: scale(1.5); /* Slightly enlarge the image */
-            position: relative; /* Position relative to keep it in flow */
-            z-index: 10; /* Ensure it appears above other content */
-        }
-
-        /* Mobile responsiveness for enlarged images */
-        @media (max-width: 768px) {
-            .enlarged {
-                max-width: 100%; /* Prevent overflow */
-                max-height: 100%; /* Prevent overflow */
-                overflow: auto; /* Enable scroll if needed */
-            }
-        }
-    </style>
 </head>
 <body>
     <header>
