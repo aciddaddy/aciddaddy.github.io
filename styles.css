@@ -152,19 +152,21 @@ a:hover {
 }
 
 .gallery-image {
-    width: 250px; /* Set a fixed width for thumbnails */
-    height: 250px; /* Set a fixed height for thumbnails */
+    width: 150px; /* Set a fixed width for thumbnails */
+    height: auto; /* Set a fixed height for thumbnails */
     object-fit: cover; /* Ensure images cover the thumbnail area */
     border: 1px solid #000; /* 1px black border */
     border-radius: 10px; /* Rounded corners */
     cursor: pointer; /* Show a pointer cursor for clickable images */
+    margin: 5px; /* Space between images */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform and shadow */
 }
 
 /* Ensure enlarged images stay scaled */
 .gallery-image.enlarged {
     transform: scale(2); /* Enlarged state */
-    z-index: 10; /* Bring to front */
+    position: relative; /* Position relative to keep it in flow */
+    z-index: 10; /* Ensure it appears above other content */
 }
 
 /* Hover effect for gallery images */
@@ -259,7 +261,7 @@ a:hover {
     margin: 20px auto; /* Center the images */
 }
 
-/* Responsive adjustments for small screens */
+/* Gallery Image Responsive adjustments for small screens */
 @media (max-width: 768px) {
     .small-image {
         max-height: auto; /* Smaller max height on medium screens */
@@ -268,6 +270,13 @@ a:hover {
     .large-image {
         max-height: auto; /* Smaller max height on medium screens */
         max-width: 400px; /* Smaller max width on medium screens */
+    }
+/* Mobile responsiveness for enlarged images */
+@media (max-width: 768px) {
+    .enlarged {
+        max-width: 100%; /* Prevent overflow */
+        max-height: 100%; /* Prevent overflow */
+        overflow: auto; /* Enable scroll if needed */
     }
 }
 
