@@ -77,6 +77,17 @@
             cursor: pointer;
             border-radius: 5px;
         }
+        @media (max-width: 800px) {
+            .control-btn {
+                width: 40px; /* Smaller size for desktop */
+                height: 40px; /* Smaller size for desktop */
+                font-size: 18px; /* Smaller font size */
+            }
+            #startBtn {
+                font-size: 18px; /* Smaller font size for start button */
+                padding: 8px 16px; /* Smaller padding */
+            }
+        }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://unpkg.com/@christianliebel/paint/dist/elements/index.js" type="module"></script>
@@ -163,10 +174,10 @@
             createFood();
             clearInterval(game);
             isGameActive = true;
-            $("#score").text("Score: " + score);
+            $("#score").text("score: " + score);
             game = setInterval(draw, 150);
             $("#startBtn").hide(); // Hide the start button
-            $("#message").text("Use the buttons to control the snake!"); // Update message
+            $("#message").text("use the buttons to control the snake!"); // Update message
         }
 
         // Create food on the canvas
@@ -183,7 +194,7 @@
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             for (var i = 0; i < snake.length; i++) {
-                ctx.fillStyle = (i === 0) ? "#00ff00" : "#fff"; // Set the color of the snake
+                ctx.fillStyle = (i === 0) ? "#00ff00" : "#00ff00"; // Set the color of the snake
                 ctx.fillRect(snake[i].x, snake[i].y, box, box);
                 ctx.strokeStyle = "black";
                 ctx.strokeRect(snake[i].x, snake[i].y, box, box);
@@ -202,7 +213,7 @@
 
             if (snakeX == food.x && snakeY == food.y) {
                 score++;
-                $("#score").text("Score: " + score);
+                $("#score").text("score: " + score);
                 createFood();
             } else {
                 snake.pop();
