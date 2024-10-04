@@ -52,6 +52,19 @@
             width: 60px;
             height: 60px;
             margin: 10px;
+            border: none;
+            background-color: #fc8eac;
+            color: white;
+            font-size: 24px;
+            border-radius: 50%; /* Make buttons circular */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .control-btn:hover {
+            background-color: #ff77a1; /* Change color on hover */
         }
         #startBtn {
             display: block;
@@ -96,14 +109,15 @@
         
         <!-- Score and Control buttons -->
         <div id="score">score: 0</div>
+        
+        <button id="startBtn" onclick="startGame()">Start Game</button>
+
         <div>
             <button onclick="u()" type="button" class="control-btn">U</button>
             <button onclick="l()" type="button" class="control-btn">L</button>
             <button onclick="r()" type="button" class="control-btn">R</button>
             <button onclick="d()" type="button" class="control-btn">D</button>
         </div>
-        
-        <button id="startBtn" onclick="startGame()">Start Game</button>
         
         <canvas id="gameCanvas" width="550" height="550" tabindex="0"></canvas>
         
