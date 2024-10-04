@@ -163,7 +163,7 @@ a:hover {
 
 /* Ensure enlarged images stay scaled */
 .gallery-image.enlarged {
-    transform: scale(1.5); /* Enlarged state */
+    transform: scale(2); /* Enlarged state */
     z-index: 10; /* Bring to front */
 }
 
