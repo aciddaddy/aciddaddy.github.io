@@ -132,6 +132,23 @@
         });
     });
 </script>
-
+<!-- At the end of your body tag, before </body> -->
+<script>
+    fetch('player.html')
+        .then(response => response.text())
+        .then(data => {
+            document.body.insertAdjacentHTML('beforeend', data);
+        });
+</script>
+<script>
+    window.onbeforeunload = function() {
+        const iframe = document.querySelector('iframe');
+        if (iframe) {
+            const iframeSrc = iframe.src;
+            iframe.src = ""; // Remove src to stop playback
+            iframe.src = iframeSrc; // Restore src to enable playback again
+        }
+    };
+</script>
 </body>
 </html>
