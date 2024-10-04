@@ -53,6 +53,17 @@
             height: 60px;
             margin: 10px;
         }
+        #startBtn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 20px;
+            background-color: #fc8eac;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://unpkg.com/@christianliebel/paint/dist/elements/index.js" type="module"></script>
@@ -78,23 +89,29 @@
             <iframe width="100%" height="350" scrolling="no" src="https://widget.mibbit.com/?settings=50f1d470165e4250fd454052c020bb92&server=irc.chat4all.net&channel=%23aciddaddy.net"></iframe>
         </div>
         <br>
-        <h2 style="font-family: 'Courier New', Courier, monospace;">snake game</h2>
-        <div id="message"> [mobile: tap screen to begin]<br>[desktop: press spacebar to begin] </div>
-        <canvas id="gameCanvas" width="550" height="550" tabindex="0"></canvas>
-        <div id="score">score: 0</div>
 
-        <!-- Control buttons -->
+        <!-- Snake Game -->
+        <h2 style="font-family: 'Courier New', Courier, monospace;">snake game</h2>
+        <div id="message"> [click the start button to begin] </div>
+        
+        <!-- Score and Control buttons -->
+        <div id="score">score: 0</div>
         <div>
             <button onclick="u()" type="button" class="control-btn">U</button>
             <button onclick="l()" type="button" class="control-btn">L</button>
             <button onclick="r()" type="button" class="control-btn">R</button>
             <button onclick="d()" type="button" class="control-btn">D</button>
         </div>
+        
+        <button id="startBtn" onclick="startGame()">Start Game</button>
+        
+        <canvas id="gameCanvas" width="550" height="550" tabindex="0"></canvas>
+        
         <br>
 
         <!-- Paint Game -->
         <h2 style="font-family: 'Courier New', Courier, monospace;">paint</h2>
-        <div class="paint-container" style="border: 2px solid #000; padding: 10px;">
+        <div class="paint-container" style="padding: 10px;">
             <paint-app style="width: 100%; height: 400px;"></paint-app>
         </div>
         <br>
@@ -105,13 +122,6 @@
 
     <!-- Include Paint Game Script -->
     <script src="https://unpkg.com/@christianliebel/paint/dist/elements/index.js" type="module"></script>
-
-    <!-- Optional: Listen for title changes -->
-    <script>
-        document.addEventListener('titlechange', (event) => {
-            console.log('Document title changed to:', event.detail.title);
-        });
-    </script>
 
     <br>
     <footer>
@@ -129,77 +139,6 @@
         var game;
         var isGameActive = false;
 
-        // Start game on space bar for desktop
-        $(document).keydown(function(event) {
-            if (event.key === " " || event.keyCode === 32) { // Space bar
-                event.preventDefault(); // Prevent the default scrolling action
-                $("#gameCanvas").focus(); // Focus on canvas to ensure it captures the event
-                if (!isGameActive) {
-                    startGame();
-                }
-            }
-            if ([37, 38, 39, 40].includes(event.keyCode)) {
-                event.preventDefault(); // Prevent default scrolling action
-            }
-        });
-
-        // Start game on touch for mobile
-        $("#gameCanvas").on("touchstart", function(event) {
-            event.preventDefault();
-            if (!isGameActive) {
-                startGame();
-            }
-        });
-
-        // Touch handling for direction change
-        $("#gameCanvas").on("touchmove", function(event) {
-            event.preventDefault();
-            var touch = event.originalEvent.touches[0];
-            var rect = canvas.getBoundingClientRect();
-            var x = touch.clientX - rect.left;
-            var y = touch.clientY - rect.top;
-
-            if (y < rect.height / 2) {
-                if (direction !== "DOWN") direction = "UP";
-            } else {
-                if (direction !== "UP") direction = "DOWN";
-            }
-
-            if (x < rect.width / 2) {
-                if (direction !== "RIGHT") direction = "LEFT";
-            } else {
-                if (direction !== "LEFT") direction = "RIGHT";
-            }
-        });
-
-        // Button control for direction change
-        function l() {
-            if (direction !== "RIGHT") direction = "LEFT";
-        }
-
-        function u() {
-            if (direction !== "DOWN") direction = "UP";
-        }
-
-        function r() {
-            if (direction !== "LEFT") direction = "RIGHT";
-        }
-
-        function d() {
-            if (direction !== "UP") direction = "DOWN";
-        }
-
-        // Set up touch event listeners for buttons
-        $(".control-btn").on("touchstart", function(event) {
-            event.preventDefault(); // Prevent default touch behavior
-            switch ($(this).text()) {
-                case 'L': l(); break;
-                case 'U': u(); break;
-                case 'R': r(); break;
-                case 'D': d(); break;
-            }
-        });
-
         // Start game logic
         function startGame() {
             snake = [];
@@ -209,7 +148,10 @@
             createFood();
             clearInterval(game);
             isGameActive = true;
+            $("#score").text("Score: " + score);
             game = setInterval(draw, 150);
+            $("#startBtn").hide(); // Hide the start button
+            $("#message").text("Use the buttons to control the snake!"); // Update message
         }
 
         // Create food on the canvas
@@ -274,6 +216,34 @@
             }
             return false;
         }
+
+        // Button control for direction change
+        function l() {
+            if (direction !== "RIGHT") direction = "LEFT";
+        }
+
+        function u() {
+            if (direction !== "DOWN") direction = "UP";
+        }
+
+        function r() {
+            if (direction !== "LEFT") direction = "RIGHT";
+        }
+
+        function d() {
+            if (direction !== "UP") direction = "DOWN";
+        }
+
+        // Set up touch event listeners for buttons
+        $(".control-btn").on("touchstart", function(event) {
+            event.preventDefault(); // Prevent default touch behavior
+            switch ($(this).text()) {
+                case 'L': l(); break;
+                case 'U': u(); break;
+                case 'R': r(); break;
+                case 'D': d(); break;
+            }
+        });
     </script>
 </body>
 </html>
