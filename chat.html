@@ -271,5 +271,14 @@
             }
         });
     </script>
+    <!-- At the end of your body tag, before </body> -->
+<script>
+    fetch('player.html')
+        .then(response => response.text())
+        .then(data => {
+            document.body.insertAdjacentHTML('beforeend', data);
+        });
+</script>
+
 </body>
 </html>
