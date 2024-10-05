@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>gallery</title>
+    <title>Gallery</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
@@ -19,27 +19,35 @@
             <a href="chat.html" class="nav-button">web café</a>
         </nav>
     </header>
-    <main><br>
-        <h1></h1>
-        <br>
-        <h2 class="header1" style="font-weight: normal; font-size: 24px;">◦ ｇａｌｌｅｒｙ ◦</h2><br>
-        <br>
+    <main>
+        <h2 class="header1" style="font-weight: normal; font-size: 24px;">◦ ｇａｌｌｅｒｙ ◦</h2>
         <div class="gallery">
             <img src="images/IMG_1860.jpg" alt="deep field//columbus, oh" class="gallery-image" onclick="toggleImageSize(this)">
             <img src="images/IMG_9240.jpg" alt="intervisiones//puebla, mx" class="gallery-image" onclick="toggleImageSize(this)">
-            <!-- Add more images as needed -->
         </div>
     </main>
     <footer>
         <p>&copy; 2024 acid daddy | identity spectrum records</p>
     </footer>
-    <br>
+
+    <!-- Modal Structure -->
+    <div class="modal" id="imageModal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage" alt="Enlarged Image">
+    </div>
+
     <script>
         function toggleImageSize(img) {
-            // Toggle the enlarged class on the clicked image
-            img.classList.toggle('enlarged');
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImage");
+            modalImg.src = img.src;
+            modal.style.display = "flex"; // Show the modal
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("imageModal");
+            modal.style.display = "none"; // Hide the modal
         }
     </script>
-
 </body>
 </html>
