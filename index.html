@@ -8,8 +8,22 @@
     
     <!-- Favicon Link -->
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <!-- Favicon for PNG Format -->
-    <!-- <link rel="icon" href="images/303_tab.png" type="image/png"> -->
+
+    <style>
+        .digital-counter {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 36px;
+            color: #00ff00; /* Default color */
+            background-color: #000; /* Background color */
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            width: 200px;
+            margin: 20px auto;
+            border: 3px solid #00ff00; /* Border color */
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Shadow effect */
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -31,18 +45,25 @@
         <img src="images/aciddaddy_cursive_pixel.png" alt="acid daddy" class="about-image">
         <section class="square-container">
             <div class="square-item">░░░░░░【﻿ｄｊ　／／　ｐｒｏｄｕｃｅｒ　／／　ｌｉｖｅ　ｅｌｅｃｔｒｏｎｉｃｓ　／／　ｖｉｎｙｌ　ｒｅｃｏｒｄｓ　／／　ｍｕｌｔｉ－ｍｅｄｉａ　ｍａｋｅｒ　／／　ｍｙｃｏｌｏｇｙ　／／　ｓｕｓｔａｉｎａｂｌｅ　ｕｒｂａｎ　ｆａｒｍｉｎｇ　／／　ｄｉｙ　ｅｖｅｒｙｔｈｉｎｇ】░░░░░░</div>
-        </section><br><br>
+        </section><br>
         
         <!-- Image Section -->
         <section class="image-section">
             <img src="images/303_tab.png" alt="Featured Image" class="featured-image">
         </section>
         <br>
-        
-        <!-- Visitor Counter -->
-    <div class="counter" style="text-align: center; margin-top: 20px; font-family: 'Courier New', Courier, monospace;">
-        Visitors: <span id="visitorCount">0</span>
-    </div>
+        <!-- Other content here -->
+
+        <!-- Digital Clock Visitor Counter -->
+        <div class="digital-counter" id="digitalCounter">
+            Visitors: <span id="visitorCount">0</span>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 acid daddy | identity spectrum records</p>
+    </footer>
+    <br>
 
     <script>
         // Simulate a visitor count
@@ -50,13 +71,17 @@
         visitorCount++;
         localStorage.setItem('visitorCount', visitorCount);
         document.getElementById('visitorCount').innerText = visitorCount;
-    </script>
-        
-    <footer>
-        <p>&copy; 2024 acid daddy | identity spectrum records</p>
-    </footer>
-    <br>
 
-    
+        // Function to change colors
+        function setCounterColors(textColor, bgColor, borderColor) {
+            const counter = document.getElementById('digitalCounter');
+            counter.style.color = textColor;
+            counter.style.backgroundColor = bgColor;
+            counter.style.borderColor = borderColor;
+        }
+
+        // Set your desired colors
+        setCounterColors('#00ff00', '#000000', '#00ff00'); // Green text, black background, green border
+    </script>
 </body>
 </html>
