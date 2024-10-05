@@ -328,7 +328,7 @@ a:hover {
     width: 100vw; /* Use viewport width */
     height: 100vh; /* Use viewport height */
     overflow: hidden; /* Prevent scrolling */
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.8); /* Background color with transparency */
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
 }
@@ -336,7 +336,16 @@ a:hover {
 .modal-content {
     max-width: 90vw; /* Use viewport width for max size */
     max-height: 90vh; /* Use viewport height for max size */
-    object-fit: contain; /* Maintain aspect ratio without clipping */
     border: 1px solid #fff; /* Optional: add a border */
     border-radius: 10px; /* Optional: rounded corners */
+    object-fit: contain; /* Maintain aspect ratio without clipping */
+}
+
+.close {
+    color: white; /* Color for the close button */
+    font-size: 30px; /* Size of the close button */
+    position: absolute; /* Positioning to the top right */
+    top: 20px; /* Adjust as needed */
+    right: 30px; /* Adjust as needed */
+    cursor: pointer; /* Pointer cursor for the close button */
 }
