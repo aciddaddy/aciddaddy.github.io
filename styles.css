@@ -343,9 +343,14 @@ a:hover {
 
 .close {
     color: white; /* Color for the close button */
-    font-size: 30px; /* Size of the close button */
+    font-size: 50px; /* Increase size of the close button */
     position: absolute; /* Positioning to the top right */
     top: 20px; /* Adjust as needed */
     right: 30px; /* Adjust as needed */
     cursor: pointer; /* Pointer cursor for the close button */
+    transition: color 0.3s; /* Optional: add a transition for hover effect */
+}
+
+.close:hover {
+    color: #ffcccc; /* Optional: change color on hover for effect */
 }
