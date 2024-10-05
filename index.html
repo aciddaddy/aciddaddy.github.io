@@ -12,22 +12,26 @@
     <style>
         .klout-counter {
             font-family: 'Courier New', Courier, monospace;
-            font-size: 18px; /* Large font size */
+            font-size: 20px; /* Adjusted font size */
             color: #00ff00; /* Default text color */
             background-color: #000; /* Background color */
             padding: 10px;
             border-radius: 10px;
             text-align: center;
             width: 200px; /* Width for aesthetics */
-            height: 74px;
+            height: 100px; /* Increased height for better fit */
             margin: 10px auto;
             border: 5px solid #00ff00; /* Border color */
             box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); /* Glow effect */
         }
+        #visitorCount {
+            font-size: 32px; /* Increase visitor count font size */
+            line-height: 1.2; /* Adjust line height for spacing */
+        }
         .klout-score {
-            font-size: 24px; /* Smaller size for the label */
-            margin-top: 10px;
+            font-size: 16px; /* Adjusted size for the label */
             color: #fff; /* Color for the label */
+            margin-top: 5px; /* Reduced margin */
         }
     </style>
 </head>
@@ -52,7 +56,7 @@
         <section class="square-container">
             <div class="square-item">░░░░░░【﻿ｄｊ　／／　ｐｒｏｄｕｃｅｒ　／／　ｌｉｖｅ　ｅｌｅｃｔｒｏｎｉｃｓ　／／　ｖｉｎｙｌ　ｒｅｃｏｒｄｓ　／／　ｍｕｌｔｉ－ｍｅｄｉａ　ｍａｋｅｒ　／／　ｍｙｃｏｌｏｇｙ　／／　ｓｕｓｔａｉｎａｂｌｅ　ｕｒｂａｎ　ｆａｒｍｉｎｇ　／／　ｄｉｙ　ｅｖｅｒｙｔｈｉｎｇ】░░░░░░</div>
         </section><br>
-        
+        <br>
         <!-- Image Section -->
         <section class="image-section">
             <img src="images/303_tab.png" alt="Featured Image" class="featured-image">
@@ -63,7 +67,7 @@
         <!-- Klout Score-style Visitor Counter -->
         <div class="klout-counter" id="kloutCounter">
             <span id="visitorCount">0</span>
-            <div class="klout-score">VISITORS</div>
+            <div class="klout-score">visitors</div>
         </div>
     </main>
 
