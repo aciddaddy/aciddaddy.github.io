@@ -27,7 +27,7 @@
 
     <main>
         <h1></h1>
-        <!-- Image --!>
+        <!-- Image -->
         <img src="images/aciddaddy_cursive_pixel.png" alt="acid daddy" class="about-image">
         <section class="square-container">
             <div class="square-item">░░░░░░【﻿ｄｊ　／／　ｐｒｏｄｕｃｅｒ　／／　ｌｉｖｅ　ｅｌｅｃｔｒｏｎｉｃｓ　／／　ｖｉｎｙｌ　ｒｅｃｏｒｄｓ　／／　ｍｕｌｔｉ－ｍｅｄｉａ　ｍａｋｅｒ　／／　ｍｙｃｏｌｏｇｙ　／／　ｓｕｓｔａｉｎａｂｌｅ　ｕｒｂａｎ　ｆａｒｍｉｎｇ　／／　ｄｉｙ　ｅｖｅｒｙｔｈｉｎｇ】░░░░░░</div>
@@ -38,13 +38,25 @@
             <img src="images/303_tab.png" alt="Featured Image" class="featured-image">
         </section>
         <br>
-        <!-- Other content here -->
-    </main>
+        
+        <!-- Visitor Counter -->
+    <div class="counter" style="text-align: center; margin-top: 20px; font-family: 'Courier New', Courier, monospace;">
+        Visitors: <span id="visitorCount">0</span>
+    </div>
 
+    <script>
+        // Simulate a visitor count
+        let visitorCount = localStorage.getItem('visitorCount') || 0;
+        visitorCount++;
+        localStorage.setItem('visitorCount', visitorCount);
+        document.getElementById('visitorCount').innerText = visitorCount;
+    </script>
+        
     <footer>
         <p>&copy; 2024 acid daddy | identity spectrum records</p>
     </footer>
     <br>
 
+    
 </body>
 </html>
