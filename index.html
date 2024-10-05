@@ -9,31 +9,6 @@
     <!-- Favicon Link -->
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
-    <style>
-        .klout-counter {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 20px; /* Adjusted font size */
-            color: #00ff00; /* Default text color */
-            background-color: #000; /* Background color */
-            padding: 10px;
-            border-radius: 10px;
-            text-align: center;
-            width: 200px; /* Width for aesthetics */
-            height: 100px; /* Increased height for better fit */
-            margin: 10px auto;
-            border: 5px solid #00ff00; /* Border color */
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); /* Glow effect */
-        }
-        #visitorCount {
-            font-size: 32px; /* Increase visitor count font size */
-            line-height: 1.2; /* Adjust line height for spacing */
-        }
-        .klout-score {
-            font-size: 16px; /* Adjusted size for the label */
-            color: #fff; /* Color for the label */
-            margin-top: 5px; /* Reduced margin */
-        }
-    </style>
 </head>
 <body>
     <!-- Header -->
@@ -62,37 +37,12 @@
             <img src="images/303_tab.png" alt="Featured Image" class="featured-image">
         </section>
         <br>
-        <!-- Other content here -->
-
-        <!-- Klout Score-style Visitor Counter -->
-        <div class="klout-counter" id="kloutCounter">
-            <span id="visitorCount">0</span>
-            <div class="klout-score">visitors</div>
-        </div>
+        
     </main>
 
     <footer>
         <p>&copy; 2024 acid daddy | identity spectrum records</p>
     </footer>
     <br>
-
-    <script>
-        // Simulate a visitor count
-        let visitorCount = localStorage.getItem('visitorCount') || 0;
-        visitorCount++;
-        localStorage.setItem('visitorCount', visitorCount);
-        document.getElementById('visitorCount').innerText = visitorCount;
-
-        // Function to change colors
-        function setCounterColors(textColor, bgColor, borderColor) {
-            const counter = document.getElementById('kloutCounter');
-            counter.style.color = textColor;
-            counter.style.backgroundColor = bgColor;
-            counter.style.borderColor = borderColor;
-        }
-
-        // Set your desired colors
-        setCounterColors('#00ff00', '#000000', '#00ff00'); // Green text, black background, green border
-    </script>
 </body>
 </html>
