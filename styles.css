@@ -336,7 +336,7 @@ a:hover {
 }
 
 .modal-content {
-    max-width: 90%; /* Allow the image to take up to 90% of the width */
+    max-width: 70%; /* Allow the image to take up to 90% of the width */
     max-height: 90%; /* Ensure it doesn't exceed 90% height */
     height: auto; /* Maintain aspect ratio */
     width: auto; /* Maintain aspect ratio */
