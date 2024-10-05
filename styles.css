@@ -329,7 +329,6 @@ a:hover {
     height: 100vh; /* Use viewport height */
     overflow: hidden; /* Prevent scrolling */
     background-color: rgba(0, 0, 0, 0.8);
-    display: flex; /* Flexbox for centering */
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
 }
@@ -337,11 +336,7 @@ a:hover {
 .modal-content {
     max-width: 90vw; /* Use viewport width for max size */
     max-height: 90vh; /* Use viewport height for max size */
-    height: auto; /* Maintain aspect ratio */
-    width: auto; /* Maintain aspect ratio */
-    transition: transform 0.3s;
+    object-fit: contain; /* Maintain aspect ratio without clipping */
     border: 1px solid #fff; /* Optional: add a border */
     border-radius: 10px; /* Optional: rounded corners */
-    object-fit: contain; /* Maintain aspect ratio without clipping */
-    display: block; /* Ensure the image behaves like a block element */
 }
