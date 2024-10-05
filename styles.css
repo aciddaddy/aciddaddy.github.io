@@ -319,25 +319,24 @@ a:hover {
     }
 }
 
-/* Modal Styles */
 .modal {
-    display: none;
+    display: none; /* Initially hidden */
     position: fixed;
     z-index: 1000;
     left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw; /* Use viewport width */
+    height: 100vh; /* Use viewport height */
     overflow: hidden; /* Prevent scrolling */
     background-color: rgba(0, 0, 0, 0.8);
-    display: flex; /* Use flexbox for centering */
+    display: flex; /* Flexbox for centering */
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
 }
 
 .modal-content {
-    max-width: 70%; /* Allow the image to take up to 90% of the width */
-    max-height: 90%; /* Ensure it doesn't exceed 90% height */
+    max-width: 90vw; /* Use viewport width for max size */
+    max-height: 90vh; /* Use viewport height for max size */
     height: auto; /* Maintain aspect ratio */
     width: auto; /* Maintain aspect ratio */
     transition: transform 0.3s;
@@ -345,6 +344,4 @@ a:hover {
     border-radius: 10px; /* Optional: rounded corners */
     object-fit: contain; /* Maintain aspect ratio without clipping */
     display: block; /* Ensure the image behaves like a block element */
-    margin: 0 auto; /* Center image horizontally */
 }
-
