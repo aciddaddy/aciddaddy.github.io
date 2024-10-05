@@ -10,18 +10,18 @@
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
     <style>
-        .digital-counter {
+        .speedometer-counter {
             font-family: 'Courier New', Courier, monospace;
-            font-size: 36px;
-            color: #00ff00; /* Default color */
+            font-size: 24px; /* Smaller font size */
+            color: #00ff00; /* Default text color */
             background-color: #000; /* Background color */
-            padding: 10px;
+            padding: 5px;
             border-radius: 5px;
             text-align: center;
-            width: 200px;
+            width: 120px; /* Slim width */
             margin: 20px auto;
-            border: 3px solid #00ff00; /* Border color */
-            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Shadow effect */
+            border: 2px solid #00ff00; /* Border color */
+            box-shadow: 0 0 5px rgba(0, 255, 0, 0.5); /* Shadow effect */
         }
     </style>
 </head>
@@ -54,12 +54,12 @@
         <br>
         <!-- Other content here -->
 
-        <!-- Digital Clock Visitor Counter -->
-        <div class="digital-counter" id="digitalCounter">
+        <!-- Slim Speedometer-style Visitor Counter -->
+        <div class="speedometer-counter" id="speedometerCounter">
             Visitors: <span id="visitorCount">0</span>
         </div>
     </main>
-
+    <br>
     <footer>
         <p>&copy; 2024 acid daddy | identity spectrum records</p>
     </footer>
@@ -74,7 +74,7 @@
 
         // Function to change colors
         function setCounterColors(textColor, bgColor, borderColor) {
-            const counter = document.getElementById('digitalCounter');
+            const counter = document.getElementById('speedometerCounter');
             counter.style.color = textColor;
             counter.style.backgroundColor = bgColor;
             counter.style.borderColor = borderColor;
