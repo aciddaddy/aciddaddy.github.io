@@ -41,13 +41,23 @@
             color: black;
             margin: 5px 0 10px; /* Adjusted margins */
         }
+
         .chat-container, .paint-container {
             margin-top: 20px;
             width: 100%; /* Ensure full width */
             max-width: 550px; /* Same width for consistency */
             margin-left: auto;
             margin-right: auto;
+            display: flex;
+            justify-content: center;
         }
+
+        .chat-container iframe {
+            width: 100%; /* Ensure the iframe takes full width */
+            height: 350px; /* Fixed height for the chat */
+            border: none; /* Remove default border */
+        }
+        
         .control-btn {
             width: 40px; /* Adjusted size for desktop */
             height: 40px; /* Adjusted size for desktop */
