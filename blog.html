@@ -63,29 +63,44 @@
         }
 
         /* Blog Posts Styling */
-.blog-posts {
-    width: 100%; /* Set the width of the blog posts */
-    max-width: 600px; /* Maximum width for larger screens */
-    margin: 0 auto; /* Center the blog posts */
-    border: 1px solid black; /* Border styling */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Shadow effect */
-    padding: 15px; /* Padding inside the blog post */
-    margin-bottom: 30px; /* Increased space between blog posts */
-    background-color: #f0f0f0; /* Background color */
-}
+        .blog-posts {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid black;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            margin-bottom: 30px;
+            background-color: #f0f0f0;
+        }
 
         /* Media Query for Smaller Screens */
         @media (max-width: 600px) {
             .blog-posts {
-                max-width: 90%; /* Reduce max width on small screens */
-                margin: 0 auto; /* Center the blog posts */
-                padding: 10px; /* Optional: Adjust padding for smaller screens */
-                margin-bottom: 30px; /* Increased space between blog posts */
+                max-width: 90%;
+                padding: 10px;
+                margin-bottom: 30px;
+            }
+
+            .gallery-image {
+                max-width: 90%; /* Set image size for smaller screens */
+                height: auto;
             }
         }
 
-        /* Image Styling to Maintain Aspect Ratio */
+        /* Image Styling for Larger Screens */
+        @media (min-width: 601px) {
+            .image-container img {
+                max-width: 100%; /* Full size on larger screens */
+                height: auto;
+            }
+
+            .gallery-image.enlarged {
+                transform: scale(2); /* Double the size for enlarged images */
+            }
+        }
+
         .gallery-image {
             max-width: 100%;
             height: auto;
@@ -95,9 +110,9 @@
             cursor: pointer;
         }
 
-        /* New Courier Class */
-        .courier {
-            font-family: 'Courier New', Courier, monospace;
+        /* Image container */
+        .image-container {
+            text-align: center;
         }
 
         /* Modal Styles */
@@ -120,6 +135,10 @@
             max-height: 90%;
             transition: transform 0.3s;
         }
+
+        .courier {
+            font-family: 'Courier New', Courier, monospace;
+        }
     </style>
 </head>
 <body>
@@ -140,40 +159,29 @@
         <br>
         <h2 class="header1" style="font-weight: normal; font-size: 24px;">◦ ｂｌｏｇ ◦</h2><br>
         <br>
+        <!-- Blog Posts -->
         <section id="blog-post-1" class="blog-posts">
             <h2 class="courier">otherworld</h2>
-            <p class="courier">october 26th, 2024</p><br>the acid family presents: otherworld, featuring <b>jenny arcade</b> <i>(deep field)</i>, <b>frail808</b> <i>(&lt;&lt;rev)</i>, <b>dana + pat bosman</b> <i>(acid family)</i>, and i'll be doing a live set. get your tickets: <a href="https://events.humanitix.com/acid-family-halloween">HERE</a> </p>
+            <p class="courier">october 26th, 2024</p><br>
+            the acid family presents: otherworld, featuring <b>jenny arcade</b> <i>(deep field)</i>, <b>frail808</b> <i>(&lt;&lt;rev)</i>, <b>dana + pat bosman</b> <i>(acid family)</i>, and i'll be doing a live set. get your tickets: <a href="https://events.humanitix.com/acid-family-halloween">HERE</a>
             <img src='https://i.postimg.cc/bvzXknLB/otherworld-inkbleed-v3-01.png' alt='otherworld-inkbleed-v3-01' class="gallery-image" onclick="toggleImageSize(this)"/>
         </section>
 
         <section id="blog-post-2" class="blog-posts">
-    <h2 class="courier">spiritworld</h2>
-    <p class="courier">october 16th, 2024</p><br>
-    <p class="courier">
-        sharing an hour of music on DJ heaven's <i>spiritworld</i> show on lumpen radio from 10:30p - 11:30p CST. 
-        tune in at 105.5FM chicago or <a href="https://lumpenradio.com/">STREAM HERE</a>
-    </p>
-    <div class="image-container">
-        <img src="https://i.postimg.cc/C52TRs9Q/IMG-3248.jpg" alt="spiritworld" class="gallery-image" onclick="toggleImageSize(this)">
-        <img src="https://i.postimg.cc/D003fMpG/IMG-3247.jpg" alt="spiritworld" class="gallery-image" onclick="toggleImageSize(this)">
-    </div>
-</section>
-
-<style>
-    .image-container {
-        text-align: center;
-    }
-    .image-container img {
-        display: inline-block;
-        max-width: 45%; /* Adjust image size */
-        height: auto;
-        margin: 0 5px; /* Adds space between the images */
-    }
-</style>
+            <h2 class="courier">spiritworld</h2>
+            <p class="courier">october 16th, 2024</p><br>
+            sharing an hour of music on DJ heaven's <i>spiritworld</i> show on lumpen radio from 10:30p - 11:30p CST. 
+            tune in at 105.5FM chicago or <a href="https://lumpenradio.com/">STREAM HERE</a>
+            <div class="image-container">
+                <img src="https://i.postimg.cc/C52TRs9Q/IMG-3248.jpg" alt="spiritworld" class="gallery-image" onclick="toggleImageSize(this)">
+                <img src="https://i.postimg.cc/D003fMpG/IMG-3247.jpg" alt="spiritworld" class="gallery-image" onclick="toggleImageSize(this)">
+            </div>
+        </section>
 
         <section id="blog-post-3" class="blog-posts">
             <h2 class="courier">SALTFEST IV: sail the salty seas</h2>
-            <p class="courier">october 11-12th, 2024</p><br>playing on saturday of SALTFEST IV. 2 nights of music, 28 artists. get your tickets: <a href="https://ra.co/events/2004211">HERE</a></p>
+            <p class="courier">october 11-12th, 2024</p><br>
+            playing on saturday of SALTFEST IV. 2 nights of music, 28 artists. get your tickets: <a href="https://ra.co/events/2004211">HERE</a>
             <img src="https://i.postimg.cc/650FwqBV/1641-ECB5-5-BD4-4-F35-A03-B-E783D3-B38-E80.jpg" alt="SALTFEST IV" class="gallery-image" onclick="toggleImageSize(this)">
         </section>
 
