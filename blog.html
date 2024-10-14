@@ -83,17 +83,27 @@
                 margin-bottom: 30px;
             }
 
-            .gallery-image {
-                max-width: 90%; /* Set image size for smaller screens */
-                height: auto;
+            .image-container {
+                display: block; /* Stacks images vertically on smaller screens */
+            }
+
+            .image-container img {
+                max-width: 90%;
+                margin-bottom: 10px; /* Adds spacing between stacked images */
             }
         }
 
         /* Image Styling for Larger Screens */
         @media (min-width: 601px) {
+            .image-container {
+                display: flex;
+                justify-content: center; /* Aligns images side by side */
+            }
+
             .image-container img {
-                max-width: 100%; /* Full size on larger screens */
+                max-width: 45%; /* Each image takes up 45% of the container */
                 height: auto;
+                margin: 0 5px; /* Adds space between images */
             }
 
             .gallery-image.enlarged {
@@ -110,9 +120,8 @@
             cursor: pointer;
         }
 
-        /* Image container */
-        .image-container {
-            text-align: center;
+        .courier {
+            font-family: 'Courier New', Courier, monospace;
         }
 
         /* Modal Styles */
@@ -134,10 +143,6 @@
             max-width: 90%;
             max-height: 90%;
             transition: transform 0.3s;
-        }
-
-        .courier {
-            font-family: 'Courier New', Courier, monospace;
         }
     </style>
 </head>
