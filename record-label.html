@@ -25,7 +25,6 @@
             align-items: center;
             gap: 1rem;
             margin: 10px 0;
-            position: relative;
         }
 
         .bandcamp-image {
@@ -48,16 +47,10 @@
         /* Mobile click-to-enlarge effect */
         @media (max-width: 767px) {
             .bandcamp-image.enlarged {
-                transform: scale(1.8) !important;
+                transform: scale(1.8);
                 z-index: 100;
                 position: relative;
                 box-shadow: 0 0 20px rgba(0,0,0,0.5);
-            }
-            
-            body.no-scroll {
-                overflow: hidden;
-                position: fixed;
-                width: 100%;
             }
         }
 
@@ -146,48 +139,37 @@
     document.addEventListener("DOMContentLoaded", function() {
         const images = document.querySelectorAll('.bandcamp-image');
         const isMobile = window.matchMedia("(max-width: 767px)").matches;
-        let currentEnlarged = null;
         
         if (isMobile) {
+            let currentlyEnlarged = null;
+            
             images.forEach(function(image) {
                 image.addEventListener('click', function(e) {
                     e.stopPropagation();
                     
-                    // If clicking the currently enlarged image, close it
-                    if (this === currentEnlarged) {
+                    // If this image is already enlarged, shrink it back
+                    if (this === currentlyEnlarged) {
                         this.classList.remove('enlarged');
-                        document.body.classList.remove('no-scroll');
-                        currentEnlarged = null;
+                        currentlyEnlarged = null;
                         return;
                     }
                     
-                    // Close any previously enlarged image
-                    if (currentEnlarged) {
-                        currentEnlarged.classList.remove('enlarged');
+                    // Shrink any other enlarged image first
+                    if (currentlyEnlarged) {
+                        currentlyEnlarged.classList.remove('enlarged');
                     }
                     
-                    // Enlarge the clicked image
+                    // Enlarge this image
                     this.classList.add('enlarged');
-                    document.body.classList.add('no-scroll');
-                    currentEnlarged = this;
+                    currentlyEnlarged = this;
                 });
             });
-
+            
             // Close enlarged image when clicking anywhere else
             document.addEventListener('click', function(e) {
-                if (currentEnlarged && !currentEnlarged.contains(e.target)) {
-                    currentEnlarged.classList.remove('enlarged');
-                    document.body.classList.remove('no-scroll');
-                    currentEnlarged = null;
-                }
-            });
-            
-            // Close enlarged image when pressing ESC key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && currentEnlarged) {
-                    currentEnlarged.classList.remove('enlarged');
-                    document.body.classList.remove('no-scroll');
-                    currentEnlarged = null;
+                if (currentlyEnlarged && !currentlyEnlarged.contains(e.target)) {
+                    currentlyEnlarged.classList.remove('enlarged');
+                    currentlyEnlarged = null;
                 }
             });
         }
