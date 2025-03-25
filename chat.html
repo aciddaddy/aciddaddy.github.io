@@ -93,7 +93,6 @@
             font-family: 'Courier New';
             cursor: pointer;
         }
-        /* REST OF YOUR ORIGINAL STYLES */
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://unpkg.com/@christianliebel/paint/dist/elements/index.js" type="module"></script>
@@ -156,7 +155,7 @@
     </footer>
     <br>
 
-    <!-- FIREBASE CHAT SCRIPT -->
+    <!-- UPDATED CHAT SCRIPT WITH TEMPORARY MESSAGES -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
         import { 
@@ -164,13 +163,11 @@
             ref, 
             push, 
             onChildAdded, 
-            limitToLast, 
             serverTimestamp,
-            query,
-            get
+            onDisconnect,
+            remove
         } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-database.js";
 
-        // Your Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyCzuCgN1BkBVPAcwHe_Eo7zq_BIF2LN5ew",
             authDomain: "aciddaddy-netchat.firebaseapp.com",
@@ -181,13 +178,20 @@
             appId: "1:682273044370:web:0ca74d0cbfb154faf4334b"
         };
 
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const database = getDatabase(app);
-
-        // Generate a random user ID for this session
         const userId = 'user_' + Math.random().toString(36).substr(2, 9);
         let username = 'Guest';
+        const messagesRef = ref(database, 'session_messages');
+
+        // Clear all messages when first visitor arrives
+        const clearMessagesOnFirstVisit = async () => {
+            try {
+                await remove(messagesRef);
+            } catch (error) {
+                console.log("No messages to clear or error clearing:", error);
+            }
+        };
 
         // Format timestamp
         function formatTimestamp(timestamp) {
@@ -204,12 +208,17 @@
             
             if (message) {
                 try {
-                    await push(ref(database, 'messages'), {
-                        userId: userId,
-                        username: username,
-                        message: message,
-                        timestamp: serverTimestamp()
-                    });
+                    const newMessageRef = push(messagesRef);
+                    await Promise.all([
+                        newMessageRef.set({
+                            userId: userId,
+                            username: username,
+                            message: message,
+                            timestamp: serverTimestamp()
+                        }),
+                        // Set message to be removed when sender disconnects
+                        onDisconnect(newMessageRef).remove()
+                    ]);
                     messageInput.value = '';
                 } catch (error) {
                     console.error("Error sending message: ", error);
@@ -258,6 +267,12 @@
 
         // Initialize chat
         document.addEventListener('DOMContentLoaded', async () => {
+            // Clear chat UI on load
+            document.getElementById('chat-messages').innerHTML = '';
+            
+            // Clear all messages if this is the first visitor
+            await clearMessagesOnFirstVisit();
+            
             // Set up event listeners
             document.getElementById('chat-send').addEventListener('click', sendMessage);
             document.getElementById('chat-message').addEventListener('keypress', (e) => {
@@ -272,33 +287,17 @@
             document.getElementById('chat-message').focus();
             
             // Show welcome message
-            showSystemMessage('* Connected to chat room. Messages are public and visible to all users.');
+            showSystemMessage('* Welcome to the session chat. Messages will disappear when everyone leaves.');
 
-            // Load previous messages
-            try {
-                const messagesQuery = query(ref(database, 'messages'), limitToLast(20));
-                const snapshot = await get(messagesQuery);
-                
-                snapshot.forEach((childSnapshot) => {
-                    const msg = childSnapshot.val();
-                    if (msg.username && msg.message) {
-                        displayMessage(msg);
-                    }
-                });
-            } catch (error) {
-                console.error("Error loading messages: ", error);
-                showSystemMessage("* Error loading previous messages");
-            }
-
-            // Set up real-time listener for new messages
-            onChildAdded(ref(database, 'messages'), (snapshot) => {
+            // Listen for new messages
+            onChildAdded(messagesRef, (snapshot) => {
                 const msg = snapshot.val();
                 displayMessage(msg);
             });
         });
     </script>
 
-    <!-- SNAKE GAME SCRIPT -->
+    <!-- SNAKE GAME SCRIPT (UNCHANGED) -->
     <script>
         // Snake Game Variables
         const canvas = document.getElementById('gameCanvas');
