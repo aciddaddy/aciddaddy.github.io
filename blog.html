@@ -86,20 +86,27 @@
 
         .gallery-image {
             max-width: 100%;
-            max-height: 400px;
-            width: auto;
             height: auto;
-            object-fit: contain;
             border-radius: 5px;
             transition: transform 0.3s;
             cursor: pointer;
             margin: 0 auto;
+            border: 1px solid black;
+            box-sizing: border-box;
         }
 
         /* For containers with multiple images */
         .image-container img {
-            flex: 1 1 calc(50% - 20px);
-            max-width: calc(50% - 10px);
+            flex: 1 1 auto;
+            max-width: 100%;
+        }
+
+        .image-container img:only-child {
+            max-width: 100%;
+        }
+
+        .image-container img:not(:only-child) {
+            max-width: calc(50% - 5px);
         }
 
         .courier {
@@ -157,13 +164,8 @@
             }
 
             .image-container img {
-                max-width: 100%;
-                max-height: 300px;
+                max-width: 100% !important;
                 flex: 1 1 auto;
-            }
-
-            .gallery-image {
-                max-height: 300px;
             }
         }
 
