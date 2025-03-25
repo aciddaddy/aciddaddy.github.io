@@ -9,41 +9,64 @@
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <style>
         .bandcamp-wrapper {
-            border: 1px solid #333; /* Change to match your desired border color */
-            border-radius: 8px; /* Rounded edges */
-            background-color: #f0f0f0; /* Change to match your desired background color */
-            padding: 15px; /* Add some padding */
-            margin: 20px auto; /* Increased space between sections and center */
-            max-width: 700px; /* Max width for consistency */
-            text-align: center; /* Center text inside the container */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+            border: 1px solid #333;
+            border-radius: 8px;
+            background-color: #f0f0f0;
+            padding: 15px;
+            margin: 20px auto;
+            max-width: 700px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
         .bandcamp-images-wrapper {
-            display: flex; /* Align images side by side */
-            justify-content: center; /* Center images horizontally */
-            align-items: center; /* Center images vertically */
-            gap: 1rem; /* Space between images */
-            margin: 10px 0; /* Space above and below images */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin: 10px 0;
         }
 
         .bandcamp-image {
-            max-width: 100%; /* Allow images to maintain their natural width */
-            height: auto; /* Maintain aspect ratio */
-            display: block; /* Ensure images are block elements for better centering */
-            transition: transform 0.3s ease; /* Smooth transition for scaling */
-            cursor: pointer; /* Show pointer cursor on hover */
+            max-width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+            cursor: pointer;
         }
 
-        .bandcamp-image:hover {
-            transform: scale(1.5); /* Enlarge the image on hover */
-            z-index: 10; /* Bring enlarged image above others */
+        /* Desktop hover effect */
+        @media (min-width: 768px) {
+            .bandcamp-image:hover {
+                transform: scale(1.5);
+                z-index: 10;
+            }
+        }
+
+        /* Mobile fullscreen click effect */
+        @media (max-width: 767px) {
+            .bandcamp-image.fullscreen {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 100vw;
+                height: 100vh;
+                object-fit: contain;
+                background: rgba(0, 0, 0, 0.9);
+                z-index: 1000;
+                margin: auto;
+                padding: 20px;
+                transform: none;
+                cursor: zoom-out;
+            }
         }
 
         .bandcamp-player {
-            width: 100%; /* Match width of the container */
-            max-width: 600px; /* Set a max width if needed */
-            margin: 0 auto; /* Center the player */
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -120,6 +143,32 @@
         <p style="text-align: center;">&copy; 2024 jarvi schneider | identity spectrum records</p>
     </footer>
     <br>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const images = document.querySelectorAll('.bandcamp-image');
+        const isMobile = window.matchMedia("(max-width: 767px)").matches;
+        
+        images.forEach(function(image) {
+            if (isMobile) {
+                image.addEventListener('click', function(e) {
+                    e.stopPropagation(); // Prevent event bubbling
+                    this.classList.toggle('fullscreen');
+                });
+            }
+        });
+
+        // Close fullscreen when clicking outside the image
+        document.addEventListener('click', function() {
+            if (isMobile) {
+                const fullscreenImages = document.querySelectorAll('.bandcamp-image.fullscreen');
+                fullscreenImages.forEach(function(img) {
+                    img.classList.remove('fullscreen');
+                });
+            }
+        });
+    });
+</script>
 
 </body>
 </html>
