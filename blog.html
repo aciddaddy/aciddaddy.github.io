@@ -75,51 +75,31 @@
             background-color: #f0f0f0;
         }
 
-        /* Media Query for Smaller Screens */
-        @media (max-width: 600px) {
-            .blog-posts {
-                max-width: 90%;
-                padding: 10px;
-                margin-bottom: 30px;
-            }
-
-            .image-container {
-                display: block;
-            }
-
-            .image-container img {
-                max-width: 100%;
-                margin-bottom: 10px;
-            }
+        /* Updated Image Styles */
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
         }
 
-        /* Image Styling for Larger Screens */
-        @media (min-width: 601px) {
-            .image-container {
-                display: flex;
-                justify-content: center;
-            }
-
-            .image-container img {
-                max-width: 80%; /* Larger image size for large screens */
-                height: auto;
-                margin: 0 5px;
-            }
-
-            /* Enlarged state for images */
-            .gallery-image.enlarged {
-                transform: scale(2); /* Double the size when clicked */
-            }
-        }
-
-        /* General Image Styling */
         .gallery-image {
             max-width: 100%;
+            max-height: 400px;
+            width: auto;
             height: auto;
-            display: block;
-            margin: 0 auto;
+            object-fit: contain;
+            border-radius: 5px;
             transition: transform 0.3s;
             cursor: pointer;
+            margin: 0 auto;
+        }
+
+        /* For containers with multiple images */
+        .image-container img {
+            flex: 1 1 calc(50% - 20px);
+            max-width: calc(50% - 10px);
         }
 
         .courier {
@@ -140,28 +120,61 @@
         }
 
         .modal-content {
-            margin: auto;
             display: block;
+            margin: 5% auto;
             max-width: 90%;
             max-height: 90%;
-            transition: transform 0.3s;
+            object-fit: contain;
         }
 
         .soundcloud-wrapper, .mixcloud-wrapper {
-            border: 1px solid black; /* 1pt black border */
-            border-radius: 10px; /* Rounded edges */
-            overflow: hidden; /* Ensures content stays within rounded corners */
-            margin: 0 auto 15px; /* Center the wrapper and space below */
-            width: calc(100% - 40px); /* Set width slightly smaller than the page */
-            max-width: 800px; /* Optional max width for larger screens */
-            background-color: #f0f0f0; /* Background color of the player */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow for better visibility */
+            border: 1px solid black;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 auto 15px;
+            width: calc(100% - 40px);
+            max-width: 800px;
+            background-color: #f0f0f0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         iframe {
-            width: 100%; /* Make iframe responsive within the wrapper */
-            border: none; /* Remove border from iframe */
-            border-radius: 10px; /* Match iframe corners with wrapper corners */
+            width: 100%;
+            border: none;
+            border-radius: 10px;
+        }
+
+        /* Media Query for Smaller Screens */
+        @media (max-width: 600px) {
+            .blog-posts {
+                max-width: 90%;
+                padding: 10px;
+                margin-bottom: 30px;
+            }
+
+            .image-container {
+                flex-direction: column;
+            }
+
+            .image-container img {
+                max-width: 100%;
+                max-height: 300px;
+                flex: 1 1 auto;
+            }
+
+            .gallery-image {
+                max-height: 300px;
+            }
+        }
+
+        /* Media Query for Larger Screens */
+        @media (min-width: 601px) {
+            /* Enlarged state for images */
+            .gallery-image.enlarged {
+                transform: scale(1.5);
+                z-index: 100;
+                position: relative;
+            }
         }
     </style>
 </head>
@@ -183,61 +196,49 @@
         <br>
         <h2 class="header1" style="font-weight: normal; font-size: 24px;">◦ ｂｌｏｇ ◦</h2><br>
         <br>
-       <!-- Blog Posts -->
-<section class="blog-posts" data-date="2025-02-01">
-    <h2 class="courier">PARTY</h2>
-    <p class="courier">march 22nd, 2025</p><br>
-    <p>
-        an evening of music with m50, r.ss, and acid daddy  
-    </p>
-    <div class="image-container">
-        <img src="https://i.postimg.cc/7Lr1XjJr/IMG-2398.jpg" alt="PARTY" class="gallery-image" onclick="toggleImageSize(this)">
-    </div>
-</section>
+        
+        <section class="blog-posts" data-date="2025-02-01">
+            <h2 class="courier">PARTY</h2>
+            <p class="courier">march 22nd, 2025</p><br>
+            <p>an evening of music with m50, r.ss, and acid daddy</p>
+            <div class="image-container">
+                <img src="https://i.postimg.cc/7Lr1XjJr/IMG-2398.jpg" alt="PARTY" class="gallery-image" onclick="toggleImageSize(this)">
+            </div>
+        </section>
 
-<section class="blog-posts" data-date="2024-11-18">
-    <h2 class="courier">spiritworld recording</h2>
-    <p class="courier">november 18th, 2024</p><br>
-    recording from DJ heaven's <i>spiritworld</i> show on lumpen radio - 10/16/2024. i'm on from <b>28:24-1:21:46</b>, with DJ heaven opening + closing. 
-    <div id="mixcloud-player" class="mixcloud-wrapper">
-        <iframe 
-            width="100%" 
-            height="120" 
-            src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2Flumpenradio%2Fspiritworld-022-10-16-24-dj-heaven%2F" 
-            frameborder="0" 
-            allow="autoplay; encrypted-media" 
-            allowfullscreen>
-        </iframe>
-    </div>
-    <p>
-    if the player does not work, click <a href="https://www.mixcloud.com/lumpenradio/spiritworld-022-10-16-24-dj-heaven/" target="_blank">HERE</a> to listen on mixcloud.
-</p>
-
-</section>
+        <section class="blog-posts" data-date="2024-11-18">
+            <h2 class="courier">spiritworld recording</h2>
+            <p class="courier">november 18th, 2024</p><br>
+            recording from DJ heaven's <i>spiritworld</i> show on lumpen radio - 10/16/2024. i'm on from <b>28:24-1:21:46</b>, with DJ heaven opening + closing. 
+            <div id="mixcloud-player" class="mixcloud-wrapper">
+                <iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2Flumpenradio%2Fspiritworld-022-10-16-24-dj-heaven%2F" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+            <p>if the player does not work, click <a href="https://www.mixcloud.com/lumpenradio/spiritworld-022-10-16-24-dj-heaven/" target="_blank">HERE</a> to listen on mixcloud.</p>
+        </section>
 
         <section class="blog-posts" data-date="2025-02-01">
-    <h2 class="courier">bubble one : soundbath sessions</h2>
-    <p class="courier">february 1st, 2025</p><br>
-    <p>
-        next up: phonaut! join us on february 8th for an evening of deep listening............. <a href="https://docs.google.com/forms/d/1XXr2g7TyGLTQedSShKlG0RgGsmdhPwMH3ApYNEQjVnY/viewform?pli=1&pli=1&edit_requested=true">RSVP HERE</a> 
-    </p>
-    <div class="image-container">
-        <img src="https://i.postimg.cc/k5NhYBtc/bubble-one-phonaut-02082025.png" alt="phonaut" class="gallery-image" onclick="toggleImageSize(this)">
-    </div>
-</section>
-
+            <h2 class="courier">bubble one : soundbath sessions</h2>
+            <p class="courier">february 1st, 2025</p><br>
+            <p>next up: phonaut! join us on february 8th for an evening of deep listening............. <a href="https://docs.google.com/forms/d/1XXr2g7TyGLTQedSShKlG0RgGsmdhPwMH3ApYNEQjVnY/viewform?pli=1&pli=1&edit_requested=true">RSVP HERE</a></p>
+            <div class="image-container">
+                <img src="https://i.postimg.cc/k5NhYBtc/bubble-one-phonaut-02082025.png" alt="phonaut" class="gallery-image" onclick="toggleImageSize(this)">
+            </div>
+        </section>
         
         <section class="blog-posts" data-date="2024-10-29">
             <h2 class="courier">dhc 2024</h2>
             <p class="courier">october 29th, 2024</p><br>
-            tried out 3 turntables this year at diane's. enjoy the ride! recorded live on july 7th, 2024. <br> <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1945032967&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/mynameisjarvi" title="" target="_blank" style="color: #cccccc; text-decoration: none;"></a> · <a href="https://soundcloud.com/mynameisjarvi/acid-daddy-dianes-hunting-club-2024" title="acid daddy @ diane&#x27;s hunting club 2024" target="_blank" style="color: #cccccc; text-decoration: none;"></a></div>
+            tried out 3 turntables this year at diane's. enjoy the ride! recorded live on july 7th, 2024. <br> 
+            <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1945032967&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe>
         </section>
         
         <section class="blog-posts" data-date="2024-10-26">
             <h2 class="courier">otherworld</h2>
             <p class="courier">october 26th, 2024</p><br>
             the acid family presents: otherworld, featuring <b>jenny arcade</b> <i>(deep field)</i>, <b>frail808</b> <i>(&lt;&lt;rev)</i>, <b>dana + pat bosman</b> <i>(acid family)</i>, and i'll be doing a live set. get your tickets: <a href="https://events.humanitix.com/acid-family-halloween">HERE</a>
-            <img src='https://i.postimg.cc/bvzXknLB/otherworld-inkbleed-v3-01.png' alt='otherworld-inkbleed-v3-01' class="gallery-image" onclick="toggleImageSize(this)"/>
+            <div class="image-container">
+                <img src='https://i.postimg.cc/bvzXknLB/otherworld-inkbleed-v3-01.png' alt='otherworld-inkbleed-v3-01' class="gallery-image" onclick="toggleImageSize(this)"/>
+            </div>
         </section>
 
         <section class="blog-posts" data-date="2024-10-16">
@@ -255,7 +256,9 @@
             <h2 class="courier">SALTFEST IV: sail the salty seas</h2>
             <p class="courier">october 11-12th, 2024</p><br>
             playing on saturday of SALTFEST IV. 2 nights of music, 28 artists. get your tickets: <a href="https://ra.co/events/2004211">HERE</a>
-            <img src="https://i.postimg.cc/650FwqBV/1641-ECB5-5-BD4-4-F35-A03-B-E783D3-B38-E80.jpg" alt="SALTFEST IV" class="gallery-image" onclick="toggleImageSize(this)">
+            <div class="image-container">
+                <img src="https://i.postimg.cc/650FwqBV/1641-ECB5-5-BD4-4-F35-A03-B-E783D3-B38-E80.jpg" alt="SALTFEST IV" class="gallery-image" onclick="toggleImageSize(this)">
+            </div>
         </section>
 
         <section class="blog-posts" data-date="2024-09-01">
@@ -271,8 +274,6 @@
             <span class="close" onclick="closeModal()">&times;</span>
             <img class="modal-content" id="img01">
         </div>
-        
-        <!-- Add more blog posts as needed -->
     </main>
 
     <footer>
@@ -283,29 +284,12 @@
     <script>
         function toggleImageSize(img) {
             const isEnlarged = img.classList.toggle('enlarged');
-            img.style.transform = isEnlarged ? 'scale(2)' : 'scale(1)';
+            img.style.transform = isEnlarged ? 'scale(1.5)' : 'scale(1)';
+            img.style.zIndex = isEnlarged ? '100' : '0';
         }
 
-        function enlargeImage(img) {
-            const modal = document.getElementById("myModal");
-            const modalImg = document.getElementById("img01");
-            modal.style.display = "block";
-            modalImg.src = img.src;
-
-            modalImg.onload = function() {
-                const aspectRatio = modalImg.naturalWidth / modalImg.naturalHeight;
-                if (aspectRatio > 1) {
-                    modalImg.style.width = '90%';
-                    modalImg.style.height = 'auto';
-                } else {
-                    modalImg.style.height = '90%';
-                    modalImg.style.width = 'auto';
-                }
-            };
-
-            modalImg.onclick = function() {
-                modal.style.display = "none";
-            };
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
         }
 
         // Sort blog posts based on the date attribute
