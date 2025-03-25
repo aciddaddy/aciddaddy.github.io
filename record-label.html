@@ -35,8 +35,8 @@
             cursor: pointer; /* Show pointer cursor on hover */
         }
 
-        .bandcamp-image.enlarged {
-            transform: scale(2); /* Enlarge the image */
+        .bandcamp-image:hover {
+            transform: scale(1.5); /* Enlarge the image on hover */
             z-index: 10; /* Bring enlarged image above others */
         }
 
@@ -120,18 +120,6 @@
         <p style="text-align: center;">&copy; 2024 jarvi schneider | identity spectrum records</p>
     </footer>
     <br>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const images = document.querySelectorAll('.bandcamp-image');
-        
-        images.forEach(function(image) {
-            image.addEventListener('click', function() {
-                image.classList.toggle('enlarged'); // Toggle enlargement on click
-            });
-        });
-    });
-</script>
 
 </body>
 </html>
