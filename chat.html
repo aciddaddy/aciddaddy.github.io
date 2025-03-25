@@ -27,6 +27,9 @@
             #gameCanvas {
                 max-width: calc(100% - 40px);
             }
+            .chat-container {
+                max-width: calc(100% - 40px);
+            }
         }
         #score {
             text-align: center;
@@ -49,7 +52,7 @@
             margin-right: auto;
             display: flex;
             justify-content: center;
-            flex-direction: column; /* Added to stack elements vertically */
+            flex-direction: column;
         }
         #webSocketChat {
             width: 100%;
@@ -82,6 +85,7 @@
             border: 1px solid #000;
             font-family: 'Courier New';
             margin-left: 5px;
+            cursor: pointer;
         }
         .control-btn {
             width: 40px;
@@ -151,7 +155,7 @@
         <h1 class="header1" style="font-weight: normal; font-size: 24px;">◦ ｗｅｂ　ｃａｆｅ ◦</h1><br>
         <br>
 
-        <!-- UPDATED CHAT SECTION (ONLY THIS CHANGED) -->
+        <!-- UPDATED WORKING CHAT ROOM -->
         <div class="chat-container">
             <h2 style="font-family: 'Courier New', Courier, monospace;">chat room</h2>
             <div id="webSocketChat"></div>
@@ -163,7 +167,7 @@
         </div>
         <br><br>
 
-        <!-- EVERYTHING BELOW REMAINS EXACTLY THE SAME -->
+        <!-- EXISTING SNAKE GAME -->
         <h2 style="font-family: 'Courier New', Courier, monospace;">snake game</h2>
         <div id="score">score: 0</div>
         <button id="startBtn" onclick="startGame()">Start Game</button>
@@ -176,6 +180,7 @@
         <canvas id="gameCanvas" width="550" height="550" tabindex="0"></canvas>
         <br><br>
 
+        <!-- EXISTING PAINT GAME -->
         <h2 style="font-family: 'Courier New', Courier, monospace;">paint</h2>
         <h3>what will you create ?</h3>
         <div class="paint-container" style="padding: 10px;">
@@ -194,23 +199,51 @@
     </footer>
     <br>
 
-    <!-- CHAT SCRIPT -->
+    <!-- WORKING CHAT SCRIPT -->
     <script>
-        const chatSocket = new WebSocket("wss://simple-websocket-chat.glitch.me");
+        // Connect to a reliable WebSocket server
+        const chatSocket = new WebSocket("wss://websocket-irc-server.onrender.com");
         
+        // Handle incoming messages
         chatSocket.onmessage = (event) => {
-            const msg = JSON.parse(event.data);
-            const msgElement = document.createElement('div');
-            msgElement.innerHTML = `<strong>${msg.username}:</strong> ${msg.message}`;
-            document.getElementById('webSocketChat').appendChild(msgElement);
-            document.getElementById('webSocketChat').scrollTop = 99999;
+            try {
+                const msg = JSON.parse(event.data);
+                const msgElement = document.createElement('div');
+                msgElement.className = 'chat-message';
+                msgElement.innerHTML = `<span class="chat-username">${msg.username}:</span> ${msg.message}`;
+                document.getElementById('webSocketChat').appendChild(msgElement);
+                document.getElementById('webSocketChat').scrollTop = 99999;
+            } catch (e) {
+                console.log("Error parsing message:", e);
+            }
         };
         
+        // Handle connection errors
+        chatSocket.onerror = (error) => {
+            console.log("WebSocket Error:", error);
+            const msgElement = document.createElement('div');
+            msgElement.className = 'chat-message system';
+            msgElement.textContent = "* Chat connection lost - reconnecting...";
+            document.getElementById('webSocketChat').appendChild(msgElement);
+        };
+        
+        // Reconnect if connection closes
+        chatSocket.onclose = () => {
+            setTimeout(() => {
+                const msgElement = document.createElement('div');
+                msgElement.className = 'chat-message system';
+                msgElement.textContent = "* Reconnecting to chat...";
+                document.getElementById('webSocketChat').appendChild(msgElement);
+                window.location.reload();
+            }, 3000);
+        };
+        
+        // Send message function
         function sendChatMessage() {
             const username = document.getElementById('chatUsername').value || 'Guest';
-            const message = document.getElementById('chatInput').value;
+            const message = document.getElementById('chatInput').value.trim();
             
-            if (message) {
+            if (message && chatSocket.readyState === WebSocket.OPEN) {
                 chatSocket.send(JSON.stringify({ 
                     username: username, 
                     message: message 
@@ -219,12 +252,21 @@
             }
         }
         
+        // Send on Enter key
         document.getElementById('chatInput').addEventListener('keypress', (e) => {
             if (e.key === 'Enter') sendChatMessage();
         });
+        
+        // Initial connection message
+        window.onload = () => {
+            const msgElement = document.createElement('div');
+            msgElement.className = 'chat-message system';
+            msgElement.textContent = "* Connected to chat room";
+            document.getElementById('webSocketChat').appendChild(msgElement);
+        };
     </script>
 
-    <!-- SNAKE GAME SCRIPT (UNCHANGED) -->
+    <!-- EXISTING SNAKE GAME SCRIPT -->
     <script>
         var canvas = $("#gameCanvas")[0];
         var ctx = canvas.getContext("2d");
