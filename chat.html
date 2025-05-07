@@ -172,14 +172,14 @@
         } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-database.js";
 
         const firebaseConfig = {
-  apiKey: "AIzaSyCzuCgN1BkBVPAcwHe_Eo7zq_BIF2LN5ew",
-  authDomain: "aciddaddy-netchat.firebaseapp.com",
-  databaseURL: "https://aciddaddy-netchat-default-rtdb.firebaseio.com",
-  projectId: "aciddaddy-netchat",
-  storageBucket: "aciddaddy-netchat.appspot.com",
-  messagingSenderId: "682273044370",
-  appId: "1:682273044370:web:0ca74d0cbfb154faf4334b"
-};
+            apiKey: "AIzaSyCzuCgN1BkBVPAcwHe_Eo7zq_BIF2LN5ew",
+            authDomain: "aciddaddy-netchat.firebaseapp.com",
+            databaseURL: "https://aciddaddy-netchat-default-rtdb.firebaseio.com",
+            projectId: "aciddaddy-netchat",
+            storageBucket: "aciddaddy-netchat.appspot.com",
+            messagingSenderId: "682273044370",
+            appId: "1:682273044370:web:0ca74d0cbfb154faf4334b"
+        };
 
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
@@ -446,45 +446,5 @@
             }
         }
     </script>
-        <!-- Firebase Chat Script -->
-    <script type="module">
-        // <!-- Simple Local Chat (replace Firebase script) -->
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const messagesContainer = document.getElementById('chat-messages');
-        const messageInput = document.getElementById('chat-message');
-        const usernameInput = document.getElementById('chat-username');
-        
-        function addMessage(username, message) {
-            const msgElement = document.createElement('div');
-            msgElement.className = 'chat-message';
-            msgElement.innerHTML = `
-                <span class="chat-username">${username}</span><br>
-                <span>${message}</span>
-            `;
-            messagesContainer.appendChild(msgElement);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        }
-        
-        document.getElementById('chat-send').addEventListener('click', () => {
-            const message = messageInput.value.trim();
-            const username = usernameInput.value.trim() || 'Guest';
-            if (message) {
-                addMessage(username, message);
-                messageInput.value = '';
-            }
-        });
-        
-        messageInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                document.getElementById('chat-send').click();
-            }
-        });
-        
-        addMessage('System', 'Welcome to local chat!');
-    });
-</script>
-    </script>
-</body>
 </body>
 </html>
