@@ -165,7 +165,7 @@
             onChildAdded, 
             serverTimestamp,
             onDisconnect,
-            remove
+            set
         } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-database.js";
 
         const firebaseConfig = {
@@ -184,15 +184,6 @@
         let username = 'Guest';
         const messagesRef = ref(database, 'session_messages');
 
-        // Clear all messages when first visitor arrives
-        const clearMessagesOnFirstVisit = async () => {
-            try {
-                await remove(messagesRef);
-            } catch (error) {
-                console.log("No messages to clear or error clearing:", error);
-            }
-        };
-
         // Format timestamp
         function formatTimestamp(timestamp) {
             if (!timestamp) return '';
@@ -209,20 +200,20 @@
             if (message) {
                 try {
                     const newMessageRef = push(messagesRef);
-                    await Promise.all([
-                        newMessageRef.set({
-                            userId: userId,
-                            username: username,
-                            message: message,
-                            timestamp: serverTimestamp()
-                        }),
-                        // Set message to be removed when sender disconnects
-                        onDisconnect(newMessageRef).remove()
-                    ]);
+                    await set(newMessageRef, {
+                        userId: userId,
+                        username: username,
+                        message: message,
+                        timestamp: serverTimestamp()
+                    });
+                    
+                    // Set up disconnect cleanup
+                    onDisconnect(newMessageRef).remove();
+                    
                     messageInput.value = '';
                 } catch (error) {
                     console.error("Error sending message: ", error);
-                    showSystemMessage("* Error sending message");
+                    showSystemMessage("* Error sending message - please check console");
                 }
             }
             messageInput.focus();
@@ -266,12 +257,8 @@
         }
 
         // Initialize chat
-        document.addEventListener('DOMContentLoaded', async () => {
-            // Clear chat UI on load
+        document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('chat-messages').innerHTML = '';
-            
-            // Clear all messages if this is the first visitor
-            await clearMessagesOnFirstVisit();
             
             // Set up event listeners
             document.getElementById('chat-send').addEventListener('click', sendMessage);
@@ -283,12 +270,9 @@
                 username = this.value.trim() || 'Guest';
             });
 
-            // Focus on message input
             document.getElementById('chat-message').focus();
+            showSystemMessage('* Welcome to the session chat');
             
-            // Show welcome message
-            showSystemMessage('* Welcome to the session chat. Messages will disappear when everyone leaves.');
-
             // Listen for new messages
             onChildAdded(messagesRef, (snapshot) => {
                 const msg = snapshot.val();
