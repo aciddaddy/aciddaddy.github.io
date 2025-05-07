@@ -155,131 +155,73 @@
     </footer>
     <br>
 
-    <!-- UPDATED CHAT SCRIPT WITH TEMPORARY MESSAGES -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
-        import { 
-            getDatabase, 
-            ref, 
-            push, 
-            onChildAdded, 
-            serverTimestamp,
-            onDisconnect,
-            set
-        } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-database.js";
+    <!-- UPDATED CHAT SCRIPT -->
+   <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
+    import { 
+        getDatabase, 
+        ref, 
+        push, 
+        onChildAdded, 
+        serverTimestamp,
+        onDisconnect,
+        set,
+        getAuth,
+        signInAnonymously,
+        onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-database.js";
 
-        const firebaseConfig = {
-            apiKey: "AIzaSyCzuCgN1BkBVPAcwHe_Eo7zq_BIF2LN5ew",
-            authDomain: "aciddaddy-netchat.firebaseapp.com",
-            databaseURL: "https://aciddaddy-netchat-default-rtdb.firebaseio.com",
-            projectId: "aciddaddy-netchat",
-            storageBucket: "aciddaddy-netchat.firebasestorage.app",
-            messagingSenderId: "682273044370",
-            appId: "1:682273044370:web:0ca74d0cbfb154faf4334b"
-        };
+    const firebaseConfig = { /* your existing config */ };
 
-        const app = initializeApp(firebaseConfig);
-        const database = getDatabase(app);
-        const userId = 'user_' + Math.random().toString(36).substr(2, 9);
-        let username = 'Guest';
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth(app);
+    let userId = null;
+    let username = 'Guest';
+
+    // Initialize auth and chat
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            userId = user.uid;
+            initChat();
+        } else {
+            signInAnonymously(auth).catch((error) => {
+                console.error("Anonymous auth failed:", error);
+                showSystemMessage("* Error connecting to chat");
+            });
+        }
+    });
+
+    function initChat() {
         const messagesRef = ref(database, 'session_messages');
 
-        // Format timestamp
-        function formatTimestamp(timestamp) {
-            if (!timestamp) return '';
-            const date = new Date(timestamp);
-            return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-        }
-
-        // Send message function
+        // [Keep all your existing display functions...]
+        
         async function sendMessage() {
             username = document.getElementById('chat-username').value.trim() || 'Guest';
             const messageInput = document.getElementById('chat-message');
             const message = messageInput.value.trim();
             
-            if (message) {
+            if (message && message.length <= 500) {
                 try {
-                    const newMessageRef = push(messagesRef);
-                    await set(newMessageRef, {
+                    await set(push(messagesRef), {
                         userId: userId,
                         username: username,
                         message: message,
                         timestamp: serverTimestamp()
                     });
-                    
-                    // Set up disconnect cleanup
-                    onDisconnect(newMessageRef).remove();
-                    
                     messageInput.value = '';
                 } catch (error) {
-                    console.error("Error sending message: ", error);
-                    showSystemMessage("* Error sending message - please check console");
+                    console.error("Send error:", error);
+                    showSystemMessage("* Message rejected (too long or invalid)");
                 }
             }
             messageInput.focus();
         }
 
-        // Display system message
-        function showSystemMessage(text) {
-            const messagesContainer = document.getElementById('chat-messages');
-            const msgElement = document.createElement('div');
-            msgElement.className = 'chat-message system-message';
-            msgElement.textContent = text;
-            messagesContainer.appendChild(msgElement);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        }
-
-        // Display chat message
-        function displayMessage(msg) {
-            const messagesContainer = document.getElementById('chat-messages');
-            const msgElement = document.createElement('div');
-            msgElement.className = 'chat-message';
-            
-            const isCurrentUser = msg.userId === userId;
-            
-            if (isCurrentUser) {
-                msgElement.style.textAlign = 'right';
-                msgElement.innerHTML = `
-                    <span style="color: #666; font-size: 0.8em;">${formatTimestamp(msg.timestamp)}</span><br>
-                    <span>${msg.message}</span><br>
-                    <span class="chat-username">${msg.username}</span>
-                `;
-            } else {
-                msgElement.innerHTML = `
-                    <span class="chat-username">${msg.username}</span><br>
-                    <span>${msg.message}</span><br>
-                    <span style="color: #666; font-size: 0.8em;">${formatTimestamp(msg.timestamp)}</span>
-                `;
-            }
-            
-            messagesContainer.appendChild(msgElement);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        }
-
-        // Initialize chat
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('chat-messages').innerHTML = '';
-            
-            // Set up event listeners
-            document.getElementById('chat-send').addEventListener('click', sendMessage);
-            document.getElementById('chat-message').addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') sendMessage();
-            });
-            
-            document.getElementById('chat-username').addEventListener('change', function() {
-                username = this.value.trim() || 'Guest';
-            });
-
-            document.getElementById('chat-message').focus();
-            showSystemMessage('* Welcome to the session chat');
-            
-            // Listen for new messages
-            onChildAdded(messagesRef, (snapshot) => {
-                const msg = snapshot.val();
-                displayMessage(msg);
-            });
-        });
-    </script>
+        // [Rest of your existing chat initialization...]
+    }
+</script>
 
     <!-- SNAKE GAME SCRIPT (UNCHANGED) -->
     <script>
