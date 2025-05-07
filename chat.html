@@ -157,101 +157,115 @@
 
     <!-- FIREBASE CHAT SCRIPT (v8) -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 
-    <script>
-        // Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyCzuCgN1BkBVPAcwHe_Eo7zq_BIF2LN5ew",
-            authDomain: "aciddaddy-netchat.firebaseapp.com",
-            databaseURL: "https://aciddaddy-netchat-default-rtdb.firebaseio.com",
-            projectId: "aciddaddy-netchat",
-            storageBucket: "aciddaddy-netchat.appspot.com",
-            messagingSenderId: "682273044370",
-            appId: "1:682273044370:web:0ca74d0cbfb154faf4334b"
-        };
+<script>
+  // Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyCzuCgN1BkBVPAcwHe_Eo7zq_BIF2LN5ew",
+    authDomain: "aciddaddy-netchat.firebaseapp.com",
+    databaseURL: "https://aciddaddy-netchat-default-rtdb.firebaseio.com",
+    projectId: "aciddaddy-netchat",
+    storageBucket: "aciddaddy-netchat.appspot.com",
+    messagingSenderId: "682273044370",
+    appId: "1:682273044370:web:0ca74d0cbfb154faf4334b"
+  };
 
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const database = firebase.database();
-        const auth = firebase.auth();
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const database = firebase.database();
+  const auth = firebase.auth();
 
-        // Display chat message
-        function displayMessage(msg) {
-            const messagesContainer = document.getElementById('chat-messages');
-            const msgElement = document.createElement('div');
-            msgElement.className = 'chat-message';
-            
-            msgElement.innerHTML = `
-                <span class="chat-username">${msg.username}</span><br>
-                <span>${msg.message}</span><br>
-                <small>${new Date(msg.timestamp).toLocaleTimeString()}</small>
-            `;
-            messagesContainer.appendChild(msgElement);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        }
+  // Generate a unique session ID
+  const sessionId = 'session_' + Date.now();
 
-        // Show system message
-        function showSystemMessage(text) {
-            const messagesContainer = document.getElementById('chat-messages');
-            const msgElement = document.createElement('div');
-            msgElement.className = 'system-message';
-            msgElement.textContent = text;
-            messagesContainer.appendChild(msgElement);
-        }
+  // Display chat message
+  function displayMessage(msg) {
+    const messagesContainer = document.getElementById('chat-messages');
+    const msgElement = document.createElement('div');
+    msgElement.className = 'chat-message';
+    
+    msgElement.innerHTML = `
+      <span class="chat-username">${msg.username}</span><br>
+      <span>${msg.message}</span><br>
+      <small>${new Date(msg.timestamp).toLocaleTimeString()}</small>
+    `;
+    messagesContainer.appendChild(msgElement);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  }
 
-        // Send message function
-        function sendMessage() {
-            const messageInput = document.getElementById('chat-message');
-            const message = messageInput.value.trim();
-            const username = document.getElementById('chat-username').value.trim() || 'Guest';
-            
-            if (message && auth.currentUser) {
-                database.ref('session_messages').push({
-                    userId: auth.currentUser.uid,
-                    username: username,
-                    message: message,
-                    timestamp: firebase.database.ServerValue.TIMESTAMP
-                });
-                messageInput.value = '';
-            }
-        }
+  // Show system message
+  function showSystemMessage(text) {
+    const messagesContainer = document.getElementById('chat-messages');
+    const msgElement = document.createElement('div');
+    msgElement.className = 'system-message';
+    msgElement.textContent = text;
+    messagesContainer.appendChild(msgElement);
+  }
 
-        // Initialize chat
-        document.addEventListener('DOMContentLoaded', () => {
-            // Clear chat UI
-            document.getElementById('chat-messages').innerHTML = '';
-            
-            // Set up event listeners
-            document.getElementById('chat-send').addEventListener('click', sendMessage);
-            document.getElementById('chat-message').addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') sendMessage();
-            });
+  // Clear all messages from database
+  function clearChatSession() {
+    database.ref('sessions/' + sessionId).remove()
+      .then(() => console.log("Session cleared"))
+      .catch(error => console.error("Error clearing session:", error));
+  }
 
-            // Auth state listener
-            auth.onAuthStateChanged((user) => {
-                if (user) {
-                    showSystemMessage("Connected to chat!");
-                    
-                    // Listen for new messages
-                    database.ref('session_messages').on('child_added', (snapshot) => {
-                        const msg = snapshot.val();
-                        displayMessage(msg);
-                    });
-                    
-                    // Focus on message input
-                    document.getElementById('chat-message').focus();
-                } else {
-                    // Sign in anonymously
-                    auth.signInAnonymously().catch((error) => {
-                        showSystemMessage("Error connecting to chat");
-                        console.error("Auth error:", error);
-                    });
-                }
-            });
+  // Send message function
+  function sendMessage() {
+    const messageInput = document.getElementById('chat-message');
+    const message = messageInput.value.trim();
+    const username = document.getElementById('chat-username').value.trim() || 'Guest';
+    
+    if (message && auth.currentUser) {
+      database.ref('sessions/' + sessionId).push({
+        userId: auth.currentUser.uid,
+        username: username,
+        message: message,
+        timestamp: firebase.database.ServerValue.TIMESTAMP
+      });
+      messageInput.value = '';
+    }
+  }
+
+  // Initialize chat
+  document.addEventListener('DOMContentLoaded', () => {
+    // Clear local chat UI
+    document.getElementById('chat-messages').innerHTML = '';
+    showSystemMessage("Starting new chat session...");
+    
+    // Set up event listeners
+    document.getElementById('chat-send').addEventListener('click', sendMessage);
+    document.getElementById('chat-message').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') sendMessage();
+    });
+
+    // Auth state listener
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        showSystemMessage("Connected! Messages will disappear when you leave.");
+        
+        // Listen for new messages in this session only
+        database.ref('sessions/' + sessionId).on('child_added', (snapshot) => {
+          const msg = snapshot.val();
+          displayMessage(msg);
         });
-    </script>
+        
+        // Clear session when user leaves
+        window.addEventListener('beforeunload', clearChatSession);
+        
+        // Focus on message input
+        document.getElementById('chat-message').focus();
+      } else {
+        // Sign in anonymously
+        auth.signInAnonymously().catch((error) => {
+          showSystemMessage("Error connecting to chat");
+          console.error("Auth error:", error);
+        });
+      }
+    });
+  });
+</script>
 
     <!-- SNAKE GAME SCRIPT -->
     <script>
