@@ -156,7 +156,8 @@
     <br>
 
     <!-- FIREBASE CHAT SCRIPT (v8) -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <!-- Replace your current Firebase script with this -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 
@@ -177,48 +178,74 @@
   const database = firebase.database();
   const auth = firebase.auth();
 
-  // Generate a unique session ID
-  const sessionId = 'session_' + Date.now();
+  // Shared session ID - all users join same session
+  const sessionId = 'active_session';
+  let userCount = 0;
 
-  // Display chat message
   function displayMessage(msg) {
     const messagesContainer = document.getElementById('chat-messages');
     const msgElement = document.createElement('div');
     msgElement.className = 'chat-message';
     
+    const isCurrentUser = msg.userId === auth.currentUser.uid;
+    const alignClass = isCurrentUser ? 'style="text-align: right;"' : '';
+    
     msgElement.innerHTML = `
-      <span class="chat-username">${msg.username}</span><br>
-      <span>${msg.message}</span><br>
-      <small>${new Date(msg.timestamp).toLocaleTimeString()}</small>
+      <div ${alignClass}>
+        <span class="chat-username">${msg.username}</span><br>
+        <span>${msg.message}</span><br>
+        <small>${new Date(msg.timestamp).toLocaleTimeString()}</small>
+      </div>
     `;
     messagesContainer.appendChild(msgElement);
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
   }
 
-  // Show system message
   function showSystemMessage(text) {
     const messagesContainer = document.getElementById('chat-messages');
     const msgElement = document.createElement('div');
     msgElement.className = 'system-message';
     msgElement.textContent = text;
     messagesContainer.appendChild(msgElement);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
   }
 
-  // Clear all messages from database
-  function clearChatSession() {
-    database.ref('sessions/' + sessionId).remove()
-      .then(() => console.log("Session cleared"))
-      .catch(error => console.error("Error clearing session:", error));
+  function updateUserCount(count) {
+    const statusElement = document.createElement('div');
+    statusElement.className = 'system-message';
+    statusElement.textContent = `${count} user(s) in chat`;
+    document.getElementById('chat-messages').appendChild(statusElement);
   }
 
-  // Send message function
+  // Track active users
+  function trackPresence() {
+    const userRef = database.ref('sessions/' + sessionId + '/users/' + auth.currentUser.uid);
+    
+    // Add user to active list
+    userRef.set(true);
+    
+    // Remove user when they disconnect
+    userRef.onDisconnect().remove();
+    
+    // Count active users
+    database.ref('sessions/' + sessionId + '/users').on('value', (snapshot) => {
+      userCount = snapshot.numChildren();
+      updateUserCount(userCount);
+      
+      // Clear chat if last user left
+      if (userCount === 0) {
+        database.ref('sessions/' + sessionId + '/messages').remove();
+      }
+    });
+  }
+
   function sendMessage() {
     const messageInput = document.getElementById('chat-message');
     const message = messageInput.value.trim();
     const username = document.getElementById('chat-username').value.trim() || 'Guest';
     
     if (message && auth.currentUser) {
-      database.ref('sessions/' + sessionId).push({
+      database.ref('sessions/' + sessionId + '/messages').push({
         userId: auth.currentUser.uid,
         username: username,
         message: message,
@@ -230,34 +257,26 @@
 
   // Initialize chat
   document.addEventListener('DOMContentLoaded', () => {
-    // Clear local chat UI
     document.getElementById('chat-messages').innerHTML = '';
-    showSystemMessage("Starting new chat session...");
+    showSystemMessage("Connecting to chat...");
     
-    // Set up event listeners
     document.getElementById('chat-send').addEventListener('click', sendMessage);
     document.getElementById('chat-message').addEventListener('keypress', (e) => {
       if (e.key === 'Enter') sendMessage();
     });
 
-    // Auth state listener
     auth.onAuthStateChanged((user) => {
       if (user) {
-        showSystemMessage("Connected! Messages will disappear when you leave.");
+        showSystemMessage("Connected to live chat!");
+        trackPresence();
         
-        // Listen for new messages in this session only
-        database.ref('sessions/' + sessionId).on('child_added', (snapshot) => {
-          const msg = snapshot.val();
-          displayMessage(msg);
+        // Listen for new messages
+        database.ref('sessions/' + sessionId + '/messages').on('child_added', (snapshot) => {
+          displayMessage(snapshot.val());
         });
         
-        // Clear session when user leaves
-        window.addEventListener('beforeunload', clearChatSession);
-        
-        // Focus on message input
         document.getElementById('chat-message').focus();
       } else {
-        // Sign in anonymously
         auth.signInAnonymously().catch((error) => {
           showSystemMessage("Error connecting to chat");
           console.error("Auth error:", error);
