@@ -162,10 +162,13 @@
             getDatabase, 
             ref, 
             push, 
+            set,
             onChildAdded, 
             serverTimestamp,
             onDisconnect,
-            remove
+            getAuth,
+            signInAnonymously,
+            onAuthStateChanged
         } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-database.js";
 
         const firebaseConfig = {
@@ -178,20 +181,13 @@
             appId: "1:682273044370:web:0ca74d0cbfb154faf4334b"
         };
 
+        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const database = getDatabase(app);
-        const userId = 'user_' + Math.random().toString(36).substr(2, 9);
+        const auth = getAuth(app);
+        let userId = null;
         let username = 'Guest';
         const messagesRef = ref(database, 'session_messages');
-
-        // Clear all messages when first visitor arrives
-        const clearMessagesOnFirstVisit = async () => {
-            try {
-                await remove(messagesRef);
-            } catch (error) {
-                console.log("No messages to clear or error clearing:", error);
-            }
-        };
 
         // Format timestamp
         function formatTimestamp(timestamp) {
@@ -200,40 +196,33 @@
             return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         }
 
-        // Send message function
+        // Send message function - UPDATED TO WORK WITH SECURITY RULES
         async function sendMessage() {
-  const auth = getAuth();
-  const user = auth.currentUser;
-  
-  if (!user) {
-    console.error("No authenticated user");
-    return;
-  }
+            const user = auth.currentUser;
+            if (!user) {
+                console.error("No authenticated user");
+                showSystemMessage("* Please wait, connecting...");
+                return;
+            }
 
-  const messageInput = document.getElementById('chat-message');
-  const message = messageInput.value.trim();
-
-  if (!message) return;
-
-  try {
-    // Manually create the message object to match rules exactly
-    const messageData = {
-      userId: user.uid,
-      username: document.getElementById('chat-username').value.trim() || 'Guest',
-      message: message,
-      timestamp: {".sv": "timestamp"}  // Firebase server timestamp format
-    };
-
-    const newRef = push(ref(database, 'session_messages'));
-    await set(newRef, messageData);
-    
-    messageInput.value = '';
-  } catch (error) {
-    console.error("Full error details:", error);
-    showSystemMessage(`* Send failed: ${error.message}`);
-  }
-}
-
+            const messageInput = document.getElementById('chat-message');
+            const message = messageInput.value.trim();
+            
+            if (message) {
+                try {
+                    const newMessageRef = push(messagesRef);
+                    await set(newMessageRef, {
+                        userId: user.uid,  // Use the actual auth UID
+                        username: document.getElementById('chat-username').value.trim() || 'Guest',
+                        message: message,
+                        timestamp: serverTimestamp()  // Proper Firebase timestamp
+                    });
+                    messageInput.value = '';
+                } catch (error) {
+                    console.error("Error sending message: ", error);
+                    showSystemMessage("* Error sending message - please try again");
+                }
+            }
             messageInput.focus();
         }
 
@@ -274,13 +263,10 @@
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
 
-        // Initialize chat
-        document.addEventListener('DOMContentLoaded', async () => {
-            // Clear chat UI on load
+        // Initialize chat - UPDATED WITH PROPER AUTH HANDLING
+        document.addEventListener('DOMContentLoaded', () => {
+            // Clear chat UI
             document.getElementById('chat-messages').innerHTML = '';
-            
-            // Clear all messages if this is the first visitor
-            await clearMessagesOnFirstVisit();
             
             // Set up event listeners
             document.getElementById('chat-send').addEventListener('click', sendMessage);
@@ -292,16 +278,30 @@
                 username = this.value.trim() || 'Guest';
             });
 
-            // Focus on message input
-            document.getElementById('chat-message').focus();
-            
-            // Show welcome message
-            showSystemMessage('* Welcome to the session chat. Messages will disappear when everyone leaves.');
-
-            // Listen for new messages
-            onChildAdded(messagesRef, (snapshot) => {
-                const msg = snapshot.val();
-                displayMessage(msg);
+            // Handle authentication state
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    userId = user.uid;
+                    console.log("User authenticated:", userId);
+                    
+                    // Show welcome message only after auth completes
+                    showSystemMessage('* Connected to chat room');
+                    
+                    // Start listening for messages
+                    onChildAdded(messagesRef, (snapshot) => {
+                        const msg = snapshot.val();
+                        displayMessage(msg);
+                    });
+                    
+                    // Focus on message input
+                    document.getElementById('chat-message').focus();
+                } else {
+                    // Sign in anonymously if not authenticated
+                    signInAnonymously(auth).catch((error) => {
+                        console.error("Anonymous auth failed:", error);
+                        showSystemMessage("* Error connecting to chat");
+                    });
+                }
             });
         });
     </script>
