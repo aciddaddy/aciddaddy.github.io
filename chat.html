@@ -202,29 +202,27 @@
 
         // Send message function
         async function sendMessage() {
-            username = document.getElementById('chat-username').value.trim() || 'Guest';
-            const messageInput = document.getElementById('chat-message');
-            const message = messageInput.value.trim();
-            
-            if (message) {
-                try {
-                    const newMessageRef = push(messagesRef);
-                    await Promise.all([
-                        newMessageRef.set({
-                            userId: userId,
-                            username: username,
-                            message: message,
-                            timestamp: serverTimestamp()
-                        }),
-                        // Set message to be removed when sender disconnects
-                        onDisconnect(newMessageRef).remove()
-                    ]);
-                    messageInput.value = '';
-                } catch (error) {
-                    console.error("Error sending message: ", error);
-                    showSystemMessage("* Error sending message");
-                }
-            }
+  const user = getAuth().currentUser; // Get current user
+  if (!user) return; // Exit if not authenticated
+  
+  const messageInput = document.getElementById('chat-message');
+  const message = messageInput.value.trim();
+
+  if (message) {
+    try {
+      await push(ref(database, 'session_messages'), {
+        userId: user.uid, // Must match auth.uid
+        username: username || 'Guest', // Must be string
+        message: message, // Non-empty string
+        timestamp: serverTimestamp() // Firebase server time
+      });
+      messageInput.value = '';
+    } catch (error) {
+      console.error("Send failed:", error);
+      showSystemMessage("* Message rejected - please try again");
+    }
+  }
+}
             messageInput.focus();
         }
 
