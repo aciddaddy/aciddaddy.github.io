@@ -202,27 +202,38 @@
 
         // Send message function
         async function sendMessage() {
-  const user = getAuth().currentUser; // Get current user
-  if (!user) return; // Exit if not authenticated
+  const auth = getAuth();
+  const user = auth.currentUser;
   
+  if (!user) {
+    console.error("No authenticated user");
+    return;
+  }
+
   const messageInput = document.getElementById('chat-message');
   const message = messageInput.value.trim();
 
-  if (message) {
-    try {
-      await push(ref(database, 'session_messages'), {
-        userId: user.uid, // Must match auth.uid
-        username: username || 'Guest', // Must be string
-        message: message, // Non-empty string
-        timestamp: serverTimestamp() // Firebase server time
-      });
-      messageInput.value = '';
-    } catch (error) {
-      console.error("Send failed:", error);
-      showSystemMessage("* Message rejected - please try again");
-    }
+  if (!message) return;
+
+  try {
+    // Manually create the message object to match rules exactly
+    const messageData = {
+      userId: user.uid,
+      username: document.getElementById('chat-username').value.trim() || 'Guest',
+      message: message,
+      timestamp: {".sv": "timestamp"}  // Firebase server timestamp format
+    };
+
+    const newRef = push(ref(database, 'session_messages'));
+    await set(newRef, messageData);
+    
+    messageInput.value = '';
+  } catch (error) {
+    console.error("Full error details:", error);
+    showSystemMessage(`* Send failed: ${error.message}`);
   }
 }
+
             messageInput.focus();
         }
 
