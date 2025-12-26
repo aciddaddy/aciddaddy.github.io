@@ -114,30 +114,33 @@
         <h1 class="header1" style="font-weight: normal; font-size: 24px;">◦ ｗｅｂ　ｃａｆｅ ◦</h1><br>
         <br>
 
-        <!--TWITCH EMBED WITH RESPONSIVE WRAPPER-->
+        <!--TWITCH EMBED WITH MOBILE RESPONSIVENESS --!>
         <div class="twitch-container">
-            <div class="twitch-embed-wrapper">
-                <div id="twitch-embed"></div>
-            </div>
+            <div id="twitch-embed"></div>
         </div>
         <script src="https://embed.twitch.tv/embed/v1.js"></script>
         <script type="text/javascript">
-            // Initialize Twitch embed with responsive settings
-            const embed = new Twitch.Embed("twitch-embed", {
-                width: "100%",
-                height: "100%",
-                channel: "club_bubble1",
-                layout: "video",
-                autoplay: false,
-                // Only needed if this page is going to be embedded on other websites
-                parent: ["embed.example.com", "othersite.example.com"]
-            });
+            // Function to set appropriate dimensions based on screen size
+            function setTwitchDimensions() {
+                const isMobile = window.innerWidth <= 900;
+                return {
+                    width: isMobile ? "100%" : 854,
+                    height: isMobile ? 480 : 480, // Height will be auto on mobile due to CSS
+                    channel: "club_bubble1",
+                    layout: "video",
+                    autoplay: false,
+                    // Only needed if this page is going to be embedded on other websites
+                    parent: ["embed.example.com", "othersite.example.com"]
+                };
+            }
             
-            // Optional: Handle window resize for better responsiveness
+            // Initialize Twitch embed
+            new Twitch.Embed("twitch-embed", setTwitchDimensions());
+            
+            // Update on window resize
             window.addEventListener('resize', function() {
-                // Force Twitch embed to recalculate its size
-                embed.setWidth("100%");
-                embed.setHeight("100%");
+                // Note: Twitch embed doesn't easily resize dynamically
+                // The CSS will handle most responsiveness
             });
         </script>
         <br><br>
