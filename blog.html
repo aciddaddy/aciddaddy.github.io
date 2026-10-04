@@ -7,60 +7,9 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <style>
-        /* Basic Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Body Styling */
-        body {
-            font-family: 'Arial', sans-serif;
-            color: #000;
-            background-color: #fff;
-            line-height: 1.6;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Header Styling */
-        header {
-            background-color: #f0f0f0;
-            padding: 1rem;
-            border-bottom: 1px solid #000;
-            text-align: center;
-        }
-
-        nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .nav-button {
-            display: inline-block;
-            flex: 1 1 auto;
-            min-width: 150px;
-            padding: 0.5rem 1.5rem;
-            background-color: #00ff00;
-            color: #000;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: background-color 0.3s, color 0.3s;
-            border: 1px solid #000;
-            margin: 0.2rem;
-            text-align: center;
-        }
-
-        .nav-button:hover {
-            background-color: #ff0;
-            color: #000;
-        }
+        /* Blog page specific styles only.
+           Global styles (reset, body, header, nav, .nav-button)
+           now come from styles.css so the header matches every page. */
 
         /* Blog Posts Styling */
         .blog-posts {
@@ -159,7 +108,7 @@
             }
 
             .image-container {
-                margin: 15px -5px; /* Negative margin to allow full width */
+                margin: 15px -5px;
             }
 
             .gallery-image {
@@ -167,7 +116,6 @@
                 border-width: 1px;
             }
 
-            /* Make multiple images stack vertically on mobile */
             .image-container img:not(:only-child) {
                 max-width: 100%;
                 margin-bottom: 10px;
@@ -191,7 +139,6 @@
 
         /* Desktop Styles */
         @media (min-width: 601px) {
-            /* Enlarged state for images */
             .gallery-image.enlarged {
                 transform: scale(1.5);
                 z-index: 100;
@@ -201,7 +148,6 @@
     </style>
 </head>
 <body>
-    <!-- Rest of your HTML remains exactly the same -->
     <header>
         <nav>
             <a href="index.html" class="nav-button">about</a>
