@@ -1,62 +1,10 @@
 /* ============================================
-   Contact Page Styles (bubble1.html)
-   Scoped to .contact-page so it doesn't
-   affect any other page on the site.
+   CONTACT PAGE STYLES (bubble1.html only)
+   Requires styles.css to be loaded first
+   for the header, nav, and body.
    ============================================ */
 
-.contact-page {
-    font-family: 'Arial', sans-serif;
-    background-color: #fff;
-    color: #000;
-    text-align: center;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-}
-
-/* Header matches main site */
-.contact-page header {
-    background-color: #f0f0f0;
-    padding: 1rem;
-    border-bottom: 1px solid #000;
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.contact-page nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.contact-page .nav-button {
-    display: inline-block;
-    flex: 1 1 auto;
-    min-width: 150px;
-    padding: 0.5rem 1.5rem;
-    background-color: #00ff00;
-    color: #000;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 16px;
-    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-    border: 1px solid #000;
-    margin: 0.2rem;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.contact-page .nav-button:hover {
-    background-color: #ff0;
-    color: #000;
-}
-
-/* Page Title (only h1 inside <main>, not any heading in header) */
+/* Page Title */
 .contact-page main h1 {
     color: #000;
     padding-top: 10px;
@@ -157,10 +105,5 @@
     .contact-page textarea {
         font-size: 14px;
         padding: 10px 12px;
-    }
-
-    .contact-page .nav-button {
-        min-width: 120px;
-        font-size: 14px;
     }
 }
