@@ -1,3 +1,7 @@
+/* ============================================
+   GLOBAL STYLES (used on every page)
+   ============================================ */
+
 /* Basic Reset */
 * {
     margin: 0;
@@ -8,227 +12,209 @@
 /* Body Styling */
 body {
     font-family: 'Arial', sans-serif;
-    color: #000; /* Black text */
-    background-color: #fff; /* White background */
+    color: #000;
+    background-color: #fff;
     line-height: 1.6;
-    text-align: center; /* Center all text by default */
+    text-align: center;
     margin: 0;
     padding: 0;
 }
 
 /* Header Styling */
 header {
-    background-color: #f0f0f0; /* Light grey */
+    background-color: #f0f0f0;
     padding: 1rem;
-    border-bottom: 1px solid #000; /* 1pt black line */
+    border-bottom: 1px solid #000;
     text-align: center;
 }
 
 nav {
     display: flex;
-    flex-wrap: wrap; /* Allows buttons to wrap to the next line if needed */
-    justify-content: center; /* Center align items horizontally */
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1rem;
     margin-bottom: 1rem;
 }
 
 .nav-button {
     display: inline-block;
-    flex: 1 1 auto; /* Allow buttons to grow and shrink */
-    min-width: 150px; /* Minimum width of buttons */
+    flex: 1 1 auto;
+    min-width: 150px;
     padding: 0.5rem 1.5rem;
-    background-color: #00ff00; /* Neon green */
-    color: #000; /* Black text */
+    background-color: #00ff00;
+    color: #000;
     text-decoration: none;
-    border-radius: 50px; /* Oval buttons */
+    border-radius: 50px;
     font-weight: bold;
-    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; /* Add shadow transition */
-    border: 1px solid #000; /* 1pt black line */
-    margin: 0.2rem; /* Margin for spacing between buttons */
-    text-align: center; /* Center text in buttons */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    border: 1px solid #000;
+    margin: 0.2rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .nav-button:hover {
-    background-color: #ff0; /* Bright yellow */
-    color: #000; /* Black text */
+    background-color: #ff0;
+    color: #000;
 }
 
 /* Make all links bold */
 a {
-    font-weight: bold; /* Set links to bold */
+    font-weight: bold;
 }
 
 /* Change the font for links */
 a {
-    font-family: 'Courier New', Courier, monospace; /* Set to Courier */
-    font-size: 16px; /* Adjust the font size as needed */
-    color: #0000EE; /* Default link color */
-    text-decoration: none; /* Remove underline */
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    color: #0000EE;
+    text-decoration: none;
 }
 
 /* Change the font for links on hover */
 a:hover {
-    color: #00FF00; /* Change color on hover */
-    text-decoration: underline; /* Add underline on hover */
+    color: #00FF00;
+    text-decoration: underline;
 }
 
 /* Specific style for the bandcamp link if you have it */
 .bandcamp-link {
-    font-family: 'Courier New', Courier, monospace; /* Set to Courier */
-    font-size: 18px; /* Adjust size if necessary */
-    color: #1E90FF; /* Custom color for this link */
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    color: #1E90FF;
 }
 
 /* About Me Image */
 .about-image {
-    display: block; /* Make the image a block element */
-    max-width: 400px; /* Maximum width of the image */
-    width: 100%; /* Full width of the container */
-    height: auto; /* Maintain aspect ratio */
-    margin: 20px auto; /* Center the image with some space */
-    border: none; /* No border */
-    border-radius: 0; /* No rounded corners */
+    display: block;
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    margin: 20px auto;
+    border: none;
+    border-radius: 0;
 }
 
 /* Bandcamp Player Styling */
 .bandcamp-wrapper {
     text-align: center;
-    margin: 2rem auto; /* Center the wrapper and add margin */
-    max-width: 600px; /* Max width for the wrapper */
+    margin: 2rem auto;
+    max-width: 600px;
 }
 
 .bandcamp-link {
     display: block;
-    margin-bottom: 0.5rem; /* Space between link and images */
+    margin-bottom: 0.5rem;
     text-decoration: none;
-    color: #0000EE; /* Blue text for the link */
+    color: #0000EE;
 }
 
 /* Bandcamp Player */
 .bandcamp-player {
     width: 100%;
-    max-width: 600px; /* Ensure the player doesn't exceed this width */
-    height: 300px; /* Adjust height to fit all tracks */
-    border: 1px solid #000; /* 1pt black border */
-    border-radius: 10px; /* Rounded corners */
-    margin: 0 auto; /* Center the player */
+    max-width: 600px;
+    height: 300px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin: 0 auto;
 }
 
 /* Bandcamp Images Wrapper */
 .bandcamp-images-wrapper {
-    margin-bottom: 1rem; /* Space between images and player */
+    margin-bottom: 1rem;
 }
 
 /* Bandcamp Image */
 .bandcamp-image {
-    width: 40%; /* Set width to 40% of the container's width */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 200px; /* Maximum width for larger screens */
-    border: 1px solid #000; /* 1pt black border */
-    border-radius: 10pt; /* 1pt rounded corners */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform and shadow */
+    width: 40%;
+    height: auto;
+    max-width: 200px;
+    border: 1px solid #000;
+    border-radius: 10pt;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Ensure enlarged images stay scaled */
 .bandcamp-image.enlarged {
-    transform: scale(2); /* Enlarged state */
-    z-index: 10; /* Bring to front */
+    transform: scale(2);
+    z-index: 10;
 }
 
-/* Hover effect */
 .bandcamp-image:hover {
-    transform: scale(2); /* Slightly enlarge image on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
+    transform: scale(2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Gallery Images Styling */
 .gallery {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Center align images */
+    justify-content: center;
     gap: 1rem;
     margin: 1rem;
 }
 
 .gallery-image {
-    width: 150px; /* Set a fixed width for thumbnails */
-    height: 150px; /* Set a fixed height for thumbnails */
-    object-fit: cover; /* Ensure images cover the thumbnail area */
-    border: 1px solid #000; /* 1px black border */
-    border-radius: 10px; /* Rounded corners */
-    cursor: pointer; /* Show a pointer cursor for clickable images */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform and shadow */
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 1px solid #000;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Ensure enlarged images stay scaled */
 .gallery-image.enlarged {
-    transform: scale(2); /* Enlarged state */
-    z-index: 10; /* Bring to front */
+    transform: scale(2);
+    z-index: 10;
 }
 
-/* Hover effect for gallery images */
 .gallery-image:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Blog Posts Styling */
 .blog-posts {
-    width: 80%; /* Set the width of the blog posts */
-    max-width: 600px; /* Maximum width for larger screens */
-    margin: 0 auto; /* Center the blog posts */
-    border: 1px solid black; /* 1pt black border */
-    border-radius: 10px; /* Rounded edges */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Shadow effect */
-    padding: 15px; /* Padding inside the blog post */
-    margin-bottom: 20px; /* Spacing between blog posts */
-    background-color: #f0f0f0; /* Change this color to match the header */
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
 }
 
 /* Header Colors for h2 */
-.header1 {
-    color: #000000; /* Color for the first h2 */
-}
-
-.header2 {
-    color: #e99708; /* Color for the second h2 */
-}
-
-.header3 {
-    color: #f171a2; /* Color for the third h2 */
-}
-
-.header4 {
-    color: #0687f5; /* Color for the fourth h2 */
-}
-
-.header5 {
-    color: #0bda51; /* Color for the fifth h2 */
-}
+.header1 { color: #000000; }
+.header2 { color: #e99708; }
+.header3 { color: #f171a2; }
+.header4 { color: #0687f5; }
+.header5 { color: #0bda51; }
 
 /* Chat Container */
 .chat-container {
-    width: 100%; /* Full width for responsiveness */
-    max-width: 550px; /* Optional: Limit maximum width */
-    margin: 0 auto; /* Center the chat container */
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
 }
 
 .chat-container iframe {
-    width: 100%; /* Full width for the iframe */
-    height: 350px; /* Set a default height */
-    border: none; /* Remove border if needed */
+    width: 100%;
+    height: 350px;
+    border: none;
 }
 
 /* Centered Images Section */
 .centered-images {
-    text-align: center; /* Center align the text and images */
-    margin: 2rem 0; /* Space above and below the section */
+    text-align: center;
+    margin: 2rem 0;
 }
 
 .image-wrapper {
-    display: flex; /* Use flexbox for layout */
-    justify-content: center; /* Center the images */
-    gap: 0.5rem; /* Adjusted space between the images */
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 #gameCanvas {
@@ -240,33 +226,33 @@ a:hover {
     height: auto;
     max-width: 400px;
     aspect-ratio: 1;
-    touch-action: none; /* Prevent default touch actions */
+    touch-action: none;
 }
 
 /* Featured Image Label Section */
 .large-image {
-    width: 100%; /* Adjust this value to make it larger */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 600px; /* Maximum width */
-    margin: 20px auto; /* Center the image */
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    margin: 20px auto;
 }
 
 .small-image {
-    width: 60%; /* Smaller size for the images below */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 300px; /* Maximum width */
-    margin: 20px auto; /* Center the images */
+    width: 60%;
+    height: auto;
+    max-width: 300px;
+    margin: 20px auto;
 }
 
 /* Responsive adjustments for small screens */
 @media (max-width: 768px) {
     .small-image {
-        max-height: auto; /* Smaller max height on medium screens */
-        max-width: 300px; /* Smaller max width on medium screens */
+        max-height: auto;
+        max-width: 300px;
     }
     .large-image {
-        max-height: auto; /* Smaller max height on medium screens */
-        max-width: 400px; /* Smaller max width on medium screens */
+        max-height: auto;
+        max-width: 400px;
     }
 }
 
@@ -275,82 +261,81 @@ a:hover {
     .blog-posts,
     .bandcamp-wrapper,
     .chat-container {
-        width: 90%; /* Set to 90% width on mobile */
-        max-width: none; /* Remove the max-width restriction */
-        margin: 0 auto; /* Center align the sections */
+        width: 90%;
+        max-width: none;
+        margin: 0 auto;
     }
 
-    /* Adjust other sections as needed */
     .gallery {
-        width: 90%; /* Adjust gallery width */
-        margin: 0 auto; /* Center the gallery */
+        width: 90%;
+        margin: 0 auto;
     }
 
     .about-image,
     .large-image,
     .small-image {
-        max-width: 100%; /* Allow images to take full width */
-        height: auto; /* Maintain aspect ratio */
+        max-width: 100%;
+        height: auto;
     }
 }
 
 /* Responsive adjustments for mobile */
 @media (max-width: 480px) {
     .small-image {
-        max-height: auto; /* Further reduce size on small screens */
-        max-width: 200px; /* Smaller max width on medium screens */
+        max-height: auto;
+        max-width: 200px;
     }
     .large-image {
-        max-height: auto; /* Smaller max height on medium screens */
-        max-width: 300px; /* Smaller max width on medium screens */
+        max-height: auto;
+        max-width: 300px;
     }
 }
 
 /* Responsive Adjustments */
 @media (max-width: 600px) {
     .chat-container iframe {
-        height: 300px; /* Adjust height for smaller screens */
+        height: 300px;
     }
 }
 
 @media (max-width: 400px) {
     .chat-container iframe {
-        height: 250px; /* Further adjust height for very small screens */
+        height: 250px;
     }
 }
 
 .modal {
-    display: none; /* Initially hidden */
+    display: none;
     position: fixed;
     z-index: 1000;
     left: 0;
     top: 0;
-    width: 100vw; /* Use viewport width */
-    height: 100vh; /* Use viewport height */
-    overflow: hidden; /* Prevent scrolling */
-    background-color: rgba(0, 0, 0, 0.8); /* Background color with transparency */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-content {
-    max-width: 90vw; /* Use viewport width for max size */
-    max-height: 90vh; /* Use viewport height for max size */
-    border: 1px solid #fff; /* Optional: add a border */
-    border-radius: 10px; /* Optional: rounded corners */
-    object-fit: contain; /* Maintain aspect ratio without clipping */
+    max-width: 90vw;
+    max-height: 90vh;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    object-fit: contain;
 }
 
 .close {
-    color: white; /* Color for the close button */
-    font-size: 50px; /* Increase size of the close button */
-    position: absolute; /* Positioning to the top right */
-    top: 20px; /* Adjust as needed */
-    right: 30px; /* Adjust as needed */
-    cursor: pointer; /* Pointer cursor for the close button */
-    transition: color 0.3s; /* Optional: add a transition for hover effect */
+    color: white;
+    font-size: 50px;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    cursor: pointer;
+    transition: color 0.3s;
 }
 
 .close:hover {
-    color: #ffcccc; /* Optional: change color on hover for effect */
+    color: #ffcccc;
 }
