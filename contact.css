@@ -1,62 +1,78 @@
-* {
-    background-color: white;
+/* Contact Page - scoped so it only affects elements inside .contact-page */
+
+.contact-page {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    padding: 20px;
 }
 
-h1 {
-    color: white;
+.contact-page h1 {
+    color: #000000;
     padding-top: 10px;
     text-align: center;
     font-size: 60px;
-    font-family: Arial, Helvetica, sans-serif;
-} 
+    font-family: 'Arial', Helvetica, sans-serif;
+    margin-bottom: 30px;
+}
 
-input {
-    background-color:white;
-    width: 70%;
-    margin-left: 12%;
-    font-size: 20px;
-    padding: 16px 16px;
+/* Form container styled like .blog-posts for consistency */
+.contact-page form {
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto 20px auto;
+    border: 1px solid black;
     border-radius: 10px;
-    border-color: black;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 25px 20px;
+    background-color: #f0f0f0;
+}
+
+.contact-page input,
+.contact-page textarea {
+    background-color: #fff;
+    width: 100%;
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid #000;
     margin-bottom: 20px;
+    box-sizing: border-box;
 }
 
-textarea {
-    background-color: white;
-    width: 70%;
-    margin-left: 12%;
-    font-size: 20px;
-    padding: 16px 16px;
-    border-radius: 10px;
-    border-color: black;
-    margin-bottom: 25px;
-    font-family: Arial, Helvetica, sans-serif;
-} 
-
-input:focus-within {
+.contact-page input:focus-within,
+.contact-page textarea:focus-within {
     outline: none;
-    border-color: black;
-    border-width: 3px;
+    border: 3px solid #000;
 }
 
-textarea:focus-within {
-    outline: none;
-    border-color: black;
-    border-width: 3px;
+.contact-page textarea {
+    resize: vertical;
+    min-height: 120px;
 }
 
-button {
+/* Button styled like .nav-button for consistency */
+.contact-page button {
     background-color: #00ff00;
-    border-radius: 20px;
-    border-color: #ffffff;
-    font-size: 22px;
-    padding: 10px 18px;
-    text-align: center;
-    display: flex;
-    margin: auto;
+    color: #000;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 0.5rem 1.5rem;
+    border: 1px solid #000;
+    border-radius: 50px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    min-width: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 
-button:hover {
-    opacity: 80%;
-    cursor: pointer;
+.contact-page button:hover {
+    background-color: #ff0;
+    color: #000;
+    opacity: 1;
 }
