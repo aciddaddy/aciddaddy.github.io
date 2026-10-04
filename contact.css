@@ -1,15 +1,64 @@
-/* Contact Page - scoped so it only affects elements inside .contact-page */
+/* ============================================
+   Contact Page Styles (bubble1.html)
+   Scoped to .contact-page so it doesn't
+   affect any other page on the site.
+   ============================================ */
 
 .contact-page {
     font-family: 'Arial', sans-serif;
     background-color: #fff;
     color: #000;
     text-align: center;
-    padding: 20px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
 }
 
+/* Header matches main site */
+.contact-page header {
+    background-color: #f0f0f0;
+    padding: 1rem;
+    border-bottom: 1px solid #000;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.contact-page nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.contact-page .nav-button {
+    display: inline-block;
+    flex: 1 1 auto;
+    min-width: 150px;
+    padding: 0.5rem 1.5rem;
+    background-color: #00ff00;
+    color: #000;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    border: 1px solid #000;
+    margin: 0.2rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contact-page .nav-button:hover {
+    background-color: #ff0;
+    color: #000;
+}
+
+/* Page Title */
 .contact-page h1 {
-    color: #000000;
+    color: #000;
     padding-top: 10px;
     text-align: center;
     font-size: 60px;
@@ -21,14 +70,16 @@
 .contact-page form {
     width: 80%;
     max-width: 600px;
-    margin: 0 auto 20px auto;
-    border: 1px solid black;
+    margin: 0 auto 40px auto;
+    border: 1px solid #000;
     border-radius: 10px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     padding: 25px 20px;
     background-color: #f0f0f0;
+    text-align: center;
 }
 
+/* Inputs and textarea */
 .contact-page input,
 .contact-page textarea {
     background-color: #fff;
@@ -40,10 +91,17 @@
     border: 1px solid #000;
     margin-bottom: 20px;
     box-sizing: border-box;
+    display: block;
 }
 
-.contact-page input:focus-within,
-.contact-page textarea:focus-within {
+.contact-page input::placeholder,
+.contact-page textarea::placeholder {
+    color: #666;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.contact-page input:focus,
+.contact-page textarea:focus {
     outline: none;
     border: 3px solid #000;
 }
@@ -51,9 +109,10 @@
 .contact-page textarea {
     resize: vertical;
     min-height: 120px;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-/* Button styled like .nav-button for consistency */
+/* Submit button styled like .nav-button */
 .contact-page button {
     background-color: #00ff00;
     color: #000;
@@ -75,4 +134,33 @@
     background-color: #ff0;
     color: #000;
     opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contact-page h1 {
+        font-size: 40px;
+    }
+
+    .contact-page form {
+        width: 90%;
+        padding: 20px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-page h1 {
+        font-size: 32px;
+    }
+
+    .contact-page input,
+    .contact-page textarea {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+
+    .contact-page .nav-button {
+        min-width: 120px;
+        font-size: 14px;
+    }
 }
