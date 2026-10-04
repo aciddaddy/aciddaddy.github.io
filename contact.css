@@ -56,8 +56,8 @@
     color: #000;
 }
 
-/* Page Title */
-.contact-page h1 {
+/* Page Title (only h1 inside <main>, not any heading in header) */
+.contact-page main h1 {
     color: #000;
     padding-top: 10px;
     text-align: center;
@@ -138,7 +138,7 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .contact-page h1 {
+    .contact-page main h1 {
         font-size: 40px;
     }
 
@@ -149,7 +149,7 @@
 }
 
 @media (max-width: 480px) {
-    .contact-page h1 {
+    .contact-page main h1 {
         font-size: 32px;
     }
 
